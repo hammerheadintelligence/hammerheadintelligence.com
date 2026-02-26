@@ -10,18 +10,18 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #181824;
-            --bg-card-hover: #1e1e2e;
-            --border: #2a2a3a;
-            --border-accent: #3a3a5a;
-            --text-primary: #e8e8f0;
-            --text-secondary: #9090a8;
-            --text-muted: #606078;
-            --accent: #00b4d8;
-            --accent-dim: #0090a8;
-            --accent-glow: rgba(0, 180, 216, 0.15);
+            --bg-primary: #0b0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #111827;
+            --bg-card-hover: #1a2035;
+            --border: #1e293b;
+            --border-accent: #2d3a52;
+            --text-primary: #e8edf5;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #3b82f6;
+            --accent-dim: #2563eb;
+            --accent-glow: rgba(59, 130, 246, 0.15);
             --red: #ff4444;
             --green: #44cc66;
             --yellow: #e8c840;
@@ -419,7 +419,7 @@
             <a href="/" class="active">Briefs</a>
             <a href="/archive.html">Archive</a>
             <a href="/about.html">About</a>
-            <a href="https://buttondown.com/HammerheadIntelligence" class="nav-subscribe-btn">Subscribe</a>
+            <a href="SUBSCRIBE_URL" class="nav-subscribe-btn">Subscribe</a>
         </div>
     </div>
 </nav>
@@ -427,10 +427,10 @@
 <section class="hero">
     <h1>Prediction markets meet<br><em>geopolitical intelligence.</em></h1>
     <p class="hero-sub">
-        Daily briefs tracking what billions in prediction market flow say about geopolitics, defense, and economics. Free. Every morning at 6 AM EST.
+        Daily briefs tracking what billions in prediction market flow say about geopolitics, defense, and economics. Free. Every morning at 6:15 AM EST.
     </p>
     <div class="hero-cta">
-        <a href="https://buttondown.com/HammerheadIntelligence" class="btn-primary">Subscribe free</a>
+        <a href="SUBSCRIBE_URL" class="btn-primary">Subscribe free</a>
         <a href="/archive.html" class="btn-ghost">Read the archive</a>
     </div>
 </section>
@@ -445,7 +445,7 @@
         <div class="stat-label">Brief frequency</div>
     </div>
     <div class="stat">
-        <div class="stat-num">6 AM</div>
+        <div class="stat-num">6:15 AM</div>
         <div class="stat-label">Delivery (EST)</div>
     </div>
 </div>
@@ -493,7 +493,7 @@
 <section class="subscribe-section">
     <h2>Get the brief every morning.</h2>
     <p>Free. No spam. Just sharp analysis on what prediction markets are pricing into geopolitics.</p>
-    <form class="subscribe-form" action="https://buttondown.com/HammerheadIntelligence" method="get">
+    <form class="subscribe-form" action="SUBSCRIBE_URL" method="get">
         <input type="email" placeholder="you@email.com" required>
         <button type="submit">Subscribe</button>
     </form>
@@ -521,13 +521,6 @@ const BRIEFS = [
         title: "The Daily Brief — Monday, February 24, 2026",
         excerpt: "Weekend gaps in Iran contracts, Polymarket whale accumulation on March tariff deadline, and the Fed funds futures divergence.",
         slug: "2026-02-24"
-    },
-    {
-        date: "2026-02-23",
-        type: "daily",
-        title: "The Daily Brief — Sunday, February 23, 2026",
-        excerpt: "Launch day. Here's what the prediction markets are telling us about the week ahead.",
-        slug: "2026-02-23"
     },
 ];
 
