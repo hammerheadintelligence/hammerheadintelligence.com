@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMMERHEAD INTELLIGENCE — Hammerhead Intelligence</title>
+    <meta name="description" content="HAMMERHEAD INTELLIGENCE">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://hammerheadintelligence.com/briefs/2026-02-24.html">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #181824;
+            --border: #2a2a3a;
+            --border-accent: #3a3a5a;
+            --text-primary: #e8e8f0;
+            --text-secondary: #9090a8;
+            --text-muted: #606078;
+            --accent: #00b4d8;
+            --accent-dim: #0090a8;
+            --red: #ff4444;
+            --green: #44cc66;
+            --yellow: #e8c840;
+            --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+            --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 720px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 56px;
+        }
+        .nav-logo {
+            font-family: var(--font-mono); font-weight: 600; font-size: 14px;
+            letter-spacing: 0.5px; color: var(--text-primary); text-decoration: none;
+        }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a {
+            font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--text-secondary); text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-subscribe-btn {
+            color: var(--bg-primary) !important; background: var(--accent) !important;
+            padding: 6px 14px !important; border-radius: 3px;
+        }
+        .brief-header {
+            max-width: 720px; margin: 0 auto; padding: 48px 24px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .brief-meta {
+            font-family: var(--font-mono); font-size: 12px;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: 12px;
+        }
+        .brief-header h1 {
+            font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 0;
+        }
+        .brief-body {
+            max-width: 720px; margin: 0 auto; padding: 32px 24px 80px;
+        }
+        .brief-body h1 { font-size: 24px; font-weight: 700; margin: 32px 0 16px; }
+        .brief-body h2 {
+            font-family: var(--font-mono); font-size: 15px; font-weight: 600;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--accent); margin: 36px 0 16px;
+            padding-bottom: 8px; border-bottom: 1px solid var(--border);
+        }
+        .brief-body h3 {
+            font-size: 16px; font-weight: 600; margin: 24px 0 12px;
+        }
+        .brief-body p {
+            font-size: 15.5px; color: var(--text-primary); margin-bottom: 16px;
+            line-height: 1.75;
+        }
+        .brief-body strong { color: var(--text-primary); }
+        .brief-body hr {
+            border: none; border-top: 1px solid var(--border);
+            margin: 32px 0;
+        }
+        .brief-body ul, .brief-body ol {
+            margin: 12px 0 16px 24px; color: var(--text-secondary);
+        }
+        .brief-body li {
+            font-size: 15px; margin-bottom: 8px; line-height: 1.65;
+        }
+        .brief-body em { color: var(--text-secondary); }
+        .subscribe-cta {
+            max-width: 720px; margin: 0 auto; padding: 40px 24px 60px;
+            text-align: center; border-top: 1px solid var(--border);
+        }
+        .subscribe-cta h3 {
+            font-family: var(--font-mono); font-size: 16px; margin-bottom: 8px;
+        }
+        .subscribe-cta p {
+            font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;
+        }
+        .subscribe-cta a {
+            display: inline-block; font-family: var(--font-mono);
+            font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+            text-transform: uppercase; text-decoration: none;
+            padding: 10px 24px; background: var(--accent);
+            color: var(--bg-primary); border-radius: 4px;
+        }
+        footer {
+            border-top: 1px solid var(--border); padding: 24px; text-align: center;
+        }
+        footer p {
+            font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+        }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        @media (max-width: 640px) {
+            .nav-links a:not(.nav-subscribe-btn) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">🦈 <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<header class="brief-header">
+    <div class="brief-meta">Daily Brief · February 24, 2026</div>
+    <h1>HAMMERHEAD INTELLIGENCE</h1>
+</header>
+
+<article class="brief-body">
+<h1>🦈 HAMMERHEAD INTELLIGENCE</h1>
+<h2>The Daily Brief — Tuesday, February 24, 2026</h2>
+
+<p><em>Geopolitical risk intelligence powered by prediction markets.</em></p>
+
+<hr>
+
+<h2>The Lead: When Weekend Means Wartime</h2>
+
+<p>The markets are screaming what diplomats dare only whisper: 
+the US military could be ready for an attack on Iran by the weekend
+. While Tehran's foreign minister insists 
+"a diplomatic solution is at our reach"
+ and calls the massive American buildup 
+"unnecessary and unhelpful,"
+ the money tells a different story. Iran strike markets have absorbed over $16 million in volume across just the February and March contracts — that's not hedging, that's positioning for imminent action.</p>
+
+<p>Trump's adviser told Axios there's a "90% chance we see kinetic action in the next few weeks,"
+ and the prediction markets are pricing accordingly. February 23rd came and went, but 
+Trump believes "10 to 15 days is enough time" for Iran to reach a deal
+. The February 28th contract at 17.5¢ reflects the narrow window Tehran has left. Meanwhile, 
+the White House has been briefed that the US military could be ready for an attack by the weekend
+ after deploying two aircraft carriers and pulling F-35s from NATO exercises in Norway to redirect them to the Middle East.</p>
+
+<p>The Iranian regime isn't just fortifying nuclear sites with concrete and soil — it's betting its Supreme Leader's survival on a bunker strategy. 
+Reports of Khamenei's advanced cognitive impairment and isolation in a hardened Tehran bunker
+ explain why succession markets are suddenly live. When the man who's held absolute power for 37 years starts pricing at 21.5¢ to leave office by April, the smart money knows something the diplomatic cables don't.</p>
+
+<p><strong>The Hammerhead View:</strong> Trump's "maximum pressure 2.0" isn't about sanctions this time — it's about maximum leverage through credible military threat. The markets are pricing a high-stakes poker game where both sides are all-in.</p>
+
+<hr>
+
+<h2>📡 The Radar</h2>
+
+<p><strong>🏛️ Fed Chair Musical Chairs.</strong> 
+Trump's nomination of Kevin Warsh to chair the Federal Reserve
+ is hitting Senate roadblocks. 
+Republican Senator Thom Tillis won't budge until Trump's DOJ drops its extraordinary criminal investigation of current chair Jerome Powell
+. The $2.65M volume on Warsh's confirmation odds reflects Washington's dirty secret: even Trump's own party won't rubber-stamp nominees when institutional credibility is on the line.</p>
+
+<p><strong>⚡ Khamenei's Disappearing Act.</strong> 
+The Iranian Supreme Leader's unprecedented absence from an annual military event has fueled rumors he's either unwell or in deep hiding
+. Markets pricing his departure by March 1st at 3.5¢ aren't just betting on health — they're pricing regime collapse dynamics. 
+Intelligence reports suggest Khamenei has an escape plan to Moscow with $95 billion in assets
+, the same playbook Assad used when Damascus fell.</p>
+
+<p><strong>🌊 Rate Cut Reality Check.</strong> March Fed meeting markets show just 4.5¢ odds of a 25bp cut, even with 
+two FOMC members dissenting at January's meeting, preferring to lower rates
+. 
+JPMorgan sees "low odds" of March action
+ but expects one cut this year. The disconnect between Trump's rate-cut demands and Fed independence is creating the kind of institutional tension that moves markets long before it moves rates.</p>
+
+<p><strong>🎯 Venezuela Template.</strong> The $1.46M volume on whether Richard Grenell leads Venezuela by year-end isn't about diplomatic appointments — it's about Trump's regime-change playbook. After forcing Maduro's exit, the template for Iran becomes clearer. Markets are pricing the possibility that Trump's Middle East envoy Steve Witkoff isn't just negotiating with Tehran; he's managing the transition.</p>
+
+<hr>
+
+<h2>🐋 Whale Watch</h2>
+
+<p>Seven trades worth $1.65 million have hammered the "no" side on US strikes by February 23rd — smart money cleaning up after the deadline passed without incident. But the real action is in accumulation patterns on the February 28th contract, where five wallets have systematically built $90K+ in "yes" positions. This isn't speculative gambling; it's informed positioning by traders who understand that diplomatic deadlines in wartime aren't suggestions.</p>
+
+<p>The most revealing flow: ten separate wallets building both sides of the Fed rate cut trade, with $358,430 on "yes" and $354,214 on "no" for the 50bp scenario. When whales hedge this aggressively on monetary policy, they're not betting on economics — they're positioning for the kind of shock that makes central banks choose between fighting inflation and preventing financial crisis. Iran conflict, regime change, and oil price spikes have a way of reshuffling the Fed's priorities faster than any confirmation hearing.</p>
+
+<hr>
+
+<h2>📊 By the Numbers</h2>
+
+<p><strong>Top Volume Magnets:</strong></p>
+
+<ul>
+<li>US strikes Iran by Feb 23: $5.8 million</li>
+</ul>
+
+<ul>
+<li>Fed rate decisions (all contracts): $5.4 million</li>
+</ul>
+
+<ul>
+<li>Warsh Fed Chair nomination: $2.8 million</li>
+</ul>
+
+<ul>
+<li>Khamenei departure timing: $1.3 million</li>
+</ul>
+
+<hr>
+
+<h2>What We're Watching</h2>
+
+<ol>
+<li><strong>February 28th Iran Strike Deadline</strong> — Trading volume suggests this is the real red line, not the diplomatic theater in Oman.</li>
+<li><strong>Warsh Confirmation Hearing Schedule</strong> — DOJ investigation timeline will determine whether Trump gets his Fed pick before the May transition.</li>
+<li><strong>Khamenei Public Appearances</strong> — Every missed ceremonial event moves succession markets and regime stability calculations.</li>
+<li><strong>March Fed Meeting Positioning</strong> — Two dissenting votes in January signal more division ahead when Warsh takes the chair.</li>
+</ol>
+
+<hr>
+
+<p><em>Hammerhead Intelligence publishes every weekday at 6 AM EST. Weekend deep dives drop Saturday mornings.</em></p>
+</article>
+
+<section class="subscribe-cta">
+    <h3>Get the brief every morning.</h3>
+    <p>Free daily intelligence at 6 AM EST. No spam.</p>
+    <a href="https://buttondown.com/hammerhead">Subscribe free →</a>
+</section>
+
+<footer>
+    <p>© 2026 Hammerhead Intelligence · <a href="/">Home</a></p>
+</footer>
+
+</body>
+</html>

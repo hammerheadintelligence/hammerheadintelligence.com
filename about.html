@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Hammerhead Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-card: #181824; --border: #2a2a3a;
+            --text-primary: #e8e8f0; --text-secondary: #9090a8; --text-muted: #606078;
+            --accent: #00b4d8; --accent-dim: #0090a8;
+            --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+            --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,15,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 24px; }
+        .nav-inner { max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+        .nav-logo { font-family: var(--font-mono); font-weight: 600; font-size: 14px; letter-spacing: 0.5px; color: var(--text-primary); text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-subscribe-btn { color: var(--bg-primary) !important; background: var(--accent) !important; padding: 6px 14px !important; border-radius: 3px; }
+        .content { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; }
+        .content h1 { font-size: 28px; font-weight: 700; margin-bottom: 24px; }
+        .content h2 { font-family: var(--font-mono); font-size: 14px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--accent); margin: 36px 0 12px; }
+        .content p { font-size: 16px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.75; }
+        .content strong { color: var(--text-primary); }
+        .content a { color: var(--accent); text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+        footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; }
+        footer p { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        @media (max-width: 640px) { .nav-links a:not(.nav-subscribe-btn) { display: none; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">🦈 <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html" class="active">About</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<div class="content">
+    <h1>About Hammerhead Intelligence</h1>
+
+    <p>Prediction markets are the fastest information aggregation mechanism in finance. When something geopolitically significant is about to happen, the money often moves before the headlines.</p>
+
+    <p>Hammerhead Intelligence tracks every geopolitical contract on Kalshi and Polymarket — prices, volume, whale trades, term structures — and translates that data into actionable intelligence briefs.</p>
+
+    <h2>What we publish</h2>
+    <p><strong>Daily Briefs</strong> land in your inbox every weekday at 6 AM EST. They cover the biggest movers overnight, notable whale positioning, accumulation patterns, and the geopolitical context that explains why markets are priced the way they are.</p>
+
+    <p><strong>Midday Signals</strong> fire when something significant moves during the trading day — a 3%+ price swing, unusual whale activity, or a cluster of trades that suggests informed positioning.</p>
+
+    <p><strong>Weekend Deep Dives</strong> publish every Saturday morning with long-form analysis on the week's dominant contract complex. Term structure analysis, cross-contract correlations, whale forensics, and a directional Hammerhead view.</p>
+
+    <h2>What we track</h2>
+    <p>We focus exclusively on geopolitics, defense, economics, and international affairs. Iran strike odds, tariff escalation timelines, Fed policy pricing, election markets, sanctions probability, regime change contracts — anything where prediction market flow intersects with the real world.</p>
+
+    <p>We don't cover sports, entertainment, crypto speculation, or weather markets.</p>
+
+    <h2>The Hammerhead view</h2>
+    <p>We're not neutral observers. Every deep dive includes a directional take — where we think the market is right, where it's wrong, and what would change the thesis. We flag our confidence level and our track record honestly.</p>
+
+    <h2>Contact</h2>
+    <p>Questions, tips, or contract requests? <a href="mailto:hello@hammerheadintelligence.com">hello@hammerheadintelligence.com</a></p>
+</div>
+
+<footer>
+    <p>© 2026 Hammerhead Intelligence · <a href="/">Home</a></p>
+</footer>
+
+</body>
+</html>

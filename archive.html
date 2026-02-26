@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive — Hammerhead Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f; --bg-card: #181824; --bg-card-hover: #1e1e2e;
+            --border: #2a2a3a; --border-accent: #3a3a5a;
+            --text-primary: #e8e8f0; --text-secondary: #9090a8; --text-muted: #606078;
+            --accent: #00b4d8; --accent-dim: #0090a8;
+            --red: #ff4444; --yellow: #e8c840;
+            --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+            --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background: var(--bg-primary); color: var(--text-primary); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+        nav { position: sticky; top: 0; z-index: 100; background: rgba(10,10,15,0.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 0 24px; }
+        .nav-inner { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+        .nav-logo { font-family: var(--font-mono); font-weight: 600; font-size: 14px; letter-spacing: 0.5px; color: var(--text-primary); text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-secondary); text-decoration: none; }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a.active { color: var(--accent); }
+        .nav-subscribe-btn { color: var(--bg-primary) !important; background: var(--accent) !important; padding: 6px 14px !important; border-radius: 3px; }
+        .page-header { max-width: 960px; margin: 0 auto; padding: 48px 24px 32px; }
+        .page-header h1 { font-family: var(--font-mono); font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+        .page-header p { font-size: 15px; color: var(--text-secondary); }
+        .filter-bar { max-width: 960px; margin: 0 auto; padding: 0 24px 24px; display: flex; gap: 8px; }
+        .filter-btn { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; padding: 6px 14px; border: 1px solid var(--border); border-radius: 3px; background: transparent; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+        .filter-btn:hover { border-color: var(--text-secondary); }
+        .filter-btn.active { background: var(--accent); color: var(--bg-primary); border-color: var(--accent); }
+        .briefs-grid { max-width: 960px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column; gap: 2px; }
+        .brief-card { display: flex; align-items: flex-start; gap: 20px; padding: 20px 24px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; text-decoration: none; color: inherit; transition: all 0.2s; }
+        .brief-card:hover { background: var(--bg-card-hover); border-color: var(--border-accent); }
+        .brief-date { flex-shrink: 0; width: 64px; text-align: center; padding-top: 2px; }
+        .brief-date-day { font-family: var(--font-mono); font-size: 22px; font-weight: 600; line-height: 1; }
+        .brief-date-month { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text-muted); }
+        .brief-content { flex: 1; min-width: 0; }
+        .brief-type { display: inline-block; font-family: var(--font-mono); font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-bottom: 6px; }
+        .brief-type-daily { background: rgba(0,180,216,0.15); color: var(--accent); }
+        .brief-type-deepdive { background: rgba(232,200,64,0.15); color: var(--yellow); }
+        .brief-type-signal { background: rgba(255,68,68,0.12); color: var(--red); }
+        .brief-title { font-size: 17px; font-weight: 600; line-height: 1.35; margin-bottom: 6px; }
+        .brief-excerpt { font-size: 14px; color: var(--text-secondary); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        footer { border-top: 1px solid var(--border); padding: 24px; text-align: center; margin-top: 60px; }
+        footer p { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        @media (max-width: 640px) { .brief-card { flex-direction: column; gap: 8px; } .brief-date { width: auto; text-align: left; display: flex; gap: 6px; align-items: baseline; } .nav-links a:not(.nav-subscribe-btn) { display: none; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">🦈 <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/archive.html" class="active">Archive</a>
+            <a href="/about.html">About</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>Archive</h1>
+    <p>Every brief we've published, newest first.</p>
+</div>
+
+<div class="filter-bar">
+    <button class="filter-btn active" onclick="filterBriefs('all')">All</button>
+    <button class="filter-btn" onclick="filterBriefs('daily')">Daily Briefs</button>
+    <button class="filter-btn" onclick="filterBriefs('deepdive')">Deep Dives</button>
+    <button class="filter-btn" onclick="filterBriefs('signal')">Signals</button>
+</div>
+
+<div class="briefs-grid" id="briefs-list"></div>
+
+<footer>
+    <p>© 2026 Hammerhead Intelligence · <a href="/">Home</a></p>
+</footer>
+
+<script>
+const BRIEFS = [
+  {
+    "title": "HAMMERHEAD INTELLIGENCE",
+    "date": "2026-02-25",
+    "type": "daily",
+    "excerpt": "Geopolitical risk intelligence powered by prediction markets.",
+    "slug": "2026-02-25"
+  },
+  {
+    "title": "HAMMERHEAD INTELLIGENCE",
+    "date": "2026-02-24",
+    "type": "daily",
+    "excerpt": "Geopolitical risk intelligence powered by prediction markets.",
+    "slug": "2026-02-24"
+  }
+];
+
+function renderBriefs(briefs, container) {
+    container.innerHTML = '';
+    briefs.forEach(b => {
+        const d = new Date(b.date + 'T12:00:00');
+        const day = d.getDate();
+        const month = d.toLocaleDateString('en-US', { month: 'short' });
+        const typeClass = b.type === 'deepdive' ? 'brief-type-deepdive' : b.type === 'signal' ? 'brief-type-signal' : 'brief-type-daily';
+        const typeLabel = b.type === 'deepdive' ? 'Deep Dive' : b.type === 'signal' ? 'Signal Alert' : 'Daily Brief';
+        const folder = b.type === 'deepdive' ? 'deepdives' : 'briefs';
+        const card = document.createElement('a');
+        card.href = '/' + folder + '/' + b.slug + '.html';
+        card.className = 'brief-card';
+        card.dataset.type = b.type;
+        card.innerHTML = `
+            <div class="brief-date">
+                <div class="brief-date-day">${day}</div>
+                <div class="brief-date-month">${month}</div>
+            </div>
+            <div class="brief-content">
+                <span class="brief-type ${typeClass}">${typeLabel}</span>
+                <div class="brief-title">${b.title}</div>
+                <div class="brief-excerpt">${b.excerpt}</div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+let currentFilter = 'all';
+function filterBriefs(type) {
+    currentFilter = type;
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    const filtered = type === 'all' ? BRIEFS : BRIEFS.filter(b => b.type === type);
+    renderBriefs(filtered, document.getElementById('briefs-list'));
+}
+
+renderBriefs(BRIEFS, document.getElementById('briefs-list'));
+</script>
+
+</body>
+</html>
