@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMMERHEAD INTELLIGENCE — Hammerhead Intelligence</title>
+    <meta name="description" content="HAMMERHEAD INTELLIGENCE">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://hammerheadintelligence.com/briefs/2026-02-27.html">
+    <style>
+        :root {
+            --bg-primary: #0b0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #111827;
+            --border: #1e293b;
+            --border-accent: #2d3a52;
+            --text-primary: #e8edf5;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #3b82f6;
+            --accent-dim: #2563eb;
+            --red: #ff4444;
+            --green: #44cc66;
+            --yellow: #e8c840;
+            --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+            --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 720px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 56px;
+        }
+        .nav-logo {
+            font-family: var(--font-mono); font-weight: 600; font-size: 14px;
+            letter-spacing: 0.5px; color: var(--text-primary); text-decoration: none;
+        }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a {
+            font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--text-secondary); text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-subscribe-btn {
+            color: var(--bg-primary) !important; background: var(--accent) !important;
+            padding: 6px 14px !important; border-radius: 3px;
+        }
+        .brief-header {
+            max-width: 720px; margin: 0 auto; padding: 48px 24px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .brief-meta {
+            font-family: var(--font-mono); font-size: 12px;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: 12px;
+        }
+        .brief-header h1 {
+            font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 0;
+        }
+        .brief-body {
+            max-width: 720px; margin: 0 auto; padding: 32px 24px 80px;
+        }
+        .brief-body h1 { font-size: 24px; font-weight: 700; margin: 32px 0 16px; }
+        .brief-body h2 {
+            font-family: var(--font-mono); font-size: 15px; font-weight: 600;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--accent); margin: 36px 0 16px;
+            padding-bottom: 8px; border-bottom: 1px solid var(--border);
+        }
+        .brief-body h3 {
+            font-size: 16px; font-weight: 600; margin: 24px 0 12px;
+        }
+        .brief-body p {
+            font-size: 15.5px; color: var(--text-primary); margin-bottom: 16px;
+            line-height: 1.75;
+        }
+        .brief-body strong { color: var(--text-primary); }
+        .brief-body hr {
+            border: none; border-top: 1px solid var(--border);
+            margin: 32px 0;
+        }
+        .brief-body ul, .brief-body ol {
+            margin: 12px 0 16px 24px; color: var(--text-secondary);
+        }
+        .brief-body li {
+            font-size: 15px; margin-bottom: 8px; line-height: 1.65;
+        }
+        .brief-body em { color: var(--text-secondary); }
+        .subscribe-cta {
+            max-width: 720px; margin: 0 auto; padding: 40px 24px 60px;
+            text-align: center; border-top: 1px solid var(--border);
+        }
+        .subscribe-cta h3 {
+            font-family: var(--font-mono); font-size: 16px; margin-bottom: 8px;
+        }
+        .subscribe-cta p {
+            font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;
+        }
+        .subscribe-cta a {
+            display: inline-block; font-family: var(--font-mono);
+            font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+            text-transform: uppercase; text-decoration: none;
+            padding: 10px 24px; background: var(--accent);
+            color: var(--bg-primary); border-radius: 4px;
+        }
+        footer {
+            border-top: 1px solid var(--border); padding: 24px; text-align: center;
+        }
+        footer p {
+            font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+        }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        @media (max-width: 640px) {
+            .nav-links a:not(.nav-subscribe-btn) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">🦈 <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/about.html">About</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<header class="brief-header">
+    <div class="brief-meta">Daily Brief · February 27, 2026</div>
+    <h1>HAMMERHEAD INTELLIGENCE</h1>
+</header>
+
+<article class="brief-body">
+<h1>🦈 HAMMERHEAD INTELLIGENCE</h1>
+<h2>The Daily Brief — Friday, February 27, 2026</h2>
+
+<p><em>Geopolitical risk intelligence powered by prediction markets.</em></p>
+
+<hr>
+
+<h2>The Lead: The Geneva Gambit</h2>
+
+<p>The markets are painting a stark picture as another round of Iran-U.S. nuclear talks wrapped up in Geneva: 
+the United States and Iran concluded their third round of talks in Geneva yesterday without a major breakthrough like a finalized deal, despite what Iranian Foreign Minister Abbas Araghchi called 
+"the longest, most serious" and "one of our most intense and longest rounds of negotiations" yet. While diplomats parse technical frameworks, prediction markets are betting on a different outcome entirely — 
+the meeting was seen by many in the Trump administration as a last chance for diplomacy before President Trump decides whether to launch a stike.</p>
+
+<p>The stakes couldn't be clearer in the wagering data: nearly $15 million has flowed into the Iran strike markets over 24 hours. The Feb 28 contract — trading at 17.5¢ — represents one of the most liquid single-day conflict-based bet in Polymarket market history. This isn't a market pricing diplomatic success; this is a market pricing the timing of failure.</p>
+
+<p>The talks come as the U.S. carries out an intensive military buildup in the Middle East, its biggest in decades, while the president weighs options for possible attacks. The United States began amassing air and naval assets in the region at a level not seen since the outset of the 2003 invasion of Iraq. 
+On February 24, 2026, it was reported that twelve F-22 fighter jets had been deployed to Ovda Airbase in southern Israel, which had available hardened aircraft shelters. This was the first US deployment of offensive weaponry in Israel. When you're moving F-22s to Israeli hardened shelters, traders are assuming the carrier group isn't there for the sunsets.</p>
+
+<p><strong>The Hammerhead View:</strong> The markets are pricing Trump's "maximum pressure through maximum preparation" strategy as having already moved beyond diplomacy efforts into strike preparation. The Geneva talks bought time, not peace, for now.</p>
+
+<hr>
+
+<h2>The Radar</h2>
+
+<p><strong>Gold Standard Revival.</strong> The Shelton speculation continues to mystify traditional Fed watchers, with her nomination odds holding steady at 3.5¢ despite 
+Trump announcing Kevin Warsh as his pick — yet mystery whales have collectively poured over $125,000 into Shelton "Yes" shares, positioning for a roughly 70x return if Warsh's nomination hits a snag. 
+Unlike Warsh, who represents the banking establishment, Shelton has openly advocated for a return to a gold standard and has questioned the Federal Reserve's monopoly on currency, speaking favorably about "alternative currencies". Seven of the top ten holders are brand new accounts — someone is betting serious money on serious disruption.</p>
+
+<p><strong>Nuclear Deadline Politics.</strong> 
+Last week Trump said he's prepared to decide whether to attack Iran within the next 10 days after deploying a second carrier strike group. "You are going to be finding out over the next, probably, 10 days," Trump mentioned at a meeting of the Board of Peace in Washington on the 19th. As we alluded to yesterday, the clock is ticking and the markets are responding with strike odds climbing from ~6% on the February 27th contract to 22% for the March 1 contract as the deadline looms.</p>
+
+<p><strong>The Cascade Effect.</strong> 
+Iranian officials have said the country has no interest in initiating a war but will respond decisively and proportionately if the U.S. strikes. "All bases, facilities and assets of the hostile force in the region would constitute legitimate targets," Iran's UN ambassador warned. The prediction markets aren't just pricing U.S. action — they're also pricing possible regional escalation and second order impacts. That's why the Feb 28 contract volume dwarfs everything else.</p>
+
+<hr>
+
+<h2>Whale Watch</h2>
+
+<p>The Iran strike markets are seeing coordinated whale activity unlike anything in the platform's history. Multiple wallets have systematically accumulated positions across the Feb 27, Feb 28, and March timeframes, suggesting institutional money betting on imminent action rather than retail speculation. The $8.1 million volume on the expired Feb 26 contract shows how close these positions came to paying out — now that money is rotating into the Feb 28 window.</p>
+
+<p>More intriguing is the Shelton Fed Chair accumulation pattern. 
+On-chain data reveals that of the top ten holders of Judy Shelton shares, 7 are brand new accounts with no prior trading history
+ — suggesting coordinated positioning by sophisticated actors who see a non-trivial chance of Warsh's nomination falling through. These aren't retail dreamers; these are traders who understand that confirmation processes can be derailed by events. Like wars, for instance.</p>
+
+<p>The betting pattern suggests whales are positioning for a scenario where military action against Iran creates political cover for Trump to pivot to a more hawkish Fed nominee who aligns with his "America First" monetary policy goals.</p>
+
+<hr>
+
+<h2>By the Numbers</h2>
+
+<p><strong>PLATFORM TOTALS (24h):</strong>
+<ul>
+<li>Combined Volume: $1.80M</li>
+<li>Kalshi: $255K across 84,732 markets</li>
+<li>Polymarket: $1.54M across 44,865 markets</li>
+</ul>
+
+<p><strong>TOP MOVERS:</strong>
+<ul>
+<li>Iran Feb 28 Strike: $6.21M volume (17.5¢)</li>
+<li>Iran Feb 27 Strike: $2.62M volume (6.1¢)</li>
+<li>Shelton Fed Chair: $808K volume (3.5¢)</li>
+<li>Khamenei Exit: $728K volume (1.5¢)</li>
+</ul>
+
+<hr>
+
+<h2>What We're Watching</h2>
+
+<ol>
+<li><strong>Vienna Technical Talks</strong> —</li>
+</ol>
+Iran's Foreign Minister said technical teams will meet next week in Vienna at IAEA headquarters to work on technical aspects of the potential agreement. Markets will parse whether "technical" means "final details" or diplomatic circumlocution.
+
+<ol>
+<li><strong>F-22 Israeli Deployment</strong> —</li>
+</ol>
+Twelve F-22 fighter jets deployed to Ovda Airbase in southern Israel
+ represents unprecedented U.S. offensive positioning. Watch for additional tactical aircraft movements as indicator of strike timing.
+
+<ol>
+<li><strong>Gulf State Positioning</strong> —</li>
+</ol>
+Qatar, Saudi Arabia, Oman, and Egypt have warned the United States not to attack Iran over fears of retaliation on their territory. Their evacuation advisories will be the real early warning system.
+
+<hr>
+
+<p><em>Hammerhead Intelligence publishes every weekday at 6:15 AM EST. Weekend deep dives.</em></p>
+</article>
+
+<section class="subscribe-cta">
+    <h3>Get the brief every morning.</h3>
+    <p>Free daily intelligence at 6:15 AM EST. No spam.</p>
+    <a href="https://buttondown.com/hammerhead">Subscribe free →</a>
+</section>
+
+<footer>
+    <p>© 2026 Hammerhead Intelligence · <a href="/">Home</a></p>
+</footer>
+
+</body>
+</html>
