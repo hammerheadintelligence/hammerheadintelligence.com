@@ -556,7 +556,7 @@ function renderBriefs(briefs, container) {
                           b.type === 'signal' ? 'Signal Alert' : 'Daily Brief';
 
         const card = document.createElement('a');
-        card.href = `/briefs/${b.slug}.html`;
+        const folder = b.type === 'deepdive' ? 'deepdives' : 'briefs'; card.href = '/' + folder + '/' + b.slug + '.html'; card.className = 'brief-card';
         card.className = 'brief-card';
         card.innerHTML = `
             <div class="brief-date">
