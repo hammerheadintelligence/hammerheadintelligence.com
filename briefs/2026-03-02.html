@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMMERHEAD INTELLIGENCE — Hammerhead Intelligence</title>
+    <meta name="description" content="HAMMERHEAD INTELLIGENCE">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://hammerheadintelligence.com/briefs/2026-03-02.html">
+    <style>
+        :root {
+            --bg-primary: #0b0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #111827;
+            --border: #1e293b;
+            --border-accent: #2d3a52;
+            --text-primary: #e8edf5;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #3b82f6;
+            --accent-dim: #2563eb;
+            --red: #ff4444;
+            --green: #44cc66;
+            --yellow: #e8c840;
+            --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+            --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 720px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 56px;
+        }
+        .nav-logo {
+            font-family: var(--font-mono); font-weight: 600; font-size: 14px;
+            letter-spacing: 0.5px; color: var(--text-primary); text-decoration: none;
+        }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a {
+            font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--text-secondary); text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-subscribe-btn {
+            color: var(--bg-primary) !important; background: var(--accent) !important;
+            padding: 6px 14px !important; border-radius: 3px;
+        }
+        .brief-header {
+            max-width: 720px; margin: 0 auto; padding: 48px 24px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .brief-meta {
+            font-family: var(--font-mono); font-size: 12px;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: 12px;
+        }
+        .brief-header h1 {
+            font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 0;
+        }
+        .brief-body {
+            max-width: 720px; margin: 0 auto; padding: 32px 24px 80px;
+        }
+        .brief-body h1 { font-size: 24px; font-weight: 700; margin: 32px 0 16px; }
+        .brief-body h2 {
+            font-family: var(--font-mono); font-size: 15px; font-weight: 600;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--accent); margin: 36px 0 16px;
+            padding-bottom: 8px; border-bottom: 1px solid var(--border);
+        }
+        .brief-body h3 {
+            font-size: 16px; font-weight: 600; margin: 24px 0 12px;
+        }
+        .brief-body p {
+            font-size: 15.5px; color: var(--text-primary); margin-bottom: 16px;
+            line-height: 1.75;
+        }
+        .brief-body strong { color: var(--text-primary); }
+        .brief-body hr {
+            border: none; border-top: 1px solid var(--border);
+            margin: 32px 0;
+        }
+        .brief-body ul, .brief-body ol {
+            margin: 12px 0 16px 24px; color: var(--text-secondary);
+        }
+        .brief-body li {
+            font-size: 15px; margin-bottom: 8px; line-height: 1.65;
+        }
+        .brief-body em { color: var(--text-secondary); }
+        .subscribe-cta {
+            max-width: 720px; margin: 0 auto; padding: 40px 24px 60px;
+            text-align: center; border-top: 1px solid var(--border);
+        }
+        .subscribe-cta h3 {
+            font-family: var(--font-mono); font-size: 16px; margin-bottom: 8px;
+        }
+        .subscribe-cta p {
+            font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;
+        }
+        .subscribe-cta a {
+            display: inline-block; font-family: var(--font-mono);
+            font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+            text-transform: uppercase; text-decoration: none;
+            padding: 10px 24px; background: var(--accent);
+            color: var(--bg-primary); border-radius: 4px;
+        }
+        footer {
+            border-top: 1px solid var(--border); padding: 24px; text-align: center;
+        }
+        footer p {
+            font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+        }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        @media (max-width: 640px) {
+            .nav-links a:not(.nav-subscribe-btn) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">🦈 <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/elections/">Elections</a>
+            <a href="/about.html">About</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<header class="brief-header">
+    <div class="brief-meta">Daily Brief · March 02, 2026</div>
+    <h1>HAMMERHEAD INTELLIGENCE</h1>
+</header>
+
+<article class="brief-body">
+<h1>🦈 HAMMERHEAD INTELLIGENCE</h1>
+<h2>The Daily Brief — Monday, March 02, 2026</h2>
+
+<p><em>Geopolitical risk intelligence powered by prediction markets.</em></p>
+
+<hr>
+
+<h2>The Lead: The Succession Stakes</h2>
+
+<p>Iran's Supreme Leader Ayatollah Ali Khamenei was killed on February 28 in joint U.S.-Israeli strikes, confirmed the following day by Iranian state media as the country declared 40 days of mourning.
+ The markets saw this coming — but here's where the smart money is reading deeper: 
+the "Alireza Arafi as next Supreme Leader" contract is pricing at just 23.5¢ on heavy volume, even as 
+Arafi has been named to Iran's interim three-person leadership council and is considered a strong succession contender.</p>
+
+<p>The disconnect reveals the market's sophistication. 
+Khamenei had no officially appointed successor, and 
+the Assembly of Experts — 88 senior clerics — must select the next Supreme Leader by simple majority. 
+With U.S.-Israeli strikes ongoing, naming Khamenei's successor will take much longer than the single day it took to replace Khomeini in 1989.
+ The traders betting against Arafi aren't dismissing his credentials — 
+he's deputy chairman of the Assembly of Experts and could literally vet his own succession bid as a Guardian Council member
+ — they're pricing the chaos. 
+Over 40 upper-echelon Iranian officials died in the strikes, and 
+celebration videos circulated from multiple Iranian cities despite security crackdowns, with a monument to Khomeini toppled in southern Iran.</p>
+
+<p>The whale behavior tells the real story. 
+Someone risked $2.5M on "Iranian regime fall by March 31" at 19.8¢ odds
+ — reflecting a declaration of faith in systemic collapse over incremental succession. Meanwhile, 
+the "Strait of Hormuz closure by March 31" contract sits at 41¢ on $1.6M volume, pricing close to a coin flip on Iran's ultimate economic weapon as 
+the regime has hit every Gulf Cooperation Council member in retaliatory strikes, disrupting oil shipments and crippling international travel.</p>
+
+<p><strong>The Hammerhead View:</strong> The markets are pricing a succession crisis, not a succession. Twenty-three cents for Arafi reflects the probability of any orderly transition in a state under active bombardment with its leadership decimated.</p>
+
+<hr>
+
+<h2>The Radar</h2>
+
+<p><strong>Escalation Ladder.</strong> 
+Hezbollah launched missiles "in revenge" for Khamenei's killing, prompting Israeli strikes on Lebanon including Beirut. 
+Three U.S. service members died in Kuwait — the first American casualties of "Operation Epic Fury" — with Trump warning "there will likely be more."
+ 
+Israel dropped over 1,200 munitions across 24 of Iran's 31 provinces while Iran struck nine regional countries. Each rung adds pressure on the interim Tehran leadership to escalate or negotiate.</p>
+
+<p><strong>Energy Choke Points.</strong> 
+Iranian strikes targeted Saudi oil infrastructure, caused fire at Dubai's Jebel Ali Port from intercept debris, and hit Kuwait International Airport. 
+Gas price contracts above $2.998, $3.008, and $3.018 are seeing significant volume on Kalshi. The precision here matters — traders are positioning around specific breakpoints where strategic petroleum reserves might be tapped or demand destruction accelerates.</p>
+
+<p><strong>Fed Chair Musical Chairs.</strong> 
+Trump's potential nomination of Judy Shelton as Fed Chair is still trading at 3.5¢ on massive $767K volume. 
+Trump told ABC that potential Iranian candidates for leadership "are all dead" because "the attack was so successful it knocked out most of the candidates". The juxtaposition isn't coincidence — with geopolitical chaos demanding steady monetary policy, markets are heavily discounting Trump's most unconventional Fed pick, despite some still holding out for senatorial confirmation challenges with Warsh.</p>
+
+<p><strong>Regime Change Math.</strong> 
+Polymarket's "Iranian regime fall by March 31" is drawing heavy two-way flow at 19.8¢ on $2.5M volume. 
+Trump urged Iranians to "take over your government" calling it "probably your only chance for generations," but despite celebration scenes, there's little sign of organized uprising attempts. The market is pricing revolution probability, not regime preference.</p>
+
+<p><strong>Hormuz Gambit.</strong> 
+Iran closing the Strait of Hormuz by March 31 is at 41¢ on $1.6M in volume. 
+Iran hit every GCC member state within 36 hours, disrupting multiple international airports and ports. But the interim leadership faces a calculation: closing Hormuz invites devastating retaliation while Iran's military command structure is already degraded.</p>
+
+<hr>
+
+<h2>Whale Watch</h2>
+
+<p>The Arafi succession bet deserves deeper scrutiny. 
+Someone moved $564K on "Alireza Arafi as next Supreme Leader" at 23.5¢
+ — likely recognizing his unique role. 
+Arafi was officially appointed to the interim leadership council and has the institutional positioning to influence his own succession. 
+As both a Guardian Council member who vets candidates and deputy chairman of the Assembly of Experts who selects the Supreme Leader, Arafi could literally approve his own candidacy. The whale sees structural advantage priced as mere possibility.</p>
+
+<p>Meanwhile, the regime collapse trade tells a different story entirely. 
+The "Iranian regime fall by March 31" whale risked $2.5M at 19.8¢ odds
+ — that's a $12.6M payout if correct. This isn't betting on orderly transition or even succession crisis. This is someone with serious intelligence betting on complete systemic breakdown within four weeks. 
+The celebratory street videos despite security crackdowns and internet blackouts suggest the whale may have read popular sentiment better than the surviving leadership.</p>
+
+<p>The energy plays show more nuanced thinking. 
+Multiple gas price contracts above specific thresholds are seeing coordinated volume, suggesting algorithmic or institutional positioning around predetermined policy triggers. When crude supplies face this level of disruption, these aren't bets — they're hedges against inventory reality.</p>
+
+<hr>
+
+<h2>By the Numbers</h2>
+
+<p><strong>PLATFORM TOTALS (24h)</strong>
+<ul>
+<li>Combined Volume: $1,923,127</li>
+<li>Kalshi: $303,392 across 163,174 markets</li>
+<li>Polymarket: $1,619,735 across 44,698 markets</li>
+</ul>
+
+<p><strong>TOP IRAN FLOWS</strong>
+<ul>
+<li>Khamenei out by Feb 28: $19.8M at 99.85¢</li>
+<li>Arafi as Supreme Leader: $564K at 23.5¢</li>
+<li>Regime fall by Mar 31: $2.5M at 19.8¢</li>
+<li>Hormuz closure: $1.6M at 41¢</li>
+<li>US-Iran ceasefire by Mar 2: $1.6M at 0.55¢</li>
+</ul>
+
+<p><strong>SECONDARY SIGNALS</strong>
+<ul>
+<li>Fed rate increase 25bps+: $1.7M at 0.35¢</li>
+<li>Trump-Shelton Fed nomination: $767K at 3.5¢</li>
+<li>Gas prices >$3.008: $391K at 3¢</li>
+</ul>
+
+<hr>
+
+<h2>What We're Watching</h2>
+
+<ol>
+<li><strong>Assembly of Experts Convening</strong> —</li>
+</ol>
+The 88-member clerical body must meet to formally select Khamenei's successor, but timing unclear while strikes continue.
+
+<ol>
+<li><strong>IRGC Consolidation</strong> —</li>
+</ol>
+With the Revolutionary Guard Corps commander killed and deputy Ahmad Vahidi likely successor, watch for military asserting control over civilian succession process.
+
+<ol>
+<li><strong>Trump-Iran Talks Timeline</strong> —</li>
+</ol>
+Trump agreed to talk with new Iranian leadership but gave no timeframe, saying previous contacts "are gone" after the strikes.
+
+<ol>
+<li><strong>Energy Infrastructure Strikes</strong> —</li>
+</ol>
+Saudi Arabia confirms attacks on Eastern Province oil facilities and Riyadh
+ — any follow-up targeting could trigger strategic reserve releases.
+
+<hr>
+
+<p><em>Hammerhead Intelligence publishes every weekday at 6:15 AM EST. Weekend deep dives.</em></p>
+</article>
+
+<section class="subscribe-cta">
+    <h3>Get the brief every morning.</h3>
+    <p>Free daily intelligence at 6:15 AM EST. No spam.</p>
+    <a href="https://buttondown.com/hammerhead">Subscribe free →</a>
+</section>
+
+<footer>
+    <p>© 2026 Hammerhead Intelligence · <a href="/">Home</a></p>
+</footer>
+
+</body>
+</html>
