@@ -151,6 +151,32 @@ footer a { color:var(--text-secondary); text-decoration:none; }
 .candidate-ie-against { color:var(--red); }
 
 .methodology { max-width:1100px; margin:0 auto; padding:0 24px 60px; }
+
+/* ── IE Alert Banners ── */
+.ie-alerts-section { max-width:1100px; margin:0 auto; padding:0 24px 24px; }
+.ie-alert-banner {
+    background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.25);
+    border-radius:8px; padding:14px 20px; margin-bottom:8px;
+    display:flex; align-items:center; gap:12px;
+}
+.ie-alert-banner.ie-support {
+    background:rgba(34,197,94,0.06); border-color:rgba(34,197,94,0.25);
+}
+.ie-alert-icon { font-size:16px; flex-shrink:0; }
+.ie-alert-body { flex:1; }
+.ie-alert-headline {
+    font-size:13px; font-weight:500; color:var(--text-primary); line-height:1.4;
+}
+.ie-alert-headline strong { color:var(--red); }
+.ie-alert-banner.ie-support .ie-alert-headline strong { color:var(--green); }
+.ie-alert-meta {
+    font-family:var(--font-mono); font-size:11px; color:var(--text-muted); margin-top:2px;
+}
+.ie-alert-race-tag {
+    font-family:var(--font-mono); font-size:10px; font-weight:600;
+    background:rgba(59,130,246,0.12); color:var(--accent);
+    padding:2px 8px; border-radius:3px; white-space:nowrap; flex-shrink:0;
+}
 .methodology-inner { background:var(--bg-card); border:1px solid var(--border);
                      border-radius:8px; padding:24px; }
 .methodology-inner h3 { font-family:var(--font-mono); font-size:12px; font-weight:600;
@@ -221,6 +247,56 @@ footer a { color:var(--text-secondary); text-decoration:none; }
         <div class="indicator-value" style="font-size:13px;line-height:1.6;"><span class="rating-pill rating-lean-d">C: Lean D</span> <span class="rating-pill rating-lean-d">S: Lean D</span> <span class="rating-pill rating-likely-d">S: Likely D</span> </div>
         <div class="indicator-sub">Cook / Sabato / Split Ticket</div>
     </div>
+</div>
+
+
+<div class="section-header">
+    <h3>&#x1F6A8; IE Alerts — Last 48 Hours</h3>
+    <span class="section-note">25 active</span>
+</div>
+<div class="ie-alerts-section">
+
+        <div class="ie-alert-banner ">
+            <span class="ie-alert-icon">&#x1F534;</span>
+            <div class="ie-alert-body">
+                <div class="ie-alert-headline">FAIRSHAKE spent <strong>$4.8M</strong> opposing Stratton</div>
+                <div class="ie-alert-meta">Filed 4 days ago</div>
+            </div>
+            <span class="ie-alert-race-tag">IL-SEN</span>
+        </div>
+        <div class="ie-alert-banner ie-support">
+            <span class="ie-alert-icon">&#x1F7E2;</span>
+            <div class="ie-alert-body">
+                <div class="ie-alert-headline">LONE STAR RISING PAC spent <strong>$1.0M</strong> supporting Talarico</div>
+                <div class="ie-alert-meta">Filed 6 days ago</div>
+            </div>
+            <span class="ie-alert-race-tag">TX-SEN</span>
+        </div>
+        <div class="ie-alert-banner ie-support">
+            <span class="ie-alert-icon">&#x1F7E2;</span>
+            <div class="ie-alert-body">
+                <div class="ie-alert-headline">LONE STAR RISING PAC spent <strong>$1.0M</strong> supporting Talarico</div>
+                <div class="ie-alert-meta">Filed 5 days ago</div>
+            </div>
+            <span class="ie-alert-race-tag">TX-SEN</span>
+        </div>
+        <div class="ie-alert-banner ">
+            <span class="ie-alert-icon">&#x1F534;</span>
+            <div class="ie-alert-body">
+                <div class="ie-alert-headline">LONE STAR RISING PAC spent <strong>$782K</strong> opposing Crockett</div>
+                <div class="ie-alert-meta">Filed 6 days ago</div>
+            </div>
+            <span class="ie-alert-race-tag">TX-SEN</span>
+        </div>
+        <div class="ie-alert-banner ">
+            <span class="ie-alert-icon">&#x1F534;</span>
+            <div class="ie-alert-body">
+                <div class="ie-alert-headline">FIGHTING FOR TEXAS spent <strong>$450K</strong> opposing Cornyn</div>
+                <div class="ie-alert-meta">Filed 4 days ago</div>
+            </div>
+            <span class="ie-alert-race-tag">TX-SEN</span>
+        </div>
+<div style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted);padding:4px 0 0 32px;">+ 20 more alerts</div>
 </div>
 
 <div class="section-header">
