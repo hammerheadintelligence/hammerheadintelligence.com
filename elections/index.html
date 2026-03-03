@@ -110,8 +110,14 @@ footer a { color:var(--text-secondary); text-decoration:none; }
 .race-block:hover { border-color:var(--border-accent); }
 .race-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
 .race-title { font-size:16px; font-weight:600; }
-.race-title-link { color:var(--text-primary); text-decoration:none; transition:color 0.15s; }
-.race-title-link:hover { color:var(--accent); text-decoration:none; }
+.race-header-link {
+    display:block; text-decoration:none; color:inherit;
+    padding:4px 0; margin:-4px 0; border-radius:6px;
+    transition:background 0.15s;
+}
+.race-header-link:hover { background:rgba(59,130,246,0.06); text-decoration:none; }
+.race-header-link:hover .race-title { color:var(--accent); }
+.race-header-static { display:block; }
 .race-meta { display:flex; align-items:center; gap:12px; }
 .race-spread { font-family:var(--font-mono); font-size:13px; font-weight:600;
                color:var(--yellow); background:var(--yellow-dim); padding:2px 10px; border-radius:4px; }
@@ -225,8 +231,9 @@ footer a { color:var(--text-secondary); text-decoration:none; }
 <div class="races-container">
 
         <div class="race-block">
+            <a href="/elections/nc-sen/" class="race-header-link">
             <div class="race-header">
-                <div class="race-title"><a href="/elections/nc-sen/" class="race-title-link">North Carolina Senate</a></div>
+                <div class="race-title">North Carolina Senate</div>
                 <div class="race-meta">
                     <span class="race-spread">Cooper +9.6</span>
                     <span class="data-dots" title="Data: polls / FEC">
@@ -235,6 +242,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     </span>
                 </div>
             </div>
+            </a>
             <div class="race-ratings"><span class="rating-pill rating-tossup" title="Cook">C: Toss Up</span> <span class="rating-pill rating-lean-d" title="Sabato">S: Lean D</span> <span class="rating-pill rating-tilt-d" title="Split_Ticket">S: Tilt D</span></div>
             <div class="candidates-grid">
                 <div class="candidates-header">
@@ -277,8 +285,9 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             </div>
         </div>
         <div class="race-block">
+            <a href="/elections/oh-sen/" class="race-header-link">
             <div class="race-header">
-                <div class="race-title"><a href="/elections/oh-sen/" class="race-title-link">Ohio Senate</a></div>
+                <div class="race-title">Ohio Senate</div>
                 <div class="race-meta">
                     <span class="race-spread">Husted +1.0</span>
                     <span class="data-dots" title="Data: polls / FEC">
@@ -287,6 +296,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     </span>
                 </div>
             </div>
+            </a>
             <div class="race-ratings"><span class="rating-pill rating-lean-r" title="Cook">C: Lean R</span> <span class="rating-pill rating-lean-r" title="Sabato">S: Lean R</span> <span class="rating-pill rating-lean-r" title="Split_Ticket">S: Lean R</span></div>
             <div class="candidates-grid">
                 <div class="candidates-header">
@@ -329,8 +339,9 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             </div>
         </div>
         <div class="race-block">
+            <a href="/elections/tx-sen-d-primary/" class="race-header-link">
             <div class="race-header">
-                <div class="race-title"><a href="/elections/tx-sen-d-primary/" class="race-title-link">Texas Senate Dem Primary</a></div>
+                <div class="race-title">Texas Senate Dem Primary</div>
                 <div class="race-meta">
                     <span class="race-spread">Talarico +1.6</span>
                     <span class="data-dots" title="Data: polls / FEC">
@@ -339,6 +350,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     </span>
                 </div>
             </div>
+            </a>
             <div class="race-ratings"><span class="rating-pill rating-likely-r" title="Cook">C: Likely R</span> <span class="rating-pill rating-likely-r" title="Sabato">S: Likely R</span> <span class="rating-pill rating-likely-r" title="Split_Ticket">S: Likely R</span></div>
             <div class="candidates-grid">
                 <div class="candidates-header">
@@ -381,8 +393,9 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             </div>
         </div>
         <div class="race-block">
+            <a href="/elections/tx-sen-r-primary/" class="race-header-link">
             <div class="race-header">
-                <div class="race-title"><a href="/elections/tx-sen-r-primary/" class="race-title-link">Texas Senate GOP Primary</a></div>
+                <div class="race-title">Texas Senate GOP Primary</div>
                 <div class="race-meta">
                     <span class="race-spread">Paxton +7.0</span>
                     <span class="data-dots" title="Data: polls / FEC">
@@ -391,6 +404,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     </span>
                 </div>
             </div>
+            </a>
             <div class="race-ratings"><span class="rating-pill rating-likely-r" title="Cook">C: Likely R</span> <span class="rating-pill rating-likely-r" title="Sabato">S: Likely R</span> <span class="rating-pill rating-likely-r" title="Split_Ticket">S: Likely R</span></div>
             <div class="candidates-grid">
                 <div class="candidates-header">
@@ -433,8 +447,9 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             </div>
         </div>
         <div class="race-block">
+            <a href="/elections/al-sen-r-primary/" class="race-header-link">
             <div class="race-header">
-                <div class="race-title"><a href="/elections/al-sen-r-primary/" class="race-title-link">Alabama Senate GOP Primary</a></div>
+                <div class="race-title">Alabama Senate GOP Primary</div>
                 <div class="race-meta">
                     <span class="race-spread">Marshall +11.0</span>
                     <span class="data-dots" title="Data: polls / FEC">
@@ -443,6 +458,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     </span>
                 </div>
             </div>
+            </a>
             <div class="race-ratings"><span class="rating-pill rating-safe-r" title="Cook">C: Safe R</span> <span class="rating-pill rating-safe-r" title="Sabato">S: Safe R</span> <span class="rating-pill rating-safe-r" title="Split_Ticket">S: Safe R</span></div>
             <div class="candidates-grid">
                 <div class="candidates-header">
@@ -485,8 +501,9 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             </div>
         </div>
         <div class="race-block">
+            <a href="/elections/ga-sen-r-primary/" class="race-header-link">
             <div class="race-header">
-                <div class="race-title"><a href="/elections/ga-sen-r-primary/" class="race-title-link">Georgia Senate GOP Primary</a></div>
+                <div class="race-title">Georgia Senate GOP Primary</div>
                 <div class="race-meta">
                     <span class="race-spread">Collins +11.7</span>
                     <span class="data-dots" title="Data: polls / FEC">
@@ -495,6 +512,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     </span>
                 </div>
             </div>
+            </a>
             <div class="race-ratings"><span class="rating-pill rating-lean-d" title="Cook">C: Lean D</span> <span class="rating-pill rating-lean-d" title="Sabato">S: Lean D</span> <span class="rating-pill rating-lean-d" title="Split_Ticket">S: Lean D</span></div>
             <div class="candidates-grid">
                 <div class="candidates-header">
@@ -537,8 +555,9 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             </div>
         </div>
         <div class="race-block">
+            <a href="/elections/mi-sen-d-primary/" class="race-header-link">
             <div class="race-header">
-                <div class="race-title"><a href="/elections/mi-sen-d-primary/" class="race-title-link">Michigan Senate Dem Primary</a></div>
+                <div class="race-title">Michigan Senate Dem Primary</div>
                 <div class="race-meta">
                     <span class="race-spread">Morrow +0.4</span>
                     <span class="data-dots" title="Data: polls / FEC">
@@ -547,6 +566,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     </span>
                 </div>
             </div>
+            </a>
             <div class="race-ratings"><span class="rating-pill rating-tossup" title="Cook">C: Toss Up</span> <span class="rating-pill rating-tossup" title="Sabato">S: Toss Up</span> <span class="rating-pill rating-tilt-d" title="Split_Ticket">S: Tilt D</span></div>
             <div class="candidates-grid">
                 <div class="candidates-header">
@@ -589,8 +609,9 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             </div>
         </div>
         <div class="race-block">
+            <a href="/elections/ca-gov/" class="race-header-link">
             <div class="race-header">
-                <div class="race-title"><a href="/elections/ca-gov/" class="race-title-link">California Governor</a></div>
+                <div class="race-title">California Governor</div>
                 <div class="race-meta">
                     <span class="race-spread">Hilton +0.7</span>
                     <span class="data-dots" title="Data: polls / FEC">
@@ -599,6 +620,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     </span>
                 </div>
             </div>
+            </a>
             <div class="race-ratings"><span class="rating-pill rating-lean-d" title="Cook">C: Lean D</span> <span class="rating-pill rating-likely-d" title="Sabato">S: Likely D</span></div>
             <div class="candidates-grid">
                 <div class="candidates-header">
@@ -641,8 +663,9 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             </div>
         </div>
         <div class="race-block">
+            <a href="/elections/mi-gov/" class="race-header-link">
             <div class="race-header">
-                <div class="race-title"><a href="/elections/mi-gov/" class="race-title-link">Michigan Governor</a></div>
+                <div class="race-title">Michigan Governor</div>
                 <div class="race-meta">
                     <span class="race-spread">James +3.5</span>
                     <span class="data-dots" title="Data: polls / FEC">
@@ -651,6 +674,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     </span>
                 </div>
             </div>
+            </a>
             <div class="race-ratings"><span class="rating-pill rating-tossup" title="Cook">C: Toss Up</span> <span class="rating-pill rating-tossup" title="Sabato">S: Toss Up</span></div>
             <div class="candidates-grid">
                 <div class="candidates-header">
@@ -693,8 +717,9 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             </div>
         </div>
         <div class="race-block">
+            <a href="/elections/tx-gov/" class="race-header-link">
             <div class="race-header">
-                <div class="race-title"><a href="/elections/tx-gov/" class="race-title-link">Texas Governor</a></div>
+                <div class="race-title">Texas Governor</div>
                 <div class="race-meta">
                     <span class="race-spread">Abbott +7.5</span>
                     <span class="data-dots" title="Data: polls / FEC">
@@ -703,6 +728,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     </span>
                 </div>
             </div>
+            </a>
             <div class="race-ratings"><span class="rating-pill rating-likely-r" title="Cook">C: Likely R</span> <span class="rating-pill rating-likely-r" title="Sabato">S: Likely R</span></div>
             <div class="candidates-grid">
                 <div class="candidates-header">
@@ -750,8 +776,8 @@ footer a { color:var(--text-secondary); text-decoration:none; }
 </div>
 
 <section class="subscribe-cta">
-    <h3>Get the intelligence every morning.</h3>
-    <p>Free daily briefs at 6:15 AM EST. Weekend deep dives on elections, geopolitics, and where the money is moving.</p>
+    <h3>Get the intelligence brief.</h3>
+    <p>Free intelligence briefs Monday, Wednesday, and Friday at 6:15 AM EST. Weekend deep dives on elections, geopolitics, and where the money is moving.</p>
     <a href="https://buttondown.com/hammerhead">Subscribe free &rarr;</a>
 </section>
 <footer>
