@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alabama Senate GOP Primary — Election Intelligence — Hammerhead</title>
+    <meta name="description" content="Alabama Senate GOP Primary: Polls, campaign finance, and independent expenditure data for the 2026 Alabama senate race.">
+    <link rel="canonical" href="https://hammerheadintelligence.com/elections/al-sen-r-primary/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-primary: #0b0f1a; --bg-secondary: #111827;
+    --bg-card: #0f1629; --bg-card-hover: #131c33;
+    --border: #1e293b; --border-accent: #2d3a52;
+    --text-primary: #e8edf5; --text-secondary: #94a3b8; --text-muted: #64748b;
+    --accent: #3b82f6; --accent-dim: #2563eb;
+    --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+    --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+    --yellow: #eab308; --yellow-dim: rgba(234,179,8,0.12);
+    --cyan: #06b6d4; --cyan-dim: rgba(6,182,212,0.10);
+    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font-body); background:var(--bg-primary);
+       color:var(--text-primary); line-height:1.6; -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+nav { position:sticky; top:0; z-index:100; background:rgba(10,10,15,0.92);
+      backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:0 24px; }
+.nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center;
+             justify-content:space-between; height:56px; }
+.nav-logo { font-family:var(--font-mono); font-weight:600; font-size:14px;
+            letter-spacing:0.5px; color:var(--text-primary); text-decoration:none; }
+.nav-logo span { color:var(--accent); }
+.nav-links { display:flex; gap:24px; align-items:center; }
+.nav-links a { font-family:var(--font-mono); font-size:11px; font-weight:500;
+               letter-spacing:0.5px; text-transform:uppercase;
+               color:var(--text-secondary); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--text-primary); }
+.nav-links a.active { color:var(--accent); }
+.nav-subscribe-btn { color:var(--bg-primary)!important; background:var(--accent)!important;
+                     padding:6px 14px!important; border-radius:3px; }
+
+.rating-pill { font-family:var(--font-mono); font-size:10px; font-weight:600;
+               letter-spacing:0.3px; padding:2px 8px; border-radius:3px;
+               white-space:nowrap; display:inline-block; }
+.rating-safe-d { background:rgba(37,99,235,0.25); color:#93c5fd; }
+.rating-likely-d { background:rgba(37,99,235,0.18); color:#93c5fd; }
+.rating-lean-d { background:rgba(37,99,235,0.12); color:#93c5fd; }
+.rating-tilt-d { background:rgba(37,99,235,0.08); color:#93c5fd; }
+.rating-tossup { background:rgba(234,179,8,0.15); color:var(--yellow); }
+.rating-tilt-r { background:rgba(239,68,68,0.08); color:#fca5a5; }
+.rating-lean-r { background:rgba(239,68,68,0.12); color:#fca5a5; }
+.rating-likely-r { background:rgba(239,68,68,0.18); color:#fca5a5; }
+.rating-safe-r { background:rgba(239,68,68,0.25); color:#fca5a5; }
+
+.party-label { font-family:var(--font-mono); font-size:11px; font-weight:600; margin-left:4px; }
+.party-r { color:#f87171; }
+.party-d { color:#60a5fa; }
+.val-negative { color:var(--red); }
+.val-positive { color:var(--green); }
+.val-dem { color:#60a5fa; }
+.val-rep { color:#f87171; }
+
+.subscribe-cta { max-width:1100px; margin:0 auto; padding:40px 24px 60px;
+                 text-align:center; border-top:1px solid var(--border); }
+.subscribe-cta h3 { font-family:var(--font-mono); font-size:16px; margin-bottom:8px; }
+.subscribe-cta p { font-size:14px; color:var(--text-secondary); margin-bottom:20px; }
+.subscribe-cta a { display:inline-block; font-family:var(--font-mono); font-size:12px;
+                   font-weight:600; letter-spacing:0.5px; text-transform:uppercase;
+                   text-decoration:none; padding:10px 24px; background:var(--accent);
+                   color:var(--bg-primary); border-radius:4px; }
+footer { border-top:1px solid var(--border); padding:24px; text-align:center; }
+footer p { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+footer a { color:var(--text-secondary); text-decoration:none; }
+
+.detail-container { max-width:1100px; margin:0 auto; padding:0 24px; }
+
+.back-link { display:inline-block; font-family:var(--font-mono); font-size:11px;
+             color:var(--text-muted); text-decoration:none; padding:32px 0 16px;
+             transition:color 0.15s; }
+.back-link:hover { color:var(--accent); text-decoration:none; }
+
+.detail-hero { padding-bottom:24px; border-bottom:1px solid var(--border); margin-bottom:24px; }
+.detail-hero .race-type { font-family:var(--font-mono); font-size:11px; font-weight:600;
+                          letter-spacing:1.5px; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+.detail-hero h1 { font-size:28px; font-weight:700; line-height:1.2; margin-bottom:10px; }
+.detail-hero .ratings-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
+.detail-hero .updated { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+
+.glance-cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+                gap:12px; margin-bottom:28px; }
+.glance-card { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:18px; }
+.glance-label { font-family:var(--font-mono); font-size:10px; font-weight:600;
+                letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+.glance-value { font-family:var(--font-mono); font-size:24px; font-weight:700; line-height:1; }
+.glance-sub { font-size:12px; color:var(--text-secondary); margin-top:4px; }
+
+.insight-block { background:rgba(234,179,8,0.06); border:1px solid rgba(234,179,8,0.2);
+                 border-radius:8px; padding:16px 20px; margin-bottom:28px; }
+.insight-label { font-family:var(--font-mono); font-size:11px; font-weight:600;
+                 letter-spacing:0.5px; text-transform:uppercase; color:var(--yellow); margin-bottom:6px; }
+.insight-block p { font-size:14px; color:var(--text-secondary); line-height:1.6; }
+
+.detail-section { margin-bottom:32px; }
+.detail-section-title { font-family:var(--font-mono); font-size:12px; font-weight:600;
+                        letter-spacing:1px; text-transform:uppercase; color:var(--accent);
+                        margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+
+.detail-grid { overflow-x:auto; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; }
+.detail-header { display:grid; grid-template-columns:1.4fr repeat(7,1fr);
+                 gap:4px; padding:10px 16px; font-family:var(--font-mono);
+                 font-size:10px; font-weight:600; letter-spacing:0.5px;
+                 text-transform:uppercase; color:var(--text-muted); border-bottom:1px solid var(--border); }
+.detail-row { display:grid; grid-template-columns:1.4fr repeat(7,1fr);
+              gap:4px; padding:12px 16px; font-size:13px;
+              border-bottom:1px solid rgba(30,41,59,0.4); transition:background 0.15s; }
+.detail-row:last-child { border-bottom:none; }
+.detail-row:hover { background:rgba(59,130,246,0.04); }
+.detail-cell { font-family:var(--font-mono); font-size:13px; }
+.name-cell { font-family:var(--font-body); font-weight:500; }
+.poll-cell { text-align:right; color:var(--cyan); font-weight:600; }
+.raised-cell { text-align:right; color:var(--green); }
+.coh-cell { text-align:right; color:var(--text-secondary); }
+.sd-cell { text-align:right; color:var(--yellow); }
+.burn-cell { text-align:right; color:var(--text-secondary); }
+.ie-for-cell { text-align:right; color:var(--green); }
+.ie-against-cell { text-align:right; color:var(--red); }
+
+.finance-cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:16px; }
+.finance-card { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:20px; }
+.finance-card-header { margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+.finance-card-name { font-size:16px; font-weight:600; }
+.finance-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.finance-label { font-family:var(--font-mono); font-size:10px; font-weight:600;
+                 letter-spacing:0.5px; text-transform:uppercase; color:var(--text-muted); margin-bottom:2px; }
+.finance-value { font-family:var(--font-mono); font-size:15px; font-weight:600; color:var(--text-primary); }
+
+@media (max-width:768px) {
+    .glance-cards { grid-template-columns:1fr 1fr; }
+    .detail-header,.detail-row { grid-template-columns:1.2fr 0.8fr 0.8fr 0.8fr 0.8fr; }
+    .sd-cell,.ie-for-cell,.ie-against-cell { display:none; }
+    .detail-header .sd-cell,.detail-header .ie-for-cell,.detail-header .ie-against-cell { display:none; }
+    .finance-cards { grid-template-columns:1fr; }
+}
+@media (max-width:480px) {
+    .glance-cards { grid-template-columns:1fr; }
+    .nav-links a:not(.nav-subscribe-btn) { display:none; }
+    .detail-hero h1 { font-size:22px; }
+}
+</style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">&#x1F988; <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/elections/" class="active">Elections</a>
+            <a href="/about.html">About</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<div class="detail-container">
+    <a href="/elections/" class="back-link">&larr; Back to Elections Dashboard</a>
+
+    <div class="detail-hero">
+        <div class="race-type">Senate &middot; Alabama &middot; Republican Primary</div>
+        <h1>Alabama Senate GOP Primary</h1>
+        <div class="ratings-row"><span class="rating-pill rating-safe-r" title="Cook">C: Safe R</span> <span class="rating-pill rating-safe-r" title="Sabato">S: Safe R</span> <span class="rating-pill rating-safe-r" title="Split_Ticket">S: Safe R</span></div>
+        <div class="updated">Last updated: Mar 01, 2026 07:59 PM</div>
+    </div>
+
+    <div class="glance-cards">
+        <div class="glance-card">
+            <div class="glance-label">Poll Leader</div>
+            <div class="glance-value" style="color:var(--cyan);">Marshall +11.0</div>
+            <div class="glance-sub">5 candidates polled</div>
+        </div>
+        <div class="glance-card">
+            <div class="glance-label">Total Money in Race</div>
+            <div class="glance-value" style="color:var(--green);">$0</div>
+            <div class="glance-sub">Combined fundraising</div>
+        </div>
+        <div class="glance-card">
+            <div class="glance-label">Outside Spending</div>
+            <div class="glance-value">$0</div>
+            <div class="glance-sub">Independent expenditures</div>
+        </div>
+    </div>
+
+    
+
+    <div class="detail-section">
+        <div class="detail-section-title">Candidate Comparison</div>
+        <div class="detail-grid">
+            <div class="detail-header">
+                <div class="detail-cell name-cell">Candidate</div>
+                <div class="detail-cell poll-cell">RCP Avg</div>
+                <div class="detail-cell raised-cell">Raised</div>
+                <div class="detail-cell coh-cell">COH</div>
+                <div class="detail-cell sd-cell">Sm $</div>
+                <div class="detail-cell burn-cell">Burn</div>
+                <div class="detail-cell ie-for-cell">IE For</div>
+                <div class="detail-cell ie-against-cell">IE Agst</div>
+            </div>
+            
+                <div class="detail-row candidate-leader">
+                    <div class="detail-cell name-cell">Marshall <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">26.0%</div>
+                    <div class="detail-cell raised-cell">—</div>
+                    <div class="detail-cell coh-cell">—</div>
+                    <div class="detail-cell sd-cell">—</div>
+                    <div class="detail-cell burn-cell">—</div>
+                    <div class="detail-cell ie-for-cell">—</div>
+                    <div class="detail-cell ie-against-cell">—</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Moore <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">15.0%</div>
+                    <div class="detail-cell raised-cell">—</div>
+                    <div class="detail-cell coh-cell">—</div>
+                    <div class="detail-cell sd-cell">—</div>
+                    <div class="detail-cell burn-cell">—</div>
+                    <div class="detail-cell ie-for-cell">—</div>
+                    <div class="detail-cell ie-against-cell">—</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Hudson <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">9.0%</div>
+                    <div class="detail-cell raised-cell">—</div>
+                    <div class="detail-cell coh-cell">—</div>
+                    <div class="detail-cell sd-cell">—</div>
+                    <div class="detail-cell burn-cell">—</div>
+                    <div class="detail-cell ie-for-cell">—</div>
+                    <div class="detail-cell ie-against-cell">—</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Walker <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">3.0%</div>
+                    <div class="detail-cell raised-cell">—</div>
+                    <div class="detail-cell coh-cell">—</div>
+                    <div class="detail-cell sd-cell">—</div>
+                    <div class="detail-cell burn-cell">—</div>
+                    <div class="detail-cell ie-for-cell">—</div>
+                    <div class="detail-cell ie-against-cell">—</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Murphy <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">1.0%</div>
+                    <div class="detail-cell raised-cell">—</div>
+                    <div class="detail-cell coh-cell">—</div>
+                    <div class="detail-cell sd-cell">—</div>
+                    <div class="detail-cell burn-cell">—</div>
+                    <div class="detail-cell ie-for-cell">—</div>
+                    <div class="detail-cell ie-against-cell">—</div>
+                </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<section class="subscribe-cta">
+    <h3>Get the intelligence every morning.</h3>
+    <p>Free daily briefs at 6:15 AM EST. Weekend deep dives on elections, geopolitics, and where the money is moving.</p>
+    <a href="https://buttondown.com/hammerhead">Subscribe free &rarr;</a>
+</section>
+<footer>
+    <p>&copy; 2026 Hammerhead Intelligence &middot; <a href="/">Home</a> &middot; <a href="/elections/">Elections</a></p>
+</footer>
+</body>
+</html>
