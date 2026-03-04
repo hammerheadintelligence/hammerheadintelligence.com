@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Intelligence — Election Dashboard — Hammerhead</title>
+    <meta name="description" content="Follow the money in the 2026 midterms. Super PAC spending, campaign fundraising leaderboards, and independent expenditure tracking across all competitive races.">
+    <link rel="canonical" href="https://hammerheadintelligence.com/elections/money/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-primary: #0b0f1a; --bg-secondary: #111827;
+    --bg-card: #0f1629; --bg-card-hover: #131c33;
+    --border: #1e293b; --border-accent: #2d3a52;
+    --text-primary: #e8edf5; --text-secondary: #94a3b8; --text-muted: #64748b;
+    --accent: #3b82f6; --accent-dim: #2563eb;
+    --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+    --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+    --yellow: #eab308; --yellow-dim: rgba(234,179,8,0.12);
+    --cyan: #06b6d4; --cyan-dim: rgba(6,182,212,0.10);
+    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font-body); background:var(--bg-primary);
+       color:var(--text-primary); line-height:1.6; -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+nav { position:sticky; top:0; z-index:100; background:rgba(10,10,15,0.92);
+      backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:0 24px; }
+.nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center;
+             justify-content:space-between; height:56px; }
+.nav-logo { font-family:var(--font-mono); font-weight:600; font-size:14px;
+            letter-spacing:0.5px; color:var(--text-primary); text-decoration:none; }
+.nav-logo span { color:var(--accent); }
+.nav-links { display:flex; gap:24px; align-items:center; }
+.nav-links a { font-family:var(--font-mono); font-size:11px; font-weight:500;
+               letter-spacing:0.5px; text-transform:uppercase;
+               color:var(--text-secondary); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--text-primary); }
+.nav-links a.active { color:var(--accent); }
+.nav-subscribe-btn { color:var(--bg-primary)!important; background:var(--accent)!important;
+                     padding:6px 14px!important; border-radius:3px; }
+
+.party-label { font-family:var(--font-mono); font-size:11px; font-weight:600; margin-left:4px; }
+.party-r { color:#f87171; }
+.party-d { color:#60a5fa; }
+
+.subscribe-cta { max-width:1100px; margin:0 auto; padding:40px 24px 60px;
+                 text-align:center; border-top:1px solid var(--border); }
+.subscribe-cta h3 { font-family:var(--font-mono); font-size:16px; margin-bottom:8px; }
+.subscribe-cta p { font-size:14px; color:var(--text-secondary); margin-bottom:20px; }
+.subscribe-cta a { display:inline-block; font-family:var(--font-mono); font-size:12px;
+                   font-weight:600; letter-spacing:0.5px; text-transform:uppercase;
+                   text-decoration:none; padding:10px 24px; background:var(--accent);
+                   color:var(--bg-primary); border-radius:4px; }
+footer { border-top:1px solid var(--border); padding:24px; text-align:center; }
+footer p { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+footer a { color:var(--text-secondary); text-decoration:none; }
+
+.money-container { max-width:1100px; margin:0 auto; padding:0 24px; }
+
+.back-link { display:inline-block; font-family:var(--font-mono); font-size:11px;
+             color:var(--text-muted); text-decoration:none; padding:32px 0 16px;
+             transition:color 0.15s; }
+.back-link:hover { color:var(--accent); text-decoration:none; }
+
+.money-hero { padding-bottom:24px; border-bottom:1px solid var(--border); margin-bottom:28px; }
+.money-hero .label { font-family:var(--font-mono); font-size:11px; font-weight:600;
+                     letter-spacing:1.5px; text-transform:uppercase; color:var(--green); margin-bottom:6px; }
+.money-hero h1 { font-size:28px; font-weight:700; line-height:1.2; margin-bottom:10px; }
+.money-hero .tagline { font-size:15px; color:var(--text-secondary); max-width:650px; }
+.money-hero .updated { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); margin-top:12px; }
+
+/* ── Summary Cards ── */
+.summary-row { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+               gap:12px; margin-bottom:28px; }
+.summary-card { background:var(--bg-card); border:1px solid var(--border);
+                border-radius:8px; padding:20px; }
+.summary-card-label { font-family:var(--font-mono); font-size:10px; font-weight:600;
+                      letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); margin-bottom:10px; }
+.summary-card-value { font-family:var(--font-mono); font-size:28px; font-weight:700; line-height:1; margin-bottom:6px; }
+.summary-card-sub { font-size:13px; color:var(--text-secondary); }
+
+/* ── Support/Oppose Bar ── */
+.ie-direction-bar { display:flex; height:36px; border-radius:6px; overflow:hidden; margin-bottom:6px; }
+.ie-bar-support { background:rgba(34,197,94,0.35); display:flex; align-items:center;
+                  justify-content:center; font-family:var(--font-mono); font-size:12px;
+                  font-weight:600; color:var(--green); min-width:40px; }
+.ie-bar-oppose { background:rgba(239,68,68,0.35); display:flex; align-items:center;
+                 justify-content:center; font-family:var(--font-mono); font-size:12px;
+                 font-weight:600; color:var(--red); min-width:40px; }
+.ie-bar-legend { display:flex; gap:16px; font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+
+/* ── Section Headers ── */
+.money-section { margin-bottom:36px; }
+.money-section-title { font-family:var(--font-mono); font-size:12px; font-weight:600;
+                       letter-spacing:1px; text-transform:uppercase; color:var(--accent);
+                       margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+
+/* ── Leaderboard Tables ── */
+.leaderboard { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+.leaderboard-header { display:grid; gap:8px; padding:10px 16px;
+                      font-family:var(--font-mono); font-size:10px; font-weight:600;
+                      letter-spacing:0.5px; text-transform:uppercase; color:var(--text-muted);
+                      border-bottom:1px solid var(--border); }
+.leaderboard-row { display:grid; gap:8px; padding:12px 16px; font-size:13px;
+                   border-bottom:1px solid rgba(30,41,59,0.4); transition:background 0.15s; }
+.leaderboard-row:last-child { border-bottom:none; }
+.leaderboard-row:hover { background:rgba(59,130,246,0.04); }
+
+/* PAC leaderboard */
+.pac-header, .pac-row { grid-template-columns: 36px 1.5fr 1fr 0.8fr 0.8fr 1fr; }
+.pac-rank { font-family:var(--font-mono); font-weight:700; color:var(--text-muted); text-align:center; }
+.pac-name { font-weight:500; }
+.pac-total { font-family:var(--font-mono); color:var(--green); text-align:right; font-weight:600; }
+.pac-support { font-family:var(--font-mono); color:var(--green); text-align:right; font-size:12px; }
+.pac-oppose { font-family:var(--font-mono); color:var(--red); text-align:right; font-size:12px; }
+.pac-targets { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+
+/* Race leaderboard */
+.race-lb-header, .race-lb-row { grid-template-columns: 36px 1.5fr 1fr 0.8fr 0.8fr 0.6fr; }
+.race-lb-label { font-weight:500; }
+.race-lb-label a { color:var(--text-primary); text-decoration:none; }
+.race-lb-label a:hover { color:var(--accent); }
+.race-lb-raised { font-family:var(--font-mono); color:var(--green); text-align:right; }
+.race-lb-ie { font-family:var(--font-mono); text-align:right; }
+.race-lb-total { font-family:var(--font-mono); color:var(--yellow); text-align:right; font-weight:600; }
+.race-lb-count { font-family:var(--font-mono); text-align:center; color:var(--text-muted); }
+
+/* Candidate leaderboard */
+.cand-header, .cand-row { grid-template-columns: 36px 1.2fr 1fr 0.8fr 0.8fr 0.6fr 0.6fr; }
+.cand-name { font-weight:500; }
+.cand-race { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+.cand-raised { font-family:var(--font-mono); color:var(--green); text-align:right; }
+.cand-coh { font-family:var(--font-mono); color:var(--text-secondary); text-align:right; }
+.cand-ie-net { font-family:var(--font-mono); text-align:right; }
+.cand-sd { font-family:var(--font-mono); color:var(--yellow); text-align:right; }
+
+/* ── Heat Map ── */
+.heatmap-container { background:var(--bg-card); border:1px solid var(--border);
+                     border-radius:8px; padding:24px; text-align:center; }
+.heatmap-legend { display:flex; align-items:center; justify-content:center; gap:8px;
+                  margin-top:12px; font-family:var(--font-mono); font-size:10px; color:var(--text-muted); }
+.heatmap-legend-bar { width:120px; height:10px; border-radius:3px;
+                      background:linear-gradient(to right, #1a1f2e, rgba(34,197,94,0.9)); }
+
+/* ── Recent Activity Feed ── */
+.activity-feed { display:flex; flex-direction:column; gap:8px; }
+.activity-item { background:var(--bg-card); border:1px solid var(--border);
+                 border-radius:8px; padding:14px 20px; display:flex; align-items:center; gap:12px; }
+.activity-item.ie-support { border-left:3px solid var(--green); }
+.activity-item.ie-oppose { border-left:3px solid var(--red); }
+.activity-icon { font-size:16px; flex-shrink:0; }
+.activity-body { flex:1; }
+.activity-headline { font-size:13px; font-weight:500; color:var(--text-primary); line-height:1.4; }
+.activity-headline strong { font-weight:700; }
+.activity-headline .amt-support { color:var(--green); }
+.activity-headline .amt-oppose { color:var(--red); }
+.activity-meta { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); margin-top:2px; }
+.activity-race-tag { font-family:var(--font-mono); font-size:10px; font-weight:600;
+                     background:rgba(59,130,246,0.12); color:var(--accent);
+                     padding:2px 8px; border-radius:3px; white-space:nowrap; flex-shrink:0; }
+
+/* ── Two-Column Layout ── */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+
+@media (max-width:768px) {
+    .summary-row { grid-template-columns:1fr 1fr; }
+    .two-col { grid-template-columns:1fr; }
+    .pac-header, .pac-row { grid-template-columns: 28px 1.2fr 0.8fr 1fr; }
+    .pac-support, .pac-oppose { display:none; }
+    .race-lb-header, .race-lb-row { grid-template-columns: 28px 1.2fr 0.8fr 0.8fr; }
+    .race-lb-ie, .race-lb-count { display:none; }
+    .cand-header, .cand-row { grid-template-columns: 28px 1.2fr 0.8fr 0.8fr; }
+    .cand-coh, .cand-ie-net, .cand-sd { display:none; }
+    .nav-links a:not(.nav-subscribe-btn) { display:none; }
+}
+@media (max-width:480px) {
+    .summary-row { grid-template-columns:1fr; }
+    .money-hero h1 { font-size:22px; }
+}
+</style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">&#x1F988; <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/elections/" class="active">Elections</a>
+            <a href="/about.html">About</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<div class="money-container">
+    <a href="/elections/" class="back-link">&larr; Back to Elections Dashboard</a>
+
+    <div class="money-hero">
+        <div class="label">&#x1F4B0; Money Intelligence</div>
+        <h1>Follow the Money</h1>
+        <p class="tagline">Where campaign dollars are flowing, which Super PACs are placing bets, and what the spending patterns reveal about the 2026 midterms. The money moves before the polls do.</p>
+        <div class="updated">FEC data as of Mar 03, 2026 04:30 AM &middot; IE alerts last 48 hours</div>
+    </div>
+
+    <!-- ── Summary Cards ── -->
+    <div class="summary-row">
+        <div class="summary-card">
+            <div class="summary-card-label">Total Raised</div>
+            <div class="summary-card-value" style="color:var(--green);">$138.7M</div>
+            <div class="summary-card-sub">12 candidates across 5 races</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-card-label">Outside Spending (IE)</div>
+            <div class="summary-card-value">$47.3M</div>
+            <div class="summary-card-sub">Independent expenditures for/against candidates</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-card-label">Active IE Alerts</div>
+            <div class="summary-card-value" style="color:var(--yellow);">12</div>
+            <div class="summary-card-sub">Filings in the last 48 hours</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-card-label">IE Direction</div>
+            <div class="ie-direction-bar">
+                <div class="ie-bar-support" style="width:40%;">$19.0M</div>
+                <div class="ie-bar-oppose" style="width:60%;">$28.3M</div>
+            </div>
+            <div class="ie-bar-legend">
+                <span><span style="color:var(--green);">&#x25A0;</span> Support</span>
+                <span><span style="color:var(--red);">&#x25A0;</span> Oppose</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── State Heat Map ── -->
+    <div class="money-section">
+        <div class="money-section-title">&#x1F5FA;&#xFE0F; Where the Money Is Flowing</div>
+        <div class="heatmap-container">
+            <svg viewBox="0 0 788 460" xmlns="http://www.w3.org/2000/svg"
+     style="width:100%;max-width:750px;height:auto;">
+    
+        <g>
+            <rect x="20" y="440" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="52.0" y="456"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">ME</text>
+            <text x="52.0" y="470"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="88" y="440" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="120.0" y="456"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">NH</text>
+            <text x="120.0" y="470"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="88" y="398" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="120.0" y="414"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">VT</text>
+            <text x="120.0" y="428"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="156" y="440" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="188.0" y="456"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">MA</text>
+            <text x="188.0" y="470"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="224" y="440" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="256.0" y="456"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">RI</text>
+            <text x="256.0" y="470"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="224" y="398" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="256.0" y="414"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">CT</text>
+            <text x="256.0" y="428"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="156" y="356" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="188.0" y="372"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">NY</text>
+            <text x="188.0" y="386"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="292" y="398" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="324.0" y="414"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">NJ</text>
+            <text x="324.0" y="428"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="224" y="356" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="256.0" y="372"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">PA</text>
+            <text x="256.0" y="386"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="360" y="398" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="392.0" y="414"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">DE</text>
+            <text x="392.0" y="428"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="292" y="356" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="324.0" y="372"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">MD</text>
+            <text x="324.0" y="386"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="292" y="314" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="324.0" y="330"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">VA</text>
+            <text x="324.0" y="344"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="224" y="314" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="256.0" y="330"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">WV</text>
+            <text x="256.0" y="344"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="360" y="314" width="64" height="38"
+                  rx="4" fill="rgba(22,91,54,0.57)" stroke="#1e293b" stroke-width="1"/>
+            <text x="392.0" y="330"
+                  text-anchor="middle" fill="#e8edf5"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">NC</text>
+            <text x="392.0" y="344"
+                  text-anchor="middle" fill="#e8edf5"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8">$31.8M</text>
+        </g>
+        <g>
+            <rect x="428" y="314" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="460.0" y="330"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">SC</text>
+            <text x="460.0" y="344"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="496" y="314" width="64" height="38"
+                  rx="4" fill="rgba(25,116,64,0.67)" stroke="#1e293b" stroke-width="1"/>
+            <text x="528.0" y="330"
+                  text-anchor="middle" fill="#e8edf5"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">GA</text>
+            <text x="528.0" y="344"
+                  text-anchor="middle" fill="#e8edf5"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8">$44.1M</text>
+        </g>
+        <g>
+            <rect x="564" y="356" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="596.0" y="372"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">FL</text>
+            <text x="596.0" y="386"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="496" y="272" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="528.0" y="288"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">AL</text>
+            <text x="528.0" y="302"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="496" y="230" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="528.0" y="246"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">MS</text>
+            <text x="528.0" y="260"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="360" y="272" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="392.0" y="288"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">TN</text>
+            <text x="392.0" y="302"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="292" y="272" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="324.0" y="288"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">KY</text>
+            <text x="324.0" y="302"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="156" y="314" width="64" height="38"
+                  rx="4" fill="rgba(21,82,51,0.53)" stroke="#1e293b" stroke-width="1"/>
+            <text x="188.0" y="330"
+                  text-anchor="middle" fill="#e8edf5"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">OH</text>
+            <text x="188.0" y="344"
+                  text-anchor="middle" fill="#e8edf5"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8">$27.6M</text>
+        </g>
+        <g>
+            <rect x="156" y="272" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="188.0" y="288"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">IN</text>
+            <text x="188.0" y="302"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="88" y="314" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="120.0" y="330"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">MI</text>
+            <text x="120.0" y="344"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="224" y="230" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="256.0" y="246"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">IL</text>
+            <text x="256.0" y="260"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="88" y="230" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="120.0" y="246"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">WI</text>
+            <text x="120.0" y="260"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="88" y="188" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="120.0" y="204"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">MN</text>
+            <text x="120.0" y="218"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="224" y="188" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="256.0" y="204"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">IA</text>
+            <text x="256.0" y="218"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="292" y="230" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="324.0" y="246"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">MO</text>
+            <text x="324.0" y="260"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="428" y="230" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="460.0" y="246"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">AR</text>
+            <text x="460.0" y="260"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="564" y="230" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="596.0" y="246"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">LA</text>
+            <text x="596.0" y="260"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="564" y="188" width="64" height="38"
+                  rx="4" fill="rgba(34,197,94,1.00)" stroke="#1e293b" stroke-width="1"/>
+            <text x="596.0" y="204"
+                  text-anchor="middle" fill="#e8edf5"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">TX</text>
+            <text x="596.0" y="218"
+                  text-anchor="middle" fill="#e8edf5"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8">$82.5M</text>
+        </g>
+        <g>
+            <rect x="428" y="188" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="460.0" y="204"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">OK</text>
+            <text x="460.0" y="218"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="360" y="146" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="392.0" y="162"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">KS</text>
+            <text x="392.0" y="176"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="224" y="146" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="256.0" y="162"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">NE</text>
+            <text x="256.0" y="176"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="88" y="146" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="120.0" y="162"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">SD</text>
+            <text x="120.0" y="176"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="88" y="104" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="120.0" y="120"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">ND</text>
+            <text x="120.0" y="134"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="88" y="62" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="120.0" y="78"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">MT</text>
+            <text x="120.0" y="92"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="224" y="104" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="256.0" y="120"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">WY</text>
+            <text x="256.0" y="134"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="360" y="104" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="392.0" y="120"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">CO</text>
+            <text x="392.0" y="134"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="496" y="146" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="528.0" y="162"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">NM</text>
+            <text x="528.0" y="176"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="496" y="104" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="528.0" y="120"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">AZ</text>
+            <text x="528.0" y="134"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="360" y="62" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="392.0" y="78"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">UT</text>
+            <text x="392.0" y="92"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="224" y="62" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="256.0" y="78"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">NV</text>
+            <text x="256.0" y="92"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="156" y="62" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="188.0" y="78"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">ID</text>
+            <text x="188.0" y="92"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="156" y="20" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="188.0" y="36"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">OR</text>
+            <text x="188.0" y="50"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="88" y="20" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="120.0" y="36"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">WA</text>
+            <text x="120.0" y="50"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="360" y="20" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="392.0" y="36"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">CA</text>
+            <text x="392.0" y="50"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="564" y="20" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="596.0" y="36"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">AK</text>
+            <text x="596.0" y="50"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+        <g>
+            <rect x="632" y="62" width="64" height="38"
+                  rx="4" fill="#1a1f2e" stroke="#1e293b" stroke-width="1"/>
+            <text x="664.0" y="78"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600">HI</text>
+            <text x="664.0" y="92"
+                  text-anchor="middle" fill="#475569"
+                  font-family="'IBM Plex Mono', monospace" font-size="9" opacity="0.8"></text>
+        </g>
+</svg>
+            <div class="heatmap-legend">
+                <span>$0</span>
+                <div class="heatmap-legend-bar"></div>
+                <span>$82.5M</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Two-Column: PAC Leaderboard + Recent Activity ── -->
+    <div class="two-col">
+        <div class="money-section">
+            <div class="money-section-title">&#x1F3C6; Top Super PACs</div>
+            <div class="leaderboard">
+                <div class="leaderboard-header pac-header">
+                    <div class="pac-rank">#</div>
+                    <div class="pac-name">Committee</div>
+                    <div class="pac-total" style="text-align:right;">Total</div>
+                    <div class="pac-support" style="text-align:right;">Support</div>
+                    <div class="pac-oppose" style="text-align:right;">Oppose</div>
+                    <div class="pac-targets">Targeting</div>
+                </div>
+                
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">1</div>
+                <div class="pac-name"><a href="/elections/pac/C00542217/" style="color:var(--text-primary);text-decoration:none;">TEXANS FOR A CONSERVATIVE MAJORITY</a></div>
+                <div class="pac-total">$29.8M</div>
+                <div class="pac-support">$0</div>
+                <div class="pac-oppose">$309K</div>
+                <div class="pac-targets">Cornyn, Paxton</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">2</div>
+                <div class="pac-name"><a href="/elections/pac/C00918268/" style="color:var(--text-primary);text-decoration:none;">LONE STAR RISING PAC</a></div>
+                <div class="pac-total">$8.5M</div>
+                <div class="pac-support">$2.2M</div>
+                <div class="pac-oppose">$782K</div>
+                <div class="pac-targets">Crockett, Talarico</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">3</div>
+                <div class="pac-name"><a href="/elections/pac/C00687103/" style="color:var(--text-primary);text-decoration:none;">AMERICANS FOR PROSPERITY ACTION, INC. (AFP ACTION)...</a></div>
+                <div class="pac-total">$2.5M</div>
+                <div class="pac-support">$0</div>
+                <div class="pac-oppose">$64K</div>
+                <div class="pac-targets">Cooper, Whatley</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">4</div>
+                <div class="pac-name"><a href="/elections/pac/C00571703/" style="color:var(--text-primary);text-decoration:none;">SLF PAC</a></div>
+                <div class="pac-total">$2.5M</div>
+                <div class="pac-support">$100K</div>
+                <div class="pac-oppose">$0</div>
+                <div class="pac-targets">Cooper, Husted, Moody +2</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">5</div>
+                <div class="pac-name">FORWARD TEXAS</div>
+                <div class="pac-total">$1.0M</div>
+                <div class="pac-support">$0</div>
+                <div class="pac-oppose">$0</div>
+                <div class="pac-targets">Crockett, Talarico</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">6</div>
+                <div class="pac-name"><a href="/elections/pac/C00901223/" style="color:var(--text-primary);text-decoration:none;">LONE STAR LIBERTY PAC</a></div>
+                <div class="pac-total">$748K</div>
+                <div class="pac-support">$0</div>
+                <div class="pac-oppose">$259K</div>
+                <div class="pac-targets">Cornyn, Hunt</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">7</div>
+                <div class="pac-name"><a href="/elections/pac/C00922187/" style="color:var(--text-primary);text-decoration:none;">FIGHTING FOR TEXAS</a></div>
+                <div class="pac-total">$700K</div>
+                <div class="pac-support">$240K</div>
+                <div class="pac-oppose">$450K</div>
+                <div class="pac-targets">Cornyn, Hunt</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">8</div>
+                <div class="pac-name"><a href="/elections/pac/C00608943/" style="color:var(--text-primary);text-decoration:none;">CLEARPATH ACTION FUND, INC.</a></div>
+                <div class="pac-total">$515K</div>
+                <div class="pac-support">$263K</div>
+                <div class="pac-oppose">$0</div>
+                <div class="pac-targets">Cornyn</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">9</div>
+                <div class="pac-name">NATIONAL ASSOCIATION OF REALTORS POLITICAL ACTION ...</div>
+                <div class="pac-total">$288K</div>
+                <div class="pac-support">$0</div>
+                <div class="pac-oppose">$0</div>
+                <div class="pac-targets">Cornyn</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">10</div>
+                <div class="pac-name">WIN IT BACK PAC</div>
+                <div class="pac-total">$250K</div>
+                <div class="pac-support">$0</div>
+                <div class="pac-oppose">$0</div>
+                <div class="pac-targets">Husted</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">11</div>
+                <div class="pac-name"><a href="/elections/pac/C00756940/" style="color:var(--text-primary);text-decoration:none;">TEXAS ORGANIZING PROJECT POLITICAL ACTION COMMITTE...</a></div>
+                <div class="pac-total">$199K</div>
+                <div class="pac-support">$101K</div>
+                <div class="pac-oppose">$0</div>
+                <div class="pac-targets">Crockett</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">12</div>
+                <div class="pac-name">AMERICA ONE</div>
+                <div class="pac-total">$175K</div>
+                <div class="pac-support">$0</div>
+                <div class="pac-oppose">$0</div>
+                <div class="pac-targets">Ossoff</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">13</div>
+                <div class="pac-name">HARDWORKING AMERICANS INC.</div>
+                <div class="pac-total">$107K</div>
+                <div class="pac-support">$0</div>
+                <div class="pac-oppose">$0</div>
+                <div class="pac-targets">Ossoff</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">14</div>
+                <div class="pac-name"><a href="/elections/pac/C00562777/" style="color:var(--text-primary);text-decoration:none;">LATINO VICTORY FUND</a></div>
+                <div class="pac-total">$82K</div>
+                <div class="pac-support">$42K</div>
+                <div class="pac-oppose">$0</div>
+                <div class="pac-targets">Talarico</div>
+            </div>
+            <div class="leaderboard-row pac-row">
+                <div class="pac-rank">15</div>
+                <div class="pac-name">ROLLING SEA ACTION FUND</div>
+                <div class="pac-total">$50K</div>
+                <div class="pac-support">$0</div>
+                <div class="pac-oppose">$0</div>
+                <div class="pac-targets">Crockett</div>
+            </div>
+            </div>
+        </div>
+
+        <div class="money-section">
+            <div class="money-section-title">&#x1F6A8; Recent IE Activity (48h)</div>
+            <div class="activity-feed">
+                
+            <div class="activity-item ie-oppose">
+                <span class="activity-icon">&#x1F534;</span>
+                <div class="activity-body">
+                    <div class="activity-headline">FAIRSHAKE spent <strong class="amt-oppose">$4.8M</strong> opposing Stratton</div>
+                    <div class="activity-meta">Filed 4 days ago · Payee: TARGETED PLATFORM MEDIA</div>
+                </div>
+                <span class="activity-race-tag">IL-SEN</span>
+            </div>
+            <div class="activity-item ie-support">
+                <span class="activity-icon">&#x1F7E2;</span>
+                <div class="activity-body">
+                    <div class="activity-headline">LONE STAR RISING PAC spent <strong class="amt-support">$1.0M</strong> supporting Talarico</div>
+                    <div class="activity-meta">Filed 5 days ago · Payee: OLD TOWN MEDIA LLC</div>
+                </div>
+                <span class="activity-race-tag">TX-SEN</span>
+            </div>
+            <div class="activity-item ie-oppose">
+                <span class="activity-icon">&#x1F534;</span>
+                <div class="activity-body">
+                    <div class="activity-headline">LONE STAR LIBERTY PAC spent <strong class="amt-oppose">$259K</strong> opposing Hunt</div>
+                    <div class="activity-meta">Filed 4 days ago · Payee: CATAMARAN CONULTING</div>
+                </div>
+                <span class="activity-race-tag">TX-SEN</span>
+            </div>
+            <div class="activity-item ie-support">
+                <span class="activity-icon">&#x1F7E2;</span>
+                <div class="activity-body">
+                    <div class="activity-headline">FIGHTING FOR TEXAS spent <strong class="amt-support">$240K</strong> supporting Hunt</div>
+                    <div class="activity-meta">Filed 2 days ago · Payee: TAG LLC</div>
+                </div>
+                <span class="activity-race-tag">TX-SEN</span>
+            </div>
+            <div class="activity-item ie-support">
+                <span class="activity-icon">&#x1F7E2;</span>
+                <div class="activity-body">
+                    <div class="activity-headline">SLF PAC spent <strong class="amt-support">$100K</strong> supporting Moody</div>
+                    <div class="activity-meta">Filed 5 days ago · Payee: FINANCE STRATEGIES GROUP LLC</div>
+                </div>
+                <span class="activity-race-tag">FL-SEN</span>
+            </div>
+            <div class="activity-item ie-support">
+                <span class="activity-icon">&#x1F7E2;</span>
+                <div class="activity-body">
+                    <div class="activity-headline">LONE STAR RISING PAC spent <strong class="amt-support">$82K</strong> supporting Talarico</div>
+                    <div class="activity-meta">Filed 5 days ago · Payee: TUSK STRATEGIES LLC</div>
+                </div>
+                <span class="activity-race-tag">TX-SEN</span>
+            </div>
+            <div class="activity-item ie-support">
+                <span class="activity-icon">&#x1F7E2;</span>
+                <div class="activity-body">
+                    <div class="activity-headline">DLGA PAC spent <strong class="amt-support">$47K</strong> supporting Stratton</div>
+                    <div class="activity-meta">Filed 6 days ago · Payee: FOREST PRINTING COMPANY</div>
+                </div>
+                <span class="activity-race-tag">IL-SEN</span>
+            </div>
+            <div class="activity-item ie-support">
+                <span class="activity-icon">&#x1F7E2;</span>
+                <div class="activity-body">
+                    <div class="activity-headline">TEXAS ORGANIZING PROJECT POLITICAL ACTION ... spent <strong class="amt-support">$46K</strong> supporting Crockett</div>
+                    <div class="activity-meta">Filed 4 days ago · Payee: TEXAS POWER STRATEGIES</div>
+                </div>
+                <span class="activity-race-tag">TX-SEN</span>
+            </div>
+            <div class="activity-item ie-support">
+                <span class="activity-icon">&#x1F7E2;</span>
+                <div class="activity-body">
+                    <div class="activity-headline">LATINO VICTORY FUND spent <strong class="amt-support">$42K</strong> supporting Talarico</div>
+                    <div class="activity-meta">Filed 5 days ago · Payee: THE HAMILTON CAMPAIGN NETWORK, LLC</div>
+                </div>
+                <span class="activity-race-tag">TX-SEN</span>
+            </div>
+            <div class="activity-item ie-support">
+                <span class="activity-icon">&#x1F7E2;</span>
+                <div class="activity-body">
+                    <div class="activity-headline">TEXAS ORGANIZING PROJECT POLITICAL ACTION ... spent <strong class="amt-support">$42K</strong> supporting Crockett</div>
+                    <div class="activity-meta">Filed 6 days ago · Payee: ALAMO MAILING</div>
+                </div>
+                <span class="activity-race-tag">TX-SEN</span>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Race Spending Leaderboard ── -->
+    <div class="money-section">
+        <div class="money-section-title">&#x1F525; Race Spending Leaderboard</div>
+        <div class="leaderboard">
+            <div class="leaderboard-header race-lb-header">
+                <div class="pac-rank">#</div>
+                <div class="race-lb-label">Race</div>
+                <div class="race-lb-raised" style="text-align:right;">Raised</div>
+                <div class="race-lb-ie" style="text-align:right;">IE Spend</div>
+                <div class="race-lb-total" style="text-align:right;">Total $</div>
+                <div class="race-lb-count" style="text-align:center;">Cands</div>
+            </div>
+            
+            <div class="leaderboard-row race-lb-row">
+                <div class="pac-rank">1</div>
+                <div class="race-lb-label"><a href="/elections/ga-sen/">Georgia Senate</a></div>
+                <div class="race-lb-raised">$43.2M</div>
+                <div class="race-lb-ie">$820K</div>
+                <div class="race-lb-total">$44.1M</div>
+                <div class="race-lb-count">1</div>
+            </div>
+            <div class="leaderboard-row race-lb-row">
+                <div class="pac-rank">2</div>
+                <div class="race-lb-label"><a href="/elections/tx-sen-r-primary/">Texas Senate GOP Primary</a></div>
+                <div class="race-lb-raised">$11.4M</div>
+                <div class="race-lb-ie">$32.0M</div>
+                <div class="race-lb-total">$43.4M</div>
+                <div class="race-lb-count">2</div>
+            </div>
+            <div class="leaderboard-row race-lb-row">
+                <div class="pac-rank">3</div>
+                <div class="race-lb-label"><a href="/elections/tx-sen-d-primary/">Texas Senate Dem Primary</a></div>
+                <div class="race-lb-raised">$29.3M</div>
+                <div class="race-lb-ie">$9.8M</div>
+                <div class="race-lb-total">$39.1M</div>
+                <div class="race-lb-count">2</div>
+            </div>
+            <div class="leaderboard-row race-lb-row">
+                <div class="pac-rank">4</div>
+                <div class="race-lb-label"><a href="/elections/nc-sen/">North Carolina Senate</a></div>
+                <div class="race-lb-raised">$28.1M</div>
+                <div class="race-lb-ie">$3.7M</div>
+                <div class="race-lb-total">$31.8M</div>
+                <div class="race-lb-count">4</div>
+            </div>
+            <div class="leaderboard-row race-lb-row">
+                <div class="pac-rank">5</div>
+                <div class="race-lb-label"><a href="/elections/oh-sen/">Ohio Senate</a></div>
+                <div class="race-lb-raised">$26.7M</div>
+                <div class="race-lb-ie">$940K</div>
+                <div class="race-lb-total">$27.6M</div>
+                <div class="race-lb-count">3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Top Candidates by Fundraising ── -->
+    <div class="money-section">
+        <div class="money-section-title">&#x1F4B5; Top Candidates by Fundraising</div>
+        <div class="leaderboard">
+            <div class="leaderboard-header cand-header">
+                <div class="pac-rank">#</div>
+                <div class="cand-name">Candidate</div>
+                <div class="cand-raised" style="text-align:right;">Raised</div>
+                <div class="cand-coh" style="text-align:right;">COH</div>
+                <div class="cand-ie-net" style="text-align:right;">Net IE</div>
+                <div class="cand-sd" style="text-align:right;">Sm $</div>
+                <div class="cand-race">Race</div>
+            </div>
+            
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">1</div>
+                <div class="cand-name">Ossoff <span class="party-label party-d">(D)</span></div>
+                <div class="cand-raised">$43.2M</div>
+                <div class="cand-coh">$25.6M</div>
+                <div class="cand-ie-net amt-oppose">$-814K</div>
+                <div class="cand-sd">64%</div>
+                <div class="cand-race">GA-SEN</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">2</div>
+                <div class="cand-name">Cooper <span class="party-label party-d">(D)</span></div>
+                <div class="cand-raised">$21.1M</div>
+                <div class="cand-coh">$14.2M</div>
+                <div class="cand-ie-net amt-oppose">$-675K</div>
+                <div class="cand-sd">39%</div>
+                <div class="cand-race">NC-SEN</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">3</div>
+                <div class="cand-name">Talarico <span class="party-label party-d">(D)</span></div>
+                <div class="cand-raised">$20.7M</div>
+                <div class="cand-coh">$4.8M</div>
+                <div class="cand-ie-net amt-support">+$3.6M</div>
+                <div class="cand-sd">59%</div>
+                <div class="cand-race">TX-SEN-D-PRIMARY</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">4</div>
+                <div class="cand-name">Brown <span class="party-label party-d">(D)</span></div>
+                <div class="cand-raised">$14.4M</div>
+                <div class="cand-coh">$9.9M</div>
+                <div class="cand-ie-net amt-support">+$150</div>
+                <div class="cand-sd">47%</div>
+                <div class="cand-race">OH-SEN</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">5</div>
+                <div class="cand-name">Crockett <span class="party-label party-d">(D)</span></div>
+                <div class="cand-raised">$8.6M</div>
+                <div class="cand-coh">$3.5M</div>
+                <div class="cand-ie-net amt-oppose">$-3.7M</div>
+                <div class="cand-sd">76%</div>
+                <div class="cand-race">TX-SEN-D-PRIMARY</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">6</div>
+                <div class="cand-name">Husted <span class="party-label party-r">(R)</span></div>
+                <div class="cand-raised">$7.3M</div>
+                <div class="cand-coh">$6.0M</div>
+                <div class="cand-ie-net amt-support">+$898K</div>
+                <div class="cand-sd">21%</div>
+                <div class="cand-race">OH-SEN</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">7</div>
+                <div class="cand-name">Whatley <span class="party-label party-r">(R)</span></div>
+                <div class="cand-raised">$6.3M</div>
+                <div class="cand-coh">$2.5M</div>
+                <div class="cand-ie-net amt-support">+$3.0M</div>
+                <div class="cand-sd">36%</div>
+                <div class="cand-race">NC-SEN</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">8</div>
+                <div class="cand-name">Paxton <span class="party-label party-r">(R)</span></div>
+                <div class="cand-raised">$5.9M</div>
+                <div class="cand-coh">$3.9M</div>
+                <div class="cand-ie-net amt-oppose">$-20.3M</div>
+                <div class="cand-sd">13%</div>
+                <div class="cand-race">TX-SEN-R-PRIMARY</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">9</div>
+                <div class="cand-name">Cornyn <span class="party-label party-r">(R)</span></div>
+                <div class="cand-raised">$5.5M</div>
+                <div class="cand-coh">$5.0M</div>
+                <div class="cand-ie-net amt-support">+$8.8M</div>
+                <div class="cand-sd">5%</div>
+                <div class="cand-race">TX-SEN-R-PRIMARY</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">10</div>
+                <div class="cand-name">Ode <span class="party-label party-d">(D)</span></div>
+                <div class="cand-raised">$5.0M</div>
+                <div class="cand-coh">$33K</div>
+                <div class="cand-ie-net ">$0</div>
+                <div class="cand-sd">—</div>
+                <div class="cand-race">OH-SEN</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">11</div>
+                <div class="cand-name">Nickel <span class="party-label party-d">(D)</span></div>
+                <div class="cand-raised">$587K</div>
+                <div class="cand-coh">$12K</div>
+                <div class="cand-ie-net ">$0</div>
+                <div class="cand-sd">20%</div>
+                <div class="cand-race">NC-SEN</div>
+            </div>
+            <div class="leaderboard-row cand-row">
+                <div class="pac-rank">12</div>
+                <div class="cand-name">Brown <span class="party-label party-r">(R)</span></div>
+                <div class="cand-raised">$187K</div>
+                <div class="cand-coh">$24K</div>
+                <div class="cand-ie-net ">$0</div>
+                <div class="cand-sd">34%</div>
+                <div class="cand-race">NC-SEN</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="subscribe-cta">
+    <h3>Get the intelligence brief.</h3>
+    <p>Free briefs Monday, Wednesday, and Friday at 6:15 AM EST. Weekend deep dives on elections, geopolitics, and where the money is moving.</p>
+    <a href="https://buttondown.com/hammerhead">Subscribe free &rarr;</a>
+</section>
+<footer>
+    <p>&copy; 2026 Hammerhead Intelligence &middot; <a href="/">Home</a> &middot; <a href="/elections/">Elections</a> &middot; <a href="/elections/money/">Money</a></p>
+</footer>
+</body>
+</html>

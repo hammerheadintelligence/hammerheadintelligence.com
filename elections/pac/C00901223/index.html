@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LONE STAR LIBERTY PAC — Super PAC Intelligence — Hammerhead</title>
+    <meta name="description" content="LONE STAR LIBERTY PAC: Independent expenditure history, candidate targeting, and financial data for the 2026 cycle.">
+    <link rel="canonical" href="https://hammerheadintelligence.com/elections/pac/C00901223/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-primary: #0b0f1a; --bg-secondary: #111827;
+    --bg-card: #0f1629; --bg-card-hover: #131c33;
+    --border: #1e293b; --border-accent: #2d3a52;
+    --text-primary: #e8edf5; --text-secondary: #94a3b8; --text-muted: #64748b;
+    --accent: #3b82f6; --accent-dim: #2563eb;
+    --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+    --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+    --yellow: #eab308; --yellow-dim: rgba(234,179,8,0.12);
+    --cyan: #06b6d4; --cyan-dim: rgba(6,182,212,0.10);
+    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font-body); background:var(--bg-primary);
+       color:var(--text-primary); line-height:1.6; -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+nav { position:sticky; top:0; z-index:100; background:rgba(10,10,15,0.92);
+      backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:0 24px; }
+.nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center;
+             justify-content:space-between; height:56px; }
+.nav-logo { font-family:var(--font-mono); font-weight:600; font-size:14px;
+            letter-spacing:0.5px; color:var(--text-primary); text-decoration:none; }
+.nav-logo span { color:var(--accent); }
+.nav-links { display:flex; gap:24px; align-items:center; }
+.nav-links a { font-family:var(--font-mono); font-size:11px; font-weight:500;
+               letter-spacing:0.5px; text-transform:uppercase;
+               color:var(--text-secondary); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--text-primary); }
+.nav-links a.active { color:var(--accent); }
+.nav-subscribe-btn { color:var(--bg-primary)!important; background:var(--accent)!important;
+                     padding:6px 14px!important; border-radius:3px; }
+.subscribe-cta { max-width:1100px; margin:0 auto; padding:40px 24px 60px;
+                 text-align:center; border-top:1px solid var(--border); }
+.subscribe-cta h3 { font-family:var(--font-mono); font-size:16px; margin-bottom:8px; }
+.subscribe-cta p { font-size:14px; color:var(--text-secondary); margin-bottom:20px; }
+.subscribe-cta a { display:inline-block; font-family:var(--font-mono); font-size:12px;
+                   font-weight:600; letter-spacing:0.5px; text-transform:uppercase;
+                   text-decoration:none; padding:10px 24px; background:var(--accent);
+                   color:var(--bg-primary); border-radius:4px; }
+footer { border-top:1px solid var(--border); padding:24px; text-align:center; }
+footer p { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+footer a { color:var(--text-secondary); text-decoration:none; }
+
+/* ── PAC Detail Page ── */
+.pac-container { max-width:1100px; margin:0 auto; padding:0 24px; }
+
+.back-link { display:inline-block; font-family:var(--font-mono); font-size:11px;
+             color:var(--text-muted); text-decoration:none; padding:32px 0 16px;
+             transition:color 0.15s; }
+.back-link:hover { color:var(--accent); text-decoration:none; }
+
+.pac-hero { padding-bottom:24px; border-bottom:1px solid var(--border); margin-bottom:28px; }
+.pac-hero .pac-type { font-family:var(--font-mono); font-size:11px; font-weight:600;
+                      letter-spacing:1.5px; text-transform:uppercase; color:var(--yellow);
+                      margin-bottom:6px; }
+.pac-hero h1 { font-size:26px; font-weight:700; line-height:1.2; margin-bottom:10px; }
+.pac-hero .pac-meta-row { display:flex; flex-wrap:wrap; gap:20px; margin-bottom:12px; }
+.pac-meta-item { font-size:13px; color:var(--text-secondary); }
+.pac-meta-item strong { color:var(--text-primary); font-weight:600; }
+.pac-hero .fec-link { font-family:var(--font-mono); font-size:11px; }
+
+/* ── Summary Cards ── */
+.pac-summary { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+               gap:12px; margin-bottom:28px; }
+.pac-card { background:var(--bg-card); border:1px solid var(--border);
+            border-radius:8px; padding:18px; }
+.pac-card-label { font-family:var(--font-mono); font-size:10px; font-weight:600;
+                  letter-spacing:1px; text-transform:uppercase; color:var(--text-muted);
+                  margin-bottom:8px; }
+.pac-card-value { font-family:var(--font-mono); font-size:24px; font-weight:700;
+                  line-height:1; margin-bottom:4px; }
+.pac-card-sub { font-size:12px; color:var(--text-secondary); }
+
+/* ── Support/Oppose Bar ── */
+.so-bar { display:flex; height:36px; border-radius:6px; overflow:hidden; margin-bottom:6px; }
+.so-support { background:rgba(34,197,94,0.35); display:flex; align-items:center;
+              justify-content:center; font-family:var(--font-mono); font-size:12px;
+              font-weight:600; color:var(--green); min-width:40px; }
+.so-oppose { background:rgba(239,68,68,0.35); display:flex; align-items:center;
+             justify-content:center; font-family:var(--font-mono); font-size:12px;
+             font-weight:600; color:var(--red); min-width:40px; }
+.so-legend { display:flex; gap:16px; font-family:var(--font-mono); font-size:11px;
+             color:var(--text-muted); }
+
+/* ── Sections ── */
+.pac-section { margin-bottom:36px; }
+.pac-section-title { font-family:var(--font-mono); font-size:12px; font-weight:600;
+                     letter-spacing:1px; text-transform:uppercase; color:var(--accent);
+                     margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+
+/* ── Profile Card ── */
+.profile-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px;
+                background:var(--bg-card); border:1px solid var(--border);
+                border-radius:8px; padding:20px; }
+.profile-item { }
+.profile-label { font-family:var(--font-mono); font-size:10px; font-weight:600;
+                 letter-spacing:0.5px; text-transform:uppercase; color:var(--text-muted);
+                 margin-bottom:2px; }
+.profile-value { font-size:14px; color:var(--text-primary); }
+
+/* ── Targeting Table ── */
+.target-table { background:var(--bg-card); border:1px solid var(--border);
+                border-radius:8px; overflow:hidden; }
+.target-header { display:grid; grid-template-columns:1.5fr 0.6fr 0.8fr 0.8fr 0.8fr 0.6fr;
+                 gap:4px; padding:10px 16px; font-family:var(--font-mono); font-size:10px;
+                 font-weight:600; letter-spacing:0.5px; text-transform:uppercase;
+                 color:var(--text-muted); border-bottom:1px solid var(--border); }
+.target-row { display:grid; grid-template-columns:1.5fr 0.6fr 0.8fr 0.8fr 0.8fr 0.6fr;
+              gap:4px; padding:12px 16px; font-size:13px;
+              border-bottom:1px solid rgba(30,41,59,0.4); transition:background 0.15s; }
+.target-row:last-child { border-bottom:none; }
+.target-row:hover { background:rgba(59,130,246,0.04); }
+.target-name { font-weight:500; }
+.target-state { font-family:var(--font-mono); color:var(--text-muted); }
+.target-support { font-family:var(--font-mono); color:var(--green); text-align:right; }
+.target-oppose { font-family:var(--font-mono); color:var(--red); text-align:right; }
+.target-total { font-family:var(--font-mono); font-weight:600; text-align:right; }
+.target-filings { font-family:var(--font-mono); color:var(--text-muted); text-align:center; }
+
+/* ── Filing Timeline ── */
+.filing-list { display:flex; flex-direction:column; gap:6px; }
+.filing-item { background:var(--bg-card); border:1px solid var(--border);
+               border-radius:8px; padding:12px 16px; display:flex; align-items:center; gap:12px; }
+.filing-item.filing-support { border-left:3px solid var(--green); }
+.filing-item.filing-oppose { border-left:3px solid var(--red); }
+.filing-icon { font-size:14px; flex-shrink:0; }
+.filing-body { flex:1; }
+.filing-headline { font-size:13px; color:var(--text-primary); }
+.filing-headline strong { font-weight:700; }
+.filing-headline .f-support { color:var(--green); }
+.filing-headline .f-oppose { color:var(--red); }
+.filing-meta { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); margin-top:2px; }
+.filing-amount { font-family:var(--font-mono); font-size:14px; font-weight:700;
+                 flex-shrink:0; }
+.filing-amount.f-support { color:var(--green); }
+.filing-amount.f-oppose { color:var(--red); }
+
+/* ── Financial Grid ── */
+.finance-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+                gap:12px; }
+.finance-item { background:var(--bg-card); border:1px solid var(--border);
+                border-radius:8px; padding:16px; }
+.finance-label { font-family:var(--font-mono); font-size:10px; font-weight:600;
+                 letter-spacing:0.5px; text-transform:uppercase; color:var(--text-muted);
+                 margin-bottom:4px; }
+.finance-value { font-family:var(--font-mono); font-size:18px; font-weight:700; }
+
+@media (max-width:768px) {
+    .pac-summary { grid-template-columns:1fr 1fr; }
+    .profile-grid { grid-template-columns:1fr; }
+    .target-header, .target-row { grid-template-columns:1.2fr 0.8fr 0.8fr 0.6fr; }
+    .target-support, .target-oppose { display:none; }
+    .nav-links a:not(.nav-subscribe-btn) { display:none; }
+}
+@media (max-width:480px) {
+    .pac-summary { grid-template-columns:1fr; }
+    .pac-hero h1 { font-size:20px; }
+    .pac-hero .pac-meta-row { flex-direction:column; gap:8px; }
+}
+</style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">&#x1F988; <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/archive.html">Archive</a>
+            <a href="/elections/">Elections</a>
+            <a href="/elections/money/" class="active">Money</a>
+            <a href="/about.html">About</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<div class="pac-container">
+    <a href="/elections/money/" class="back-link">&larr; Back to Money Intelligence</a>
+
+    <div class="pac-hero">
+        <div class="pac-type">&#x1F3DB;&#xFE0F; Super PAC (Independent Expenditure Only)</div>
+        <h1>LONE STAR LIBERTY PAC</h1>
+        <div class="pac-meta-row">
+            <div class="pac-meta-item"><strong>Treasurer:</strong> PHILLIPS, ROBERT III</div>
+            
+            
+        </div>
+        <div class="fec-link">
+            FEC ID: <a href="https://www.fec.gov/data/committee/C00901223/" target="_blank">C00901223</a>
+        </div>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="pac-summary">
+        <div class="pac-card">
+            <div class="pac-card-label">Total IE Spend</div>
+            <div class="pac-card-value" style="color:var(--yellow);">$374K</div>
+            <div class="pac-card-sub">3 filings this cycle</div>
+        </div>
+        <div class="pac-card">
+            <div class="pac-card-label">Candidates Targeted</div>
+            <div class="pac-card-value">1</div>
+            <div class="pac-card-sub">Across 1 states</div>
+        </div>
+        <div class="pac-card">
+            <div class="pac-card-label">IE Direction</div>
+            <div class="so-bar">
+                <div class="so-support" style="width:0%;">$0</div>
+                <div class="so-oppose" style="width:100%;">$374K</div>
+            </div>
+            <div class="so-legend">
+                <span><span style="color:var(--green);">&#x25A0;</span> Support</span>
+                <span><span style="color:var(--red);">&#x25A0;</span> Oppose</span>
+            </div>
+        </div>
+        <div class="pac-card">
+            <div class="pac-card-label">Cash on Hand</div>
+            <div class="pac-card-value" style="color:var(--green);">$2.0M</div>
+            <div class="pac-card-sub">2026 cycle</div>
+        </div>
+    </div>
+
+    <!-- Candidate Targeting -->
+    <div class="pac-section">
+        <div class="pac-section-title">&#x1F3AF; Candidate Targeting</div>
+        <div class="target-table">
+            <div class="target-header">
+                <div class="target-name">Candidate</div>
+                <div class="target-state">State</div>
+                <div class="target-support" style="text-align:right;">Support</div>
+                <div class="target-oppose" style="text-align:right;">Oppose</div>
+                <div class="target-total" style="text-align:right;">Total</div>
+                <div class="target-filings" style="text-align:center;">Filings</div>
+            </div>
+            
+            <div class="target-row">
+                <div class="target-name">Cornyn</div>
+                <div class="target-state">TX</div>
+                <div class="target-support">$0</div>
+                <div class="target-oppose">$374K</div>
+                <div class="target-total">$374K</div>
+                <div class="target-filings">3</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile -->
+    <div class="pac-section">
+        <div class="pac-section-title">&#x1F4CB; Committee Profile</div>
+        <div class="profile-grid">
+            
+                <div class="profile-item">
+                    <div class="profile-label">Treasurer</div>
+                    <div class="profile-value">PHILLIPS, ROBERT III</div>
+                </div>
+                <div class="profile-item">
+                    <div class="profile-label">Committee Type</div>
+                    <div class="profile-value">Super PAC (Independent Expenditure Only)</div>
+                </div>
+                <div class="profile-item">
+                    <div class="profile-label">Location</div>
+                    <div class="profile-value">DUBLIN, OH</div>
+                </div>
+                <div class="profile-item">
+                    <div class="profile-label">First Filing</div>
+                    <div class="profile-value">Apr 02, 2025</div>
+                </div>
+                <div class="profile-item">
+                    <div class="profile-label">Most Recent Filing</div>
+                    <div class="profile-value">Feb 27, 2026</div>
+                </div>
+                <div class="profile-item">
+                    <div class="profile-label">FEC Committee ID</div>
+                    <div class="profile-value">C00901223</div>
+                </div>
+        </div>
+    </div>
+
+    
+    <div class="pac-section">
+        <div class="pac-section-title">&#x1F4B5; 2026 Cycle Financials</div>
+        <div class="finance-grid">
+            <div class="finance-item">
+                <div class="finance-label">Total Receipts</div>
+                <div class="finance-value" style="color:var(--green);">$4,544,700</div>
+            </div>
+            <div class="finance-item">
+                <div class="finance-label">Total Disbursements</div>
+                <div class="finance-value">$2,543,037</div>
+            </div>
+            <div class="finance-item">
+                <div class="finance-label">Cash on Hand</div>
+                <div class="finance-value">$2,001,663</div>
+            </div>
+            <div class="finance-item">
+                <div class="finance-label">IE Spend</div>
+                <div class="finance-value" style="color:var(--yellow);">$373,875</div>
+            </div>
+            <div class="finance-item">
+                <div class="finance-label">Individual Contributions</div>
+                <div class="finance-value">$4,464,700</div>
+            </div>
+            <div class="finance-item">
+                <div class="finance-label">Other PAC Contributions</div>
+                <div class="finance-value">$80,000</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filing History -->
+    <div class="pac-section">
+        <div class="pac-section-title">&#x1F4C5; IE Filing History (2026 Cycle)</div>
+        <div class="filing-list">
+            
+            <div class="filing-item filing-oppose">
+                <span class="filing-icon">&#x1F534;</span>
+                <div class="filing-body">
+                    <div class="filing-headline">Opposing <strong>Cornyn</strong></div>
+                    <div class="filing-meta">Sep 26, 2025 · Payee: ARMADA STRATEGIES · AD BUY</div>
+                </div>
+                <div class="filing-amount f-oppose">$125K</div>
+            </div>
+            <div class="filing-item filing-oppose">
+                <span class="filing-icon">&#x1F534;</span>
+                <div class="filing-body">
+                    <div class="filing-headline">Opposing <strong>Cornyn</strong></div>
+                    <div class="filing-meta">Sep 18, 2025 · Payee: ARMADA STRATEGIES · AD BUY</div>
+                </div>
+                <div class="filing-amount f-oppose">$125K</div>
+            </div>
+            <div class="filing-item filing-oppose">
+                <span class="filing-icon">&#x1F534;</span>
+                <div class="filing-body">
+                    <div class="filing-headline">Opposing <strong>Cornyn</strong></div>
+                    <div class="filing-meta">Sep 10, 2025 · Payee: ARMADA STRATEGIES · AD BUY</div>
+                </div>
+                <div class="filing-amount f-oppose">$125K</div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<section class="subscribe-cta">
+    <h3>Get the intelligence brief.</h3>
+    <p>Free briefs Monday, Wednesday, and Friday at 6:15 AM EST. Weekend deep dives on elections, geopolitics, and where the money is moving.</p>
+    <a href="https://buttondown.com/hammerhead">Subscribe free &rarr;</a>
+</section>
+<footer>
+    <p>&copy; 2026 Hammerhead Intelligence &middot; <a href="/">Home</a> &middot; <a href="/elections/">Elections</a> &middot; <a href="/elections/money/">Money</a></p>
+</footer>
+</body>
+</html>

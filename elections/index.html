@@ -198,6 +198,50 @@ footer a { color:var(--text-secondary); text-decoration:none; }
     .nav-links a:not(.nav-subscribe-btn) { display:none; }
     .race-header { flex-direction:column; align-items:flex-start; gap:8px; }
 }
+
+/* ── Follow the Money Dashboard Section ── */
+.money-summary { max-width:1100px; margin:0 auto; padding:0 24px 24px; }
+.money-cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+               gap:12px; margin-bottom:16px; }
+.money-card { background:var(--bg-card); border:1px solid var(--border);
+              border-radius:8px; padding:18px; }
+.money-card-label { font-family:var(--font-mono); font-size:10px; font-weight:600;
+                    letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+.money-card-value { font-family:var(--font-mono); font-size:24px; font-weight:700; line-height:1; margin-bottom:4px; }
+.money-card-sub { font-size:12px; color:var(--text-secondary); }
+
+.money-bar-container { display:flex; height:28px; border-radius:5px; overflow:hidden; }
+.money-bar-support { background:rgba(34,197,94,0.35); display:flex; align-items:center;
+                     justify-content:center; font-family:var(--font-mono); font-size:11px;
+                     font-weight:600; color:var(--green); min-width:30px; }
+.money-bar-oppose { background:rgba(239,68,68,0.35); display:flex; align-items:center;
+                    justify-content:center; font-family:var(--font-mono); font-size:11px;
+                    font-weight:600; color:var(--red); min-width:30px; }
+
+.money-lists { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.money-list { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:16px; }
+.money-list-title { font-family:var(--font-mono); font-size:11px; font-weight:600;
+                    letter-spacing:0.5px; text-transform:uppercase; color:var(--text-muted);
+                    margin-bottom:12px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+.money-pac-row, .money-race-row { display:flex; align-items:center; gap:8px; padding:6px 0;
+                                   font-size:13px; border-bottom:1px solid rgba(30,41,59,0.3); }
+.money-pac-row:last-child, .money-race-row:last-child { border-bottom:none; }
+.money-pac-rank { font-family:var(--font-mono); font-size:11px; font-weight:700;
+                  color:var(--text-muted); width:24px; text-align:center; flex-shrink:0; }
+.money-pac-name { flex:1; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.money-pac-amount { font-family:var(--font-mono); font-size:13px; font-weight:600;
+                    color:var(--green); flex-shrink:0; }
+.money-pac-races { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); flex-shrink:0; }
+.money-race-name { flex:1; font-weight:500; color:var(--text-primary); text-decoration:none;
+                   white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.money-race-name:hover { color:var(--accent); }
+.money-race-total { font-family:var(--font-mono); font-size:13px; font-weight:600;
+                    color:var(--yellow); flex-shrink:0; }
+.money-empty { font-family:var(--font-mono); font-size:12px; color:var(--text-muted); padding:8px 0; }
+
+@media (max-width:768px) {
+    .money-lists { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
@@ -208,6 +252,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             <a href="/">Briefs</a>
             <a href="/archive.html">Archive</a>
             <a href="/elections/" class="active">Elections</a>
+            <a href="/elections/money/">Money</a>
             <a href="/about.html">About</a>
             <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
         </div>
@@ -252,7 +297,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
 
 <div class="section-header">
     <h3>&#x1F6A8; IE Alerts — Last 48 Hours</h3>
-    <span class="section-note">25 active</span>
+    <span class="section-note">12 active</span>
 </div>
 <div class="ie-alerts-section">
 
@@ -268,14 +313,6 @@ footer a { color:var(--text-secondary); text-decoration:none; }
             <span class="ie-alert-icon">&#x1F7E2;</span>
             <div class="ie-alert-body">
                 <div class="ie-alert-headline">LONE STAR RISING PAC spent <strong>$1.0M</strong> supporting Talarico</div>
-                <div class="ie-alert-meta">Filed 6 days ago</div>
-            </div>
-            <span class="ie-alert-race-tag">TX-SEN</span>
-        </div>
-        <div class="ie-alert-banner ie-support">
-            <span class="ie-alert-icon">&#x1F7E2;</span>
-            <div class="ie-alert-body">
-                <div class="ie-alert-headline">LONE STAR RISING PAC spent <strong>$1.0M</strong> supporting Talarico</div>
                 <div class="ie-alert-meta">Filed 5 days ago</div>
             </div>
             <span class="ie-alert-race-tag">TX-SEN</span>
@@ -283,20 +320,127 @@ footer a { color:var(--text-secondary); text-decoration:none; }
         <div class="ie-alert-banner ">
             <span class="ie-alert-icon">&#x1F534;</span>
             <div class="ie-alert-body">
-                <div class="ie-alert-headline">LONE STAR RISING PAC spent <strong>$782K</strong> opposing Crockett</div>
-                <div class="ie-alert-meta">Filed 6 days ago</div>
-            </div>
-            <span class="ie-alert-race-tag">TX-SEN</span>
-        </div>
-        <div class="ie-alert-banner ">
-            <span class="ie-alert-icon">&#x1F534;</span>
-            <div class="ie-alert-body">
-                <div class="ie-alert-headline">FIGHTING FOR TEXAS spent <strong>$450K</strong> opposing Cornyn</div>
+                <div class="ie-alert-headline">LONE STAR LIBERTY PAC spent <strong>$259K</strong> opposing Hunt</div>
                 <div class="ie-alert-meta">Filed 4 days ago</div>
             </div>
             <span class="ie-alert-race-tag">TX-SEN</span>
         </div>
-<div style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted);padding:4px 0 0 32px;">+ 20 more alerts</div>
+        <div class="ie-alert-banner ie-support">
+            <span class="ie-alert-icon">&#x1F7E2;</span>
+            <div class="ie-alert-body">
+                <div class="ie-alert-headline">FIGHTING FOR TEXAS spent <strong>$240K</strong> supporting Hunt</div>
+                <div class="ie-alert-meta">Filed 2 days ago</div>
+            </div>
+            <span class="ie-alert-race-tag">TX-SEN</span>
+        </div>
+        <div class="ie-alert-banner ie-support">
+            <span class="ie-alert-icon">&#x1F7E2;</span>
+            <div class="ie-alert-body">
+                <div class="ie-alert-headline">SLF PAC spent <strong>$100K</strong> supporting Moody</div>
+                <div class="ie-alert-meta">Filed 5 days ago</div>
+            </div>
+            <span class="ie-alert-race-tag">FL-SEN</span>
+        </div>
+<div style="font-family:var(--font-mono);font-size:11px;color:var(--text-muted);padding:4px 0 0 32px;">+ 7 more alerts</div>
+</div>
+
+
+<div class="section-header">
+    <h3>&#x1F4B0; Follow the Money</h3>
+    <span class="section-note"><a href="/elections/money/" style="color:var(--accent);text-decoration:none;">Full dashboard &rarr;</a></span>
+</div>
+<div class="money-summary">
+    <div class="money-cards">
+        <div class="money-card">
+            <div class="money-card-label">Total Raised (Tracked Races)</div>
+            <div class="money-card-value" style="color:var(--green);">$138.7M</div>
+            <div class="money-card-sub">12 candidates across 5 races</div>
+        </div>
+        <div class="money-card">
+            <div class="money-card-label">Outside Spending (IE)</div>
+            <div class="money-card-value">$47.3M</div>
+            <div class="money-card-sub">
+                <span style="color:var(--green);">$19.0M</span> support &middot;
+                <span style="color:var(--red);">$28.3M</span> oppose
+            </div>
+        </div>
+        <div class="money-card">
+            <div class="money-card-label">IE Direction</div>
+            <div class="money-bar-container">
+                <div class="money-bar-support" style="width:40%;">$19.0M</div>
+                <div class="money-bar-oppose" style="width:60%;">$28.3M</div>
+            </div>
+            <div class="money-card-sub" style="margin-top:6px;">
+                <span style="color:var(--green);">&#x25A0; Support</span> &nbsp;
+                <span style="color:var(--red);">&#x25A0; Oppose</span>
+            </div>
+        </div>
+    </div>
+    <div class="money-lists">
+        <div class="money-list">
+            <div class="money-list-title">Top Super PACs</div>
+            
+            <div class="money-pac-row">
+                <span class="money-pac-rank">#1</span>
+                <span class="money-pac-name"><a href="/elections/pac/C00542217/" style="color:var(--text-primary);text-decoration:none;">TEXANS FOR A CONSERVATIVE MAJORITY</a></span>
+                <span class="money-pac-amount">$29.8M</span>
+                <span class="money-pac-races">2 races</span>
+            </div>
+            <div class="money-pac-row">
+                <span class="money-pac-rank">#2</span>
+                <span class="money-pac-name"><a href="/elections/pac/C00918268/" style="color:var(--text-primary);text-decoration:none;">LONE STAR RISING PAC</a></span>
+                <span class="money-pac-amount">$8.5M</span>
+                <span class="money-pac-races">2 races</span>
+            </div>
+            <div class="money-pac-row">
+                <span class="money-pac-rank">#3</span>
+                <span class="money-pac-name"><a href="/elections/pac/C00687103/" style="color:var(--text-primary);text-decoration:none;">AMERICANS FOR PROSPERITY ACTION, INC. (A...</a></span>
+                <span class="money-pac-amount">$2.5M</span>
+                <span class="money-pac-races">1 race</span>
+            </div>
+            <div class="money-pac-row">
+                <span class="money-pac-rank">#4</span>
+                <span class="money-pac-name"><a href="/elections/pac/C00571703/" style="color:var(--text-primary);text-decoration:none;">SLF PAC</a></span>
+                <span class="money-pac-amount">$2.5M</span>
+                <span class="money-pac-races">4 races</span>
+            </div>
+            <div class="money-pac-row">
+                <span class="money-pac-rank">#5</span>
+                <span class="money-pac-name">FORWARD TEXAS</span>
+                <span class="money-pac-amount">$1.0M</span>
+                <span class="money-pac-races">1 race</span>
+            </div>
+        </div>
+        <div class="money-list">
+            <div class="money-list-title">Hottest Races (by $)</div>
+            
+            <div class="money-race-row">
+                <span class="money-pac-rank">#1</span>
+                <a href="/elections/ga-sen/" class="money-race-name">Georgia Senate</a>
+                <span class="money-race-total">$44.1M</span>
+            </div>
+            <div class="money-race-row">
+                <span class="money-pac-rank">#2</span>
+                <a href="/elections/tx-sen-r-primary/" class="money-race-name">Texas Senate GOP Primary</a>
+                <span class="money-race-total">$43.4M</span>
+            </div>
+            <div class="money-race-row">
+                <span class="money-pac-rank">#3</span>
+                <a href="/elections/tx-sen-d-primary/" class="money-race-name">Texas Senate Dem Primary</a>
+                <span class="money-race-total">$39.1M</span>
+            </div>
+            <div class="money-race-row">
+                <span class="money-pac-rank">#4</span>
+                <a href="/elections/nc-sen/" class="money-race-name">North Carolina Senate</a>
+                <span class="money-race-total">$31.8M</span>
+            </div>
+            <div class="money-race-row">
+                <span class="money-pac-rank">#5</span>
+                <a href="/elections/oh-sen/" class="money-race-name">Ohio Senate</a>
+                <span class="money-race-total">$27.6M</span>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="section-header">
@@ -857,7 +1001,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
     <a href="https://buttondown.com/hammerhead">Subscribe free &rarr;</a>
 </section>
 <footer>
-    <p>&copy; 2026 Hammerhead Intelligence &middot; <a href="/">Home</a> &middot; <a href="/elections/">Elections</a></p>
+    <p>&copy; 2026 Hammerhead Intelligence &middot; <a href="/">Home</a> &middot; <a href="/elections/">Elections</a> &middot; <a href="/elections/money/">Money</a></p>
 </footer>
 </body>
 </html>
