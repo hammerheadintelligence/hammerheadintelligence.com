@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMMERHEAD INTELLIGENCE — Hammerhead Intelligence</title>
+    <meta name="description" content="HAMMERHEAD INTELLIGENCE">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://hammerheadintelligence.com/briefs/2026-03-04.html">
+    <style>
+        :root {
+            --bg-primary: #0b0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #111827;
+            --border: #1e293b;
+            --border-accent: #2d3a52;
+            --text-primary: #e8edf5;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #3b82f6;
+            --accent-dim: #2563eb;
+            --red: #ff4444;
+            --green: #44cc66;
+            --yellow: #e8c840;
+            --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+            --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 720px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 56px;
+        }
+        .nav-logo {
+            font-family: var(--font-mono); font-weight: 600; font-size: 14px;
+            letter-spacing: 0.5px; color: var(--text-primary); text-decoration: none;
+        }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a {
+            font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--text-secondary); text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-subscribe-btn {
+            color: var(--bg-primary) !important; background: var(--accent) !important;
+            padding: 6px 14px !important; border-radius: 3px;
+        }
+        .brief-header {
+            max-width: 720px; margin: 0 auto; padding: 48px 24px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .brief-meta {
+            font-family: var(--font-mono); font-size: 12px;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: 12px;
+        }
+        .brief-header h1 {
+            font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 0;
+        }
+        .brief-body {
+            max-width: 720px; margin: 0 auto; padding: 32px 24px 80px;
+        }
+        .brief-body h1 { font-size: 24px; font-weight: 700; margin: 32px 0 16px; }
+        .brief-body h2 {
+            font-family: var(--font-mono); font-size: 15px; font-weight: 600;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--accent); margin: 36px 0 16px;
+            padding-bottom: 8px; border-bottom: 1px solid var(--border);
+        }
+        .brief-body h3 {
+            font-size: 16px; font-weight: 600; margin: 24px 0 12px;
+        }
+        .brief-body p {
+            font-size: 15.5px; color: var(--text-primary); margin-bottom: 16px;
+            line-height: 1.75;
+        }
+        .brief-body strong { color: var(--text-primary); }
+        .brief-body hr {
+            border: none; border-top: 1px solid var(--border);
+            margin: 32px 0;
+        }
+        .brief-body ul, .brief-body ol {
+            margin: 12px 0 16px 24px; color: var(--text-secondary);
+        }
+        .brief-body li {
+            font-size: 15px; margin-bottom: 8px; line-height: 1.65;
+        }
+        .brief-body em { color: var(--text-secondary); }
+        .subscribe-cta {
+            max-width: 720px; margin: 0 auto; padding: 40px 24px 60px;
+            text-align: center; border-top: 1px solid var(--border);
+        }
+        .subscribe-cta h3 {
+            font-family: var(--font-mono); font-size: 16px; margin-bottom: 8px;
+        }
+        .subscribe-cta p {
+            font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;
+        }
+        .subscribe-cta a {
+            display: inline-block; font-family: var(--font-mono);
+            font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+            text-transform: uppercase; text-decoration: none;
+            padding: 10px 24px; background: var(--accent);
+            color: var(--bg-primary); border-radius: 4px;
+        }
+        footer {
+            border-top: 1px solid var(--border); padding: 24px; text-align: center;
+        }
+        footer p {
+            font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+        }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        @media (max-width: 640px) {
+            .nav-links a:not(.nav-subscribe-btn) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">🦈 <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/elections/">2026 Elections</a>
+            <a href="/elections/money/">Money</a>
+            <a href="/archive.html">Archive</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<header class="brief-header">
+    <div class="brief-meta">Daily Brief · March 04, 2026</div>
+    <h1>HAMMERHEAD INTELLIGENCE</h1>
+</header>
+
+<article class="brief-body">
+<h1>🦈 HAMMERHEAD INTELLIGENCE</h1>
+<h2>The Daily Brief — Wednesday, March 04, 2026</h2>
+
+<p><em>Geopolitical risk intelligence powered by prediction markets.</em></p>
+
+<hr>
+
+<h2>The Lead: Next Man Up In Iran</h2>
+
+<p>The market may have its king. 
+Mojtaba Khamenei, the 55-year-old son of slain Supreme Leader Ali Khamenei, has been proposed by Iran's Assembly of Experts as the Islamic Republic's next Supreme Leader. But this isn't succession — it's survival calculus in real time, and the money is watching every move.</p>
+
+<p>The market signals tell the story that Tehran's official silence cannot. 
+The selection was made "under pressure from" the Islamic Revolutionary Guard Corps, according to sources close to the Assembly. Translation: The boys with the guns made the call. On Polymarket, Mojtaba's succession odds spiked to 73¢ on $2.8 million in volume — not a prediction market anymore, but close to a  confirmation market. Meanwhile, Kalshi traders pushed similar odds to 62¢ across $1.6 million in flow. The money didn't guess this outcome; it knew it was coming.</p>
+
+<p>This could mark "one of the most consequential moments in the history of the Islamic Republic, effectively transferring power within the same family for the first time since the 1979 revolution."
+ The optics are toxic for a theocracy built on the promise of overthrowing monarchy. 
+Hereditary succession "would directly betray one of the founding principles of the revolution: Khomeini's insistence that monarchy was 'un-Islamic'"
+ — yet here we are. The Revolutionary Guard doesn't care about revolutionary principles when the alternative is chaos.</p>
+
+<p>The deeper game reveals itself in the whale flows. Someone with serious conviction — or serious intelligence — has been accumulating Mojtaba positions for weeks. The market wasn't pricing political theater; it was pricing the IRGC's eventual decision. 
+The hard-line faction of the Revolutionary Guards pushed for his selection, arguing that he possesses the necessary skills to lead Iran during the current crisis. Skills, in this context, means the ability to keep the security apparatus unified while the regime burns around him.</p>
+
+<p><strong>The Hammerhead View:</strong> Mojtaba inherits a throne built on quicksand. The market pricing suggests short-term stability through authoritarian consolidation, but the regime collapse odds at 16¢ haven't moved off their lows. The Guards bought themselves time, not salvation.</p>
+
+<hr>
+
+<h2>The Radar</h2>
+
+<p><strong>Hormuz Held Hostage.</strong> 
+Iran's Revolutionary Guard officially confirmed that the Strait of Hormuz is closed, threatening any ship attempting passage, while 
+tanker traffic has dropped to virtually zero with over 150 ships anchored outside the strait. The insurance markets have already rendered judgment: 
+leading maritime insurers including Norway's Gard, Britain's NorthStandard and the London P&I Club canceled war risk coverage for the region. Oil at $80 is the market begging for relief that isn't coming.</p>
+
+<p><strong>The Succession Premium.</strong> While Mojtaba consolidates power, the Iranian regime fall market tells a different story. 
+Polymarket shows 36% odds of regime collapse by June 30, with over $5.7 million bet on the outcome. That's not revolution pricing — it's regime fragmentation pricing. The market sees the difference between a new Supreme Leader and actual stability as US/Israel pledge any new leader will be "will be an unequivocal target for elimination."</p>
+
+<p><strong>Energy Infrastructure Under Fire.</strong> 
+Qatar halted LNG production after Iranian drone strikes hit facilities at Ras Laffan and Mesaieed Industrial City, sending European gas prices up 50%. The attacks weren't collateral damage — they were Tehran signaling it will drag the Gulf states down with it rather than surrender alone.</p>
+
+<p><strong>Assembly of Experts in Ruins.</strong> 
+Unconfirmed reports suggest the entire Assembly of Experts was destroyed in an Israeli airstrike while voting on succession. If verified, this means Mojtaba's selection happened in a constitutional vacuum, making the IRGC's power grab even more transparent. The markets haven't processed this yet, but they will.</p>
+
+<hr>
+
+<h2>Whale Watch</h2>
+
+<p>The most revealing trade isn't happening in the succession markets — it's in the Strait closure positioning. A single wallet dropped $847,000 on "Yes" shares for Hormuz closure at 71¢, suggesting someone with serious intelligence believes the shipping disruption extends well into April. That's not a geopolitical bet; that's an energy supply chain calculation.</p>
+
+<p>On the regime stability side, the whale action reveals sophisticated positioning around timeframes. One trader holds $694,000 in "Yes" shares on regime fall by June 30, while another accumulated $383,000 in "No" shares on the same outcome. The divergence suggests institutional-grade analysis splitting on whether the IRGC can hold the center long enough for Mojtaba to consolidate power. Both positions make sense — which is what makes this moment so dangerous.</p>
+
+<p>The succession market whale flows show late-cycle conviction building. Multiple wallets pushed $200,000+ into Mojtaba positions in the last 48 hours, suggesting information asymmetry rather than pure speculation. Smart money doesn't bet on political outcomes; it bets on information it already knows.</p>
+
+<hr>
+
+<h2>By the Numbers</h2>
+
+<p><strong>PLATFORM TOTALS (24h)</strong>
+<ul>
+<li>Combined Volume: $2,035,558</li>
+<li>Kalshi: $543,819 across 208,394 markets</li>
+<li>Polymarket: $1,491,739 across 47,732 markets</li>
+</ul>
+
+<p><strong>TOP FLOWS</strong>
+<ul>
+<li>Mojtaba Khamenei Supreme Leader: $2,790,171 at 62.5¢</li>
+<li>James Talarico Texas Senate: $2,845,209 at 99.5¢</li>
+<li>Iran closes Strait of Hormuz: $2,585,816 at 71.5¢</li>
+</ul>
+
+<p><strong>SECONDARY SIGNALS</strong>
+<ul>
+<li>Iranian regime fall by March 31: $2,266,907 at 16.35¢</li>
+<li>US strikes Iraq by February 28: $1,738,803 at 99.95¢</li>
+</ul>
+
+<hr>
+
+<h2>What We're Watching</h2>
+
+<ol>
+<li><strong>Mojtaba's First 72 Hours</strong> — Whether the new Supreme Leader can make a public appearance that confirms both his authority and his survival. The market won't price stability until it sees proof of life.</li>
+</ol>
+
+<ol>
+<li><strong>IRGC Unity Signals</strong> — Any signs of factional splits within the Revolutionary Guard as different commanders position for influence under the new order. A unified IRGC means regime survival; a fractured one means civil war.</li>
+</ol>
+
+<ol>
+<li><strong>Hormuz Shipping Data</strong> — Real-time vessel tracking to determine if Iran can sustain its closure threat or if economic pressure forces a partial reopening. The oil markets are pricing permanent disruption; reality may prove different.</li>
+</ol>
+
+<ol>
+<li><strong>Assembly Reconstitution</strong> — Whether Iran can rebuild legitimate succession institutions or if the IRGC's constitutional coup becomes permanent. The difference determines long-term stability prospects.</li>
+</ol>
+
+<hr>
+
+<p><em>Hammerhead Intelligence publishes Monday, Wednesday, Friday at 6:15 AM EST. Weekend deep dives.</em></p>
+</article>
+
+<section class="subscribe-cta">
+    <h3>Get the intelligence brief.</h3>
+    <p>Free intelligence briefs Mon, Wed, Fri at 6:15 AM EST. Weekend deep dives.</p>
+    <a href="https://buttondown.com/hammerhead">Subscribe free →</a>
+</section>
+
+<footer>
+    <p>© 2026 Hammerhead Intelligence · <a href="/">Home</a></p>
+</footer>
+
+</body>
+</html>
