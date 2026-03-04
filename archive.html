@@ -61,9 +61,9 @@
         <a href="/" class="nav-logo">🦈 <span>HAMMERHEAD</span></a>
         <div class="nav-links">
             <a href="/">Briefs</a>
+            <a href="/elections/">2026 Elections</a>
+            <a href="/elections/money/">Money</a>
             <a href="/archive.html" class="active">Archive</a>
-            <a href="/elections/">Elections</a>
-            <a href="/about.html">About</a>
             <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
         </div>
     </div>
@@ -76,7 +76,7 @@
 
 <div class="filter-bar">
     <button class="filter-btn active" onclick="filterBriefs('all')">All</button>
-    <button class="filter-btn" onclick="filterBriefs('daily')">Briefs</button>
+    <button class="filter-btn" onclick="filterBriefs('daily')">Daily Briefs</button>
     <button class="filter-btn" onclick="filterBriefs('deepdive')">Deep Dives</button>
     <button class="filter-btn" onclick="filterBriefs('signal')">Signals</button>
 </div>
@@ -140,7 +140,7 @@ function renderBriefs(briefs, container) {
         const day = d.getDate();
         const month = d.toLocaleDateString('en-US', { month: 'short' });
         const typeClass = b.type === 'deepdive' ? 'brief-type-deepdive' : b.type === 'signal' ? 'brief-type-signal' : 'brief-type-daily';
-        const typeLabel = b.type === 'deepdive' ? 'Deep Dive' : b.type === 'signal' ? 'Signal Alert' : 'Brief';
+        const typeLabel = b.type === 'deepdive' ? 'Deep Dive' : b.type === 'signal' ? 'Signal Alert' : 'Daily Brief';
         const folder = b.type === 'deepdive' ? 'deepdives' : 'briefs';
         const card = document.createElement('a');
         card.href = '/' + folder + '/' + b.slug + '.html';
