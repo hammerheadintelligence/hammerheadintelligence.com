@@ -132,6 +132,14 @@ footer a { color:var(--text-secondary); text-decoration:none; }
 .ie-against-cell { text-align:right; color:var(--red); }
 
 .finance-cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:16px; }
+
+.detail-market-card { background:var(--bg-card); border:1px solid rgba(234,179,8,0.2); border-radius:8px; padding:20px; }
+.detail-market-header { display:flex; justify-content:space-between; align-items:center; }
+.detail-market-spread { font-family:var(--font-mono); font-size:18px; font-weight:700; color:var(--yellow); }
+.detail-market-vol { font-family:var(--font-mono); font-size:13px; color:var(--text-secondary); margin-left:12px; }
+.detail-market-source { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+.detail-market-divergence { font-family:var(--font-mono); font-size:12px; line-height:1.5; }
+
 .finance-card { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:20px; }
 .finance-card-header { margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--border); }
 .finance-card-name { font-size:16px; font-weight:600; }
@@ -217,6 +225,30 @@ footer a { color:var(--text-secondary); text-decoration:none; }
     </div>
 
     
+
+    
+    <div class="detail-section">
+        <div class="detail-section-title">&#x1F4CA; Prediction Market — Kalshi</div>
+        <div class="detail-market-card">
+            <div class="detail-market-header">
+                <div>
+                    <span class="detail-market-spread">R+68</span>
+                    <span class="detail-market-vol">Volume: $4K</span>
+                </div>
+                <span class="detail-market-source">Source: Kalshi</span>
+            </div>
+            <div class="mbar-prices" style="height:36px;margin-top:10px;">
+                <div class="mbar-dem" style="flex:15.3;">
+                    <span class="mbar-party">DEM</span>
+                    <span class="mbar-pct" style="font-size:15px;">15¢</span>
+                </div>
+                <div class="mbar-rep" style="flex:84.7;">
+                    <span class="mbar-pct" style="font-size:15px;">83¢</span>
+                    <span class="mbar-party">GOP</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     
 

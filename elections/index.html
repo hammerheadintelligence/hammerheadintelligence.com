@@ -143,6 +143,25 @@ footer a { color:var(--text-secondary); text-decoration:none; }
 .div-signal { font-size:18px; flex-shrink:0; }
 .div-race { font-family:var(--font-mono); font-size:13px; font-weight:600; color:var(--text-primary); }
 .div-detail { font-family:var(--font-mono); font-size:11px; color:var(--text-secondary); margin-top:2px; }
+
+.market-bar { margin-top:8px; padding:10px 12px; background:rgba(234,179,8,0.04);
+    border:1px solid rgba(234,179,8,0.15); border-radius:6px; }
+.mbar-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; }
+.mbar-label { font-family:var(--font-mono); font-size:11px; font-weight:600; color:var(--yellow); letter-spacing:0.3px; }
+.mbar-volume { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+.mbar-prices { display:flex; height:28px; border-radius:4px; overflow:hidden; gap:2px; }
+.mbar-dem { display:flex; align-items:center; justify-content:space-between; padding:0 10px;
+    background:rgba(59,130,246,0.25); color:#93c5fd; font-family:var(--font-mono); font-size:12px; font-weight:600;
+    min-width:40px; }
+.mbar-rep { display:flex; align-items:center; justify-content:space-between; padding:0 10px;
+    background:rgba(239,68,68,0.25); color:#fca5a5; font-family:var(--font-mono); font-size:12px; font-weight:600;
+    min-width:40px; }
+.mbar-party { font-size:10px; font-weight:700; opacity:0.7; }
+.mbar-pct { font-weight:700; }
+.mbar-divergence { margin-top:6px; font-family:var(--font-mono); font-size:11px; line-height:1.4; padding:6px 8px;
+    border-radius:4px; }
+.mbar-div-major { color:#ff8888; background:rgba(255,68,68,0.08); }
+.mbar-div-mild { color:#eab308; background:rgba(234,179,8,0.06); }
 .race-ratings { margin-bottom:12px; display:flex; gap:6px; flex-wrap:wrap; }
 
 .candidates-grid { overflow-x:auto; }
@@ -414,6 +433,25 @@ footer a { color:var(--text-secondary); text-decoration:none; }
 </div>
 
 
+        <div class="divergence-section">
+            <h3>🔀 Active Divergences — Polls vs Markets</h3>
+            <div class="div-grid">
+            <a href="/elections/nc-sen/" class="div-card div-major">
+                <div class="div-signal">🔴</div>
+                <div class="div-body">
+                    <div class="div-race">North Carolina Senate</div>
+                    <div class="div-detail">Polls imply 81% vs market 49% <strong>(+32pts)</strong></div>
+                </div>
+            </a>
+            <a href="/elections/oh-sen/" class="div-card div-mild">
+                <div class="div-signal">🟡</div>
+                <div class="div-body">
+                    <div class="div-race">Ohio Senate</div>
+                    <div class="div-detail">Polls imply 54% vs market 64% <strong>(-10pts)</strong></div>
+                </div>
+            </a>
+            </div>
+        </div>
 
 <div class="section-header">
     <h3>Tracked Races</h3>
@@ -428,7 +466,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Alaska Senate</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 44% / R 56%</span>
+                    <span class="market-badge" title="Kalshi odds">D 20% / R 79%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -469,6 +507,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $2K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:19.8;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">20¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:80.2;">
+                        <span class="mbar-pct">79¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/fl-sen/" class="race-header-link">
@@ -476,7 +531,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Florida Senate</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 10% / R 94%</span>
+                    <span class="market-badge" title="Kalshi odds">D 15% / R 83%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -526,6 +581,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $4K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:15.3;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">15¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:84.7;">
+                        <span class="mbar-pct">83¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/ia-sen/" class="race-header-link">
@@ -533,7 +605,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Iowa Senate</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 36% / R 66%</span>
+                    <span class="market-badge" title="Kalshi odds">D 34% / R 64%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -565,6 +637,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $142</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:34.2;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">34¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:65.8;">
+                        <span class="mbar-pct">64¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/il-sen/" class="race-header-link">
@@ -572,7 +661,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Illinois Senate</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 46% / R 90%</span>
+                    <span class="market-badge" title="Kalshi odds">D 94% / R 4%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -602,6 +691,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-sd">66%</div>
                     <div class="candidate-ie-for">—</div>
                     <div class="candidate-ie-against">—</div>
+                </div>
+            </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $240</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:95.4;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">94¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:4.6;">
+                        <span class="mbar-pct">4¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -661,6 +767,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $179K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:68.5;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">68¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:31.5;">
+                        <span class="mbar-pct">32¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/mi-sen/" class="race-header-link">
@@ -718,6 +841,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $78K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:78.0;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">80¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:22.0;">
+                        <span class="mbar-pct">22¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/nc-sen/" class="race-header-link">
@@ -725,8 +865,8 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">North Carolina Senate</div>
                 <div class="race-meta">
                     <span class="race-spread">Cooper +9.6</span>
-                    <span class="market-badge" title="Kalshi odds">D 80% / R 1%</span>
-                    
+                    <span class="market-badge" title="Kalshi odds">D 49% / R 48%</span>
+                    <span class="divergence-badge major" title="Polls imply 81% for Cooper vs market at 49%. Market may be underpricing the polling lead.">🔴 +32pts</span>
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">●</span>
                         <span class="dot-fec" title="FEC">●</span>
@@ -766,6 +906,26 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $2K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:50.3;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">49¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:49.7;">
+                        <span class="mbar-pct">48¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            <div class="mbar-divergence mbar-div-major">
+                🔴 Polls imply 81% for Cooper vs market at 49%. Market may be underpricing the polling lead.
+            </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/ne-sen/" class="race-header-link">
@@ -773,7 +933,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Nebraska Senate</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 1% / R 71%</span>
+                    <span class="market-badge" title="Kalshi odds">D 1% / R 72%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -814,6 +974,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">$10K</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $121K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:2.7;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">1¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:97.3;">
+                        <span class="mbar-pct">72¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/nh-sen/" class="race-header-link">
@@ -821,7 +998,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">New Hampshire Senate</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 84% / R 15%</span>
+                    <span class="market-badge" title="Kalshi odds">D 88% / R 10%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -853,6 +1030,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $700</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:90.3;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">88¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:9.7;">
+                        <span class="mbar-pct">10¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/oh-sen/" class="race-header-link">
@@ -860,8 +1054,8 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Ohio Senate</div>
                 <div class="race-meta">
                     <span class="race-spread">Husted +1.0</span>
-                    <span class="market-badge" title="Kalshi odds">D 48% / R 53%</span>
-                    
+                    <span class="market-badge" title="Kalshi odds">D 34% / R 64%</span>
+                    <span class="divergence-badge mild" title="Market prices Husted at 64% but polls only imply 54%. Smart money may see something polls don't.">🟡 -10pts</span>
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">●</span>
                         <span class="dot-fec" title="FEC">●</span>
@@ -901,6 +1095,26 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">$430K</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $9K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:35.0;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">34¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:65.0;">
+                        <span class="mbar-pct">64¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            <div class="mbar-divergence mbar-div-mild">
+                🟡 Market prices Husted at 64% but polls only imply 54%. Smart money may see something polls don't.
+            </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/tx-sen-d-primary/" class="race-header-link">
@@ -908,12 +1122,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Texas Senate Dem Primary</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 1% / R 99%</span>
+                    
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
-                        <span class="dot-mkt" title="Market">●</span>
+                        <span class="dot-mkt" title="Market">○</span>
                     </span>
                 </div>
             </div>
@@ -949,6 +1163,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">$4.5M</div>
                 </div>
             </div>
+            
         </div>
         <div class="race-block">
             <a href="/elections/tx-sen-r-primary/" class="race-header-link">
@@ -956,12 +1171,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Texas Senate GOP Primary</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 1% / R 14%</span>
+                    
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
-                        <span class="dot-mkt" title="Market">●</span>
+                        <span class="dot-mkt" title="Market">○</span>
                     </span>
                 </div>
             </div>
@@ -997,6 +1212,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">$1.4M</div>
                 </div>
             </div>
+            
         </div>
         <div class="race-block">
             <a href="/elections/ca-13/" class="race-header-link">
@@ -1004,7 +1220,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">California 13th District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 86% / R 15%</span>
+                    <span class="market-badge" title="Kalshi odds">D 86% / R 16%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1052,6 +1268,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-sd">14%</div>
                     <div class="candidate-ie-for">—</div>
                     <div class="candidate-ie-against">$10K</div>
+                </div>
+            </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $13K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:84.4;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">86¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:15.6;">
+                        <span class="mbar-pct">16¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1111,6 +1344,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">$10K</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $12K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:69.7;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">68¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:30.3;">
+                        <span class="mbar-pct">30¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/ca-45/" class="race-header-link">
@@ -1118,7 +1368,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">California 45th District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 81% / R 14%</span>
+                    <span class="market-badge" title="Kalshi odds">D 82% / R 14%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1168,6 +1418,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">$10K</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $5K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:85.4;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">82¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:14.6;">
+                        <span class="mbar-pct">14¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/co-08/" class="race-header-link">
@@ -1175,7 +1442,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Colorado 8th District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 67% / R 26%</span>
+                    <span class="market-badge" title="Kalshi odds">D 72% / R 26%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1225,6 +1492,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $2K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:73.7;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">72¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:26.3;">
+                        <span class="mbar-pct">26¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/ia-03/" class="race-header-link">
@@ -1232,7 +1516,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Iowa 3rd District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 68% / R 30%</span>
+                    <span class="market-badge" title="Kalshi odds">D 67% / R 30%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1280,6 +1564,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-sd">18%</div>
                     <div class="candidate-ie-for">—</div>
                     <div class="candidate-ie-against">$2K</div>
+                </div>
+            </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $5K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:68.7;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">67¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:31.3;">
+                        <span class="mbar-pct">30¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1339,6 +1640,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $2K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:64.6;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">63¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:35.4;">
+                        <span class="mbar-pct">34¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/ne-02/" class="race-header-link">
@@ -1346,7 +1664,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Nebraska 2nd District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 82% / R 92%</span>
+                    <span class="market-badge" title="Kalshi odds">D 82% / R 16%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1396,6 +1714,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $4K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:83.2;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">82¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:16.8;">
+                        <span class="mbar-pct">16¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/nj-07/" class="race-header-link">
@@ -1403,7 +1738,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">New Jersey 7th District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 60% / R 35%</span>
+                    <span class="market-badge" title="Kalshi odds">D 60% / R 37%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1453,6 +1788,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $14K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:61.9;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">60¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:38.1;">
+                        <span class="mbar-pct">37¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/ny-17/" class="race-header-link">
@@ -1460,7 +1812,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">New York 17th District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 60% / R 38%</span>
+                    <span class="market-badge" title="Kalshi odds">D 60% / R 37%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1508,6 +1860,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-sd">6%</div>
                     <div class="candidate-ie-for">$82K</div>
                     <div class="candidate-ie-against">—</div>
+                </div>
+            </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $4K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:62.1;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">60¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:37.9;">
+                        <span class="mbar-pct">37¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1567,6 +1936,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $1K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:88.1;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">85¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:11.9;">
+                        <span class="mbar-pct">12¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/oh-09/" class="race-header-link">
@@ -1574,7 +1960,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Ohio 9th District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 51% / R 32%</span>
+                    <span class="market-badge" title="Kalshi odds">D 52% / R 47%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1624,6 +2010,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $4K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:52.5;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">52¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:47.5;">
+                        <span class="mbar-pct">47¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/pa-01/" class="race-header-link">
@@ -1631,7 +2034,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Pennsylvania 1st District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 28% / R 66%</span>
+                    <span class="market-badge" title="Kalshi odds">D 29% / R 66%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1679,6 +2082,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-sd">49%</div>
                     <div class="candidate-ie-for">$233K</div>
                     <div class="candidate-ie-against">$49K</div>
+                </div>
+            </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $782</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:30.4;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">29¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:69.6;">
+                        <span class="mbar-pct">66¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1688,7 +2108,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Pennsylvania 8th District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 56% / R 40%</span>
+                    <span class="market-badge" title="Kalshi odds">D 57% / R 40%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1738,6 +2158,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">$49K</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $5K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:58.8;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">57¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:41.2;">
+                        <span class="mbar-pct">40¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/tx-34/" class="race-header-link">
@@ -1745,7 +2182,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Texas 34th District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 66% / R 100%</span>
+                    <span class="market-badge" title="Kalshi odds">D 64% / R 30%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1795,6 +2232,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $15K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:68.3;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">64¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:31.7;">
+                        <span class="mbar-pct">30¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="race-block">
             <a href="/elections/va-07/" class="race-header-link">
@@ -1802,7 +2256,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Virginia 7th District</div>
                 <div class="race-meta">
                     
-                    <span class="market-badge" title="Kalshi odds">D 86% / R 8%</span>
+                    <span class="market-badge" title="Kalshi odds">D 86% / R 10%</span>
                     
                     <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
@@ -1850,6 +2304,23 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-sd">4%</div>
                     <div class="candidate-ie-for">—</div>
                     <div class="candidate-ie-against">—</div>
+                </div>
+            </div>
+            
+            <div class="market-bar">
+                <div class="mbar-header">
+                    <span class="mbar-label">📊 Kalshi Market</span>
+                    <span class="mbar-volume">Vol: $2K</span>
+                </div>
+                <div class="mbar-prices">
+                    <div class="mbar-dem" style="flex:90.1;">
+                        <span class="mbar-party">D</span>
+                        <span class="mbar-pct">86¢</span>
+                    </div>
+                    <div class="mbar-rep" style="flex:9.9;">
+                        <span class="mbar-pct">10¢</span>
+                        <span class="mbar-party">R</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1909,6 +2380,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
         </div>
         <div class="race-block">
             <a href="/elections/mi-sen-d-primary/" class="race-header-link">
@@ -1966,6 +2438,7 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                     <div class="candidate-ie-against">—</div>
                 </div>
             </div>
+            
         </div>
 </div>
 
