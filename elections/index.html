@@ -124,6 +124,25 @@ footer a { color:var(--text-secondary); text-decoration:none; }
 .data-dots { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); display:flex; gap:6px; }
 .dot-poll { color:var(--cyan); }
 .dot-fec { color:var(--green); }
+.dot-mkt { color:var(--yellow); }
+.market-badge { font-family:var(--font-mono); font-size:11px; font-weight:600;
+    color:var(--yellow); padding:2px 8px; background:rgba(234,179,8,0.1); border-radius:3px; }
+.divergence-badge { font-family:var(--font-mono); font-size:11px; font-weight:700;
+    padding:2px 8px; border-radius:3px; }
+.divergence-badge.major { color:#ff4444; background:rgba(255,68,68,0.15); }
+.divergence-badge.mild { color:#eab308; background:rgba(234,179,8,0.12); }
+.divergence-badge.aligned { color:#22c55e; background:rgba(34,197,94,0.1); }
+.divergence-section { max-width:1100px; margin:0 auto; padding:0 24px 24px; }
+.divergence-section h3 { font-family:var(--font-mono); font-size:14px; font-weight:600; margin-bottom:12px; color:var(--text-primary); }
+.div-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:8px; }
+.div-card { display:flex; align-items:center; gap:10px; padding:10px 14px; background:var(--bg-card);
+    border:1px solid var(--border); border-radius:6px; text-decoration:none; color:inherit; transition:all 0.2s; }
+.div-card:hover { background:var(--bg-card-hover); border-color:var(--border-accent); text-decoration:none; }
+.div-major { border-left:3px solid #ff4444; }
+.div-mild { border-left:3px solid #eab308; }
+.div-signal { font-size:18px; flex-shrink:0; }
+.div-race { font-family:var(--font-mono); font-size:13px; font-weight:600; color:var(--text-primary); }
+.div-detail { font-family:var(--font-mono); font-size:11px; color:var(--text-secondary); margin-top:2px; }
 .race-ratings { margin-bottom:12px; display:flex; gap:6px; flex-wrap:wrap; }
 
 .candidates-grid { overflow-x:auto; }
@@ -394,9 +413,11 @@ footer a { color:var(--text-secondary); text-decoration:none; }
     </div>
 </div>
 
+
+
 <div class="section-header">
     <h3>Tracked Races</h3>
-    <span class="section-note"><span class="dot-poll" title="Polls">&#x25CF;</span> polls &nbsp; <span class="dot-fec" title="FEC">&#x25CF;</span> FEC</span>
+    <span class="section-note"><span class="dot-poll" title="Polls">&#x25CF;</span> polls &nbsp; <span class="dot-fec" title="FEC">&#x25CF;</span> FEC &nbsp; <span class="dot-mkt" title="Market">&#x25CF;</span> market</span>
 </div>
 
 <div class="races-container">
@@ -407,9 +428,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Alaska Senate</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 44% / R 56%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -452,9 +476,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Florida Senate</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 10% / R 94%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -506,9 +533,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Iowa Senate</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 36% / R 66%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -542,9 +572,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Illinois Senate</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 46% / R 90%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -596,9 +629,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Maine Senate</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 68% / R 32%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -650,9 +686,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Michigan Senate</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 80% / R 22%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -704,9 +743,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">North Carolina Senate</div>
                 <div class="race-meta">
                     <span class="race-spread">Cooper +9.6</span>
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 80% / R 1%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">●</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -749,9 +791,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Nebraska Senate</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 1% / R 71%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -794,9 +839,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">New Hampshire Senate</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 84% / R 15%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -830,9 +878,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Ohio Senate</div>
                 <div class="race-meta">
                     <span class="race-spread">Husted +1.0</span>
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 48% / R 53%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">●</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -875,9 +926,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Texas Senate Dem Primary</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 1% / R 99%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -920,9 +974,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Texas Senate GOP Primary</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 1% / R 14%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -965,9 +1022,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">California 13th District</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 86% / R 15%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1019,9 +1079,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">California 22nd District</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 68% / R 30%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1073,9 +1136,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">California 45th District</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 81% / R 14%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1127,9 +1193,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Iowa 3rd District</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 68% / R 30%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1181,9 +1250,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Michigan 7th District</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 63% / R 34%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1235,9 +1307,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">New Jersey 7th District</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 60% / R 35%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1289,9 +1364,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Pennsylvania 1st District</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 28% / R 66%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1343,9 +1421,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Pennsylvania 8th District</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 56% / R 40%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1397,9 +1478,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Texas 34th District</div>
                 <div class="race-meta">
                     
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 66% / R 100%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">○</span>
                         <span class="dot-fec" title="FEC">●</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1451,9 +1535,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Alabama Senate GOP Primary</div>
                 <div class="race-meta">
                     <span class="race-spread">Marshall +11.0</span>
-                    <span class="data-dots" title="Data: polls / FEC">
+                    
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">●</span>
                         <span class="dot-fec" title="FEC">○</span>
+                        <span class="dot-mkt" title="Market">○</span>
                     </span>
                 </div>
             </div>
@@ -1505,9 +1592,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Georgia Senate GOP Primary</div>
                 <div class="race-meta">
                     <span class="race-spread">Collins +11.7</span>
-                    <span class="data-dots" title="Data: polls / FEC">
+                    
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">●</span>
                         <span class="dot-fec" title="FEC">○</span>
+                        <span class="dot-mkt" title="Market">○</span>
                     </span>
                 </div>
             </div>
@@ -1559,9 +1649,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Michigan Senate Dem Primary</div>
                 <div class="race-meta">
                     <span class="race-spread">Morrow +0.4</span>
-                    <span class="data-dots" title="Data: polls / FEC">
+                    
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">●</span>
                         <span class="dot-fec" title="FEC">○</span>
+                        <span class="dot-mkt" title="Market">○</span>
                     </span>
                 </div>
             </div>
@@ -1613,9 +1706,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">California Governor</div>
                 <div class="race-meta">
                     <span class="race-spread">Hilton +0.7</span>
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 62% / R 8%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">●</span>
                         <span class="dot-fec" title="FEC">○</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1667,9 +1763,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Michigan Governor</div>
                 <div class="race-meta">
                     <span class="race-spread">James +3.5</span>
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 27% / R 14%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">●</span>
                         <span class="dot-fec" title="FEC">○</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
@@ -1721,9 +1820,12 @@ footer a { color:var(--text-secondary); text-decoration:none; }
                 <div class="race-title">Texas Governor</div>
                 <div class="race-meta">
                     <span class="race-spread">Abbott +7.5</span>
-                    <span class="data-dots" title="Data: polls / FEC">
+                    <span class="market-badge" title="Kalshi odds">D 14% / R 88%</span>
+                    
+                    <span class="data-dots" title="Data: polls / FEC / market">
                         <span class="dot-poll" title="Polls">●</span>
                         <span class="dot-fec" title="FEC">○</span>
+                        <span class="dot-mkt" title="Market">●</span>
                     </span>
                 </div>
             </div>
