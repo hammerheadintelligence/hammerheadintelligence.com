@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pennsylvania 8th District — Election Intelligence — Hammerhead</title>
+    <meta name="description" content="Pennsylvania 8th District: Polls, campaign finance, and independent expenditure data for the 2026 Pennsylvania house race.">
+    <link rel="canonical" href="https://hammerheadintelligence.com/elections/pa-08/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-primary: #0b0f1a; --bg-secondary: #111827;
+    --bg-card: #0f1629; --bg-card-hover: #131c33;
+    --border: #1e293b; --border-accent: #2d3a52;
+    --text-primary: #e8edf5; --text-secondary: #94a3b8; --text-muted: #64748b;
+    --accent: #3b82f6; --accent-dim: #2563eb;
+    --red: #ef4444; --red-dim: rgba(239,68,68,0.12);
+    --green: #22c55e; --green-dim: rgba(34,197,94,0.12);
+    --yellow: #eab308; --yellow-dim: rgba(234,179,8,0.12);
+    --cyan: #06b6d4; --cyan-dim: rgba(6,182,212,0.10);
+    --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font-body); background:var(--bg-primary);
+       color:var(--text-primary); line-height:1.6; -webkit-font-smoothing:antialiased; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+nav { position:sticky; top:0; z-index:100; background:rgba(10,10,15,0.92);
+      backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:0 24px; }
+.nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center;
+             justify-content:space-between; height:56px; }
+.nav-logo { font-family:var(--font-mono); font-weight:600; font-size:14px;
+            letter-spacing:0.5px; color:var(--text-primary); text-decoration:none; }
+.nav-logo span { color:var(--accent); }
+.nav-links { display:flex; gap:24px; align-items:center; }
+.nav-links a { font-family:var(--font-mono); font-size:11px; font-weight:500;
+               letter-spacing:0.5px; text-transform:uppercase;
+               color:var(--text-secondary); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--text-primary); }
+.nav-links a.active { color:var(--accent); }
+.nav-subscribe-btn { color:var(--bg-primary)!important; background:var(--accent)!important;
+                     padding:6px 14px!important; border-radius:3px; }
+
+.rating-pill { font-family:var(--font-mono); font-size:10px; font-weight:600;
+               letter-spacing:0.3px; padding:2px 8px; border-radius:3px;
+               white-space:nowrap; display:inline-block; }
+.rating-safe-d { background:rgba(37,99,235,0.25); color:#93c5fd; }
+.rating-likely-d { background:rgba(37,99,235,0.18); color:#93c5fd; }
+.rating-lean-d { background:rgba(37,99,235,0.12); color:#93c5fd; }
+.rating-tilt-d { background:rgba(37,99,235,0.08); color:#93c5fd; }
+.rating-tossup { background:rgba(234,179,8,0.15); color:var(--yellow); }
+.rating-tilt-r { background:rgba(239,68,68,0.08); color:#fca5a5; }
+.rating-lean-r { background:rgba(239,68,68,0.12); color:#fca5a5; }
+.rating-likely-r { background:rgba(239,68,68,0.18); color:#fca5a5; }
+.rating-safe-r { background:rgba(239,68,68,0.25); color:#fca5a5; }
+
+.party-label { font-family:var(--font-mono); font-size:11px; font-weight:600; margin-left:4px; }
+.party-r { color:#f87171; }
+.party-d { color:#60a5fa; }
+.val-negative { color:var(--red); }
+.val-positive { color:var(--green); }
+.val-dem { color:#60a5fa; }
+.val-rep { color:#f87171; }
+
+.subscribe-cta { max-width:1100px; margin:0 auto; padding:40px 24px 60px;
+                 text-align:center; border-top:1px solid var(--border); }
+.subscribe-cta h3 { font-family:var(--font-mono); font-size:16px; margin-bottom:8px; }
+.subscribe-cta p { font-size:14px; color:var(--text-secondary); margin-bottom:20px; }
+.subscribe-cta a { display:inline-block; font-family:var(--font-mono); font-size:12px;
+                   font-weight:600; letter-spacing:0.5px; text-transform:uppercase;
+                   text-decoration:none; padding:10px 24px; background:var(--accent);
+                   color:var(--bg-primary); border-radius:4px; }
+footer { border-top:1px solid var(--border); padding:24px; text-align:center; }
+footer p { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+footer a { color:var(--text-secondary); text-decoration:none; }
+
+.detail-container { max-width:1100px; margin:0 auto; padding:0 24px; }
+
+.back-link { display:inline-block; font-family:var(--font-mono); font-size:11px;
+             color:var(--text-muted); text-decoration:none; padding:32px 0 16px;
+             transition:color 0.15s; }
+.back-link:hover { color:var(--accent); text-decoration:none; }
+
+.detail-hero { padding-bottom:24px; border-bottom:1px solid var(--border); margin-bottom:24px; }
+.detail-hero .race-type { font-family:var(--font-mono); font-size:11px; font-weight:600;
+                          letter-spacing:1.5px; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+.detail-hero h1 { font-size:28px; font-weight:700; line-height:1.2; margin-bottom:10px; }
+.detail-hero .ratings-row { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
+.detail-hero .updated { font-family:var(--font-mono); font-size:11px; color:var(--text-muted); }
+
+.glance-cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+                gap:12px; margin-bottom:28px; }
+.glance-card { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:18px; }
+.glance-label { font-family:var(--font-mono); font-size:10px; font-weight:600;
+                letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px; }
+.glance-value { font-family:var(--font-mono); font-size:24px; font-weight:700; line-height:1; }
+.glance-sub { font-size:12px; color:var(--text-secondary); margin-top:4px; }
+
+.insight-block { background:rgba(234,179,8,0.06); border:1px solid rgba(234,179,8,0.2);
+                 border-radius:8px; padding:16px 20px; margin-bottom:28px; }
+.insight-label { font-family:var(--font-mono); font-size:11px; font-weight:600;
+                 letter-spacing:0.5px; text-transform:uppercase; color:var(--yellow); margin-bottom:6px; }
+.insight-block p { font-size:14px; color:var(--text-secondary); line-height:1.6; }
+
+.detail-section { margin-bottom:32px; }
+.detail-section-title { font-family:var(--font-mono); font-size:12px; font-weight:600;
+                        letter-spacing:1px; text-transform:uppercase; color:var(--accent);
+                        margin-bottom:16px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+
+.detail-grid { overflow-x:auto; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; }
+.detail-header { display:grid; grid-template-columns:1.4fr repeat(7,1fr);
+                 gap:4px; padding:10px 16px; font-family:var(--font-mono);
+                 font-size:10px; font-weight:600; letter-spacing:0.5px;
+                 text-transform:uppercase; color:var(--text-muted); border-bottom:1px solid var(--border); }
+.detail-row { display:grid; grid-template-columns:1.4fr repeat(7,1fr);
+              gap:4px; padding:12px 16px; font-size:13px;
+              border-bottom:1px solid rgba(30,41,59,0.4); transition:background 0.15s; }
+.detail-row:last-child { border-bottom:none; }
+.detail-row:hover { background:rgba(59,130,246,0.04); }
+.detail-cell { font-family:var(--font-mono); font-size:13px; }
+.name-cell { font-family:var(--font-body); font-weight:500; }
+.poll-cell { text-align:right; color:var(--cyan); font-weight:600; }
+.raised-cell { text-align:right; color:var(--green); }
+.coh-cell { text-align:right; color:var(--text-secondary); }
+.sd-cell { text-align:right; color:var(--yellow); }
+.burn-cell { text-align:right; color:var(--text-secondary); }
+.ie-for-cell { text-align:right; color:var(--green); }
+.ie-against-cell { text-align:right; color:var(--red); }
+
+.finance-cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:16px; }
+.finance-card { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:20px; }
+.finance-card-header { margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+.finance-card-name { font-size:16px; font-weight:600; }
+.finance-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.finance-label { font-family:var(--font-mono); font-size:10px; font-weight:600;
+                 letter-spacing:0.5px; text-transform:uppercase; color:var(--text-muted); margin-bottom:2px; }
+.finance-value { font-family:var(--font-mono); font-size:15px; font-weight:600; color:var(--text-primary); }
+
+/* ── IE Alert Banners (detail page) ── */
+.ie-alert-banner {
+    background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.25);
+    border-radius:6px; padding:10px 16px; margin-bottom:8px;
+    display:flex; align-items:center; gap:12px;
+}
+.ie-alert-banner.ie-support {
+    background:rgba(34,197,94,0.06); border-color:rgba(34,197,94,0.25);
+}
+.ie-alert-icon { font-size:16px; flex-shrink:0; }
+.ie-alert-body { flex:1; }
+.ie-alert-headline {
+    font-size:13px; font-weight:500; color:var(--text-primary); line-height:1.4;
+}
+.ie-alert-headline strong { color:var(--red); }
+.ie-alert-banner.ie-support .ie-alert-headline strong { color:var(--green); }
+.ie-alert-meta {
+    font-family:var(--font-mono); font-size:11px; color:var(--text-muted); margin-top:2px;
+}
+
+@media (max-width:768px) {
+    .glance-cards { grid-template-columns:1fr 1fr; }
+    .detail-header,.detail-row { grid-template-columns:1.2fr 0.8fr 0.8fr 0.8fr 0.8fr; }
+    .sd-cell,.ie-for-cell,.ie-against-cell { display:none; }
+    .detail-header .sd-cell,.detail-header .ie-for-cell,.detail-header .ie-against-cell { display:none; }
+    .finance-cards { grid-template-columns:1fr; }
+}
+@media (max-width:480px) {
+    .glance-cards { grid-template-columns:1fr; }
+    .nav-links a:not(.nav-subscribe-btn) { display:none; }
+    .detail-hero h1 { font-size:22px; }
+}
+</style>
+</head>
+<body>
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">&#x1F988; <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/elections/" class="active">2026 Elections</a>
+            <a href="/elections/money/">Elections Money</a>
+            <a href="/archive.html">Archive</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<div class="detail-container">
+    <a href="/elections/" class="back-link">&larr; Back to Elections Dashboard</a>
+
+    <div class="detail-hero">
+        <div class="race-type">House &middot; Pennsylvania &middot; General Election</div>
+        <h1>Pennsylvania 8th District</h1>
+        <div class="ratings-row"></div>
+        <div class="updated">Last updated: Mar 04, 2026 04:31 AM</div>
+    </div>
+
+    <div class="glance-cards">
+        <div class="glance-card">
+            <div class="glance-label">Poll Leader</div>
+            <div class="glance-value" style="color:var(--cyan);">No polls</div>
+            <div class="glance-sub">0 candidates polled</div>
+        </div>
+        <div class="glance-card">
+            <div class="glance-label">Total Money in Race</div>
+            <div class="glance-value" style="color:var(--green);">$20.7M</div>
+            <div class="glance-sub">Combined fundraising</div>
+        </div>
+        <div class="glance-card">
+            <div class="glance-label">Outside Spending</div>
+            <div class="glance-value">$380K</div>
+            <div class="glance-sub">Independent expenditures</div>
+        </div>
+    </div>
+
+    
+
+    
+
+    <div class="detail-section">
+        <div class="detail-section-title">Candidate Comparison</div>
+        <div class="detail-grid">
+            <div class="detail-header">
+                <div class="detail-cell name-cell">Candidate</div>
+                <div class="detail-cell poll-cell">RCP Avg</div>
+                <div class="detail-cell raised-cell">Raised</div>
+                <div class="detail-cell coh-cell">COH</div>
+                <div class="detail-cell sd-cell">Sm $</div>
+                <div class="detail-cell burn-cell">Burn</div>
+                <div class="detail-cell ie-for-cell">IE For</div>
+                <div class="detail-cell ie-against-cell">IE Agst</div>
+            </div>
+            
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Fitzpatrick <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">—</div>
+                    <div class="detail-cell raised-cell">$4.3M</div>
+                    <div class="detail-cell coh-cell">$7.4M</div>
+                    <div class="detail-cell sd-cell">5%</div>
+                    <div class="detail-cell burn-cell">32%</div>
+                    <div class="detail-cell ie-for-cell">—</div>
+                    <div class="detail-cell ie-against-cell">—</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Bresnahan <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">—</div>
+                    <div class="detail-cell raised-cell">$3.0M</div>
+                    <div class="detail-cell coh-cell">$1.4M</div>
+                    <div class="detail-cell sd-cell">30%</div>
+                    <div class="detail-cell burn-cell">54%</div>
+                    <div class="detail-cell ie-for-cell">—</div>
+                    <div class="detail-cell ie-against-cell">$2K</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Perry <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">—</div>
+                    <div class="detail-cell raised-cell">$2.9M</div>
+                    <div class="detail-cell coh-cell">$1.7M</div>
+                    <div class="detail-cell sd-cell">49%</div>
+                    <div class="detail-cell burn-cell">45%</div>
+                    <div class="detail-cell ie-for-cell">$233K</div>
+                    <div class="detail-cell ie-against-cell">$49K</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Reschenthaler <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">—</div>
+                    <div class="detail-cell raised-cell">$2.6M</div>
+                    <div class="detail-cell coh-cell">$764K</div>
+                    <div class="detail-cell sd-cell">45%</div>
+                    <div class="detail-cell burn-cell">92%</div>
+                    <div class="detail-cell ie-for-cell">—</div>
+                    <div class="detail-cell ie-against-cell">—</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Mackenzie <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">—</div>
+                    <div class="detail-cell raised-cell">$2.6M</div>
+                    <div class="detail-cell coh-cell">$1.8M</div>
+                    <div class="detail-cell sd-cell">39%</div>
+                    <div class="detail-cell burn-cell">33%</div>
+                    <div class="detail-cell ie-for-cell">—</div>
+                    <div class="detail-cell ie-against-cell">$16K</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Stelson <span class="party-label party-d">(D)</span></div>
+                    <div class="detail-cell poll-cell">—</div>
+                    <div class="detail-cell raised-cell">$2.2M</div>
+                    <div class="detail-cell coh-cell">$1.5M</div>
+                    <div class="detail-cell sd-cell">24%</div>
+                    <div class="detail-cell burn-cell">31%</div>
+                    <div class="detail-cell ie-for-cell">$39K</div>
+                    <div class="detail-cell ie-against-cell">$28K</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Deluzio <span class="party-label party-d">(D)</span></div>
+                    <div class="detail-cell poll-cell">—</div>
+                    <div class="detail-cell raised-cell">$1.6M</div>
+                    <div class="detail-cell coh-cell">$941K</div>
+                    <div class="detail-cell sd-cell">34%</div>
+                    <div class="detail-cell burn-cell">63%</div>
+                    <div class="detail-cell ie-for-cell">$14K</div>
+                    <div class="detail-cell ie-against-cell">—</div>
+                </div>
+                <div class="detail-row ">
+                    <div class="detail-cell name-cell">Joyce <span class="party-label party-r">(R)</span></div>
+                    <div class="detail-cell poll-cell">—</div>
+                    <div class="detail-cell raised-cell">$1.6M</div>
+                    <div class="detail-cell coh-cell">$3.3M</div>
+                    <div class="detail-cell sd-cell">0%</div>
+                    <div class="detail-cell burn-cell">56%</div>
+                    <div class="detail-cell ie-for-cell">—</div>
+                    <div class="detail-cell ie-against-cell">—</div>
+                </div>
+        </div>
+    </div>
+
+    
+    <div class="detail-section">
+        <div class="detail-section-title">Financial Breakdown</div>
+        <div class="finance-cards">
+            <div class="finance-card" style="border-top:3px solid #ef4444;">
+                <div class="finance-card-header">
+                    <span class="finance-card-name">Fitzpatrick <span class="party-label party-r">(R)</span></span>
+                </div>
+                <div class="finance-grid">
+                    <div class="finance-item">
+                        <div class="finance-label">Total Raised</div>
+                        <div class="finance-value" style="color:var(--green);">$4,286,172</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Cash on Hand</div>
+                        <div class="finance-value">$7,360,521</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Disbursements</div>
+                        <div class="finance-value">$1,348,181</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Individual Contributions</div>
+                        <div class="finance-value">$1,128,117</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">PAC Contributions</div>
+                        <div class="finance-value">$1,458,480</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Small Dollar %</div>
+                        <div class="finance-value" style="color:var(--yellow);">5.2%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Burn Rate</div>
+                        <div class="finance-value">31.5%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Net IE Advantage</div>
+                        <div class="finance-value ">$0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="finance-card" style="border-top:3px solid #ef4444;">
+                <div class="finance-card-header">
+                    <span class="finance-card-name">Bresnahan <span class="party-label party-r">(R)</span></span>
+                </div>
+                <div class="finance-grid">
+                    <div class="finance-item">
+                        <div class="finance-label">Total Raised</div>
+                        <div class="finance-value" style="color:var(--green);">$2,998,394</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Cash on Hand</div>
+                        <div class="finance-value">$1,437,138</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Disbursements</div>
+                        <div class="finance-value">$1,614,409</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Individual Contributions</div>
+                        <div class="finance-value">$1,150,836</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">PAC Contributions</div>
+                        <div class="finance-value">$823,677</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Small Dollar %</div>
+                        <div class="finance-value" style="color:var(--yellow);">29.8%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Burn Rate</div>
+                        <div class="finance-value">53.8%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Net IE Advantage</div>
+                        <div class="finance-value val-negative">$-2K</div>
+                    </div>
+                </div>
+            </div>
+            <div class="finance-card" style="border-top:3px solid #ef4444;">
+                <div class="finance-card-header">
+                    <span class="finance-card-name">Perry <span class="party-label party-r">(R)</span></span>
+                </div>
+                <div class="finance-grid">
+                    <div class="finance-item">
+                        <div class="finance-label">Total Raised</div>
+                        <div class="finance-value" style="color:var(--green);">$2,880,657</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Cash on Hand</div>
+                        <div class="finance-value">$1,662,491</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Disbursements</div>
+                        <div class="finance-value">$1,300,085</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Individual Contributions</div>
+                        <div class="finance-value">$1,684,472</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">PAC Contributions</div>
+                        <div class="finance-value">$396,627</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Small Dollar %</div>
+                        <div class="finance-value" style="color:var(--yellow);">48.9%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Burn Rate</div>
+                        <div class="finance-value">45.1%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Net IE Advantage</div>
+                        <div class="finance-value val-positive">+$184K</div>
+                    </div>
+                </div>
+            </div>
+            <div class="finance-card" style="border-top:3px solid #ef4444;">
+                <div class="finance-card-header">
+                    <span class="finance-card-name">Reschenthaler <span class="party-label party-r">(R)</span></span>
+                </div>
+                <div class="finance-grid">
+                    <div class="finance-item">
+                        <div class="finance-label">Total Raised</div>
+                        <div class="finance-value" style="color:var(--green);">$2,615,688</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Cash on Hand</div>
+                        <div class="finance-value">$764,372</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Disbursements</div>
+                        <div class="finance-value">$2,400,397</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Individual Contributions</div>
+                        <div class="finance-value">$1,551,586</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">PAC Contributions</div>
+                        <div class="finance-value">$673,500</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Small Dollar %</div>
+                        <div class="finance-value" style="color:var(--yellow);">45.0%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Burn Rate</div>
+                        <div class="finance-value">91.8%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Net IE Advantage</div>
+                        <div class="finance-value ">$0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="finance-card" style="border-top:3px solid #ef4444;">
+                <div class="finance-card-header">
+                    <span class="finance-card-name">Mackenzie <span class="party-label party-r">(R)</span></span>
+                </div>
+                <div class="finance-grid">
+                    <div class="finance-item">
+                        <div class="finance-label">Total Raised</div>
+                        <div class="finance-value" style="color:var(--green);">$2,577,819</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Cash on Hand</div>
+                        <div class="finance-value">$1,830,988</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Disbursements</div>
+                        <div class="finance-value">$850,071</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Individual Contributions</div>
+                        <div class="finance-value">$958,995</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">PAC Contributions</div>
+                        <div class="finance-value">$627,618</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Small Dollar %</div>
+                        <div class="finance-value" style="color:var(--yellow);">38.7%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Burn Rate</div>
+                        <div class="finance-value">33.0%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Net IE Advantage</div>
+                        <div class="finance-value val-negative">$-16K</div>
+                    </div>
+                </div>
+            </div>
+            <div class="finance-card" style="border-top:3px solid #3b82f6;">
+                <div class="finance-card-header">
+                    <span class="finance-card-name">Stelson <span class="party-label party-d">(D)</span></span>
+                </div>
+                <div class="finance-grid">
+                    <div class="finance-item">
+                        <div class="finance-label">Total Raised</div>
+                        <div class="finance-value" style="color:var(--green);">$2,195,894</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Cash on Hand</div>
+                        <div class="finance-value">$1,520,707</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Disbursements</div>
+                        <div class="finance-value">$690,424</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Individual Contributions</div>
+                        <div class="finance-value">$1,934,677</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">PAC Contributions</div>
+                        <div class="finance-value">$201,556</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Small Dollar %</div>
+                        <div class="finance-value" style="color:var(--yellow);">23.8%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Burn Rate</div>
+                        <div class="finance-value">31.4%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Net IE Advantage</div>
+                        <div class="finance-value val-positive">+$11K</div>
+                    </div>
+                </div>
+            </div>
+            <div class="finance-card" style="border-top:3px solid #3b82f6;">
+                <div class="finance-card-header">
+                    <span class="finance-card-name">Deluzio <span class="party-label party-d">(D)</span></span>
+                </div>
+                <div class="finance-grid">
+                    <div class="finance-item">
+                        <div class="finance-label">Total Raised</div>
+                        <div class="finance-value" style="color:var(--green);">$1,587,844</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Cash on Hand</div>
+                        <div class="finance-value">$941,302</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Disbursements</div>
+                        <div class="finance-value">$1,000,214</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Individual Contributions</div>
+                        <div class="finance-value">$1,229,088</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">PAC Contributions</div>
+                        <div class="finance-value">$320,850</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Small Dollar %</div>
+                        <div class="finance-value" style="color:var(--yellow);">33.5%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Burn Rate</div>
+                        <div class="finance-value">63.0%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Net IE Advantage</div>
+                        <div class="finance-value val-positive">+$14K</div>
+                    </div>
+                </div>
+            </div>
+            <div class="finance-card" style="border-top:3px solid #ef4444;">
+                <div class="finance-card-header">
+                    <span class="finance-card-name">Joyce <span class="party-label party-r">(R)</span></span>
+                </div>
+                <div class="finance-grid">
+                    <div class="finance-item">
+                        <div class="finance-label">Total Raised</div>
+                        <div class="finance-value" style="color:var(--green);">$1,585,136</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Cash on Hand</div>
+                        <div class="finance-value">$3,305,791</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Disbursements</div>
+                        <div class="finance-value">$879,483</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Individual Contributions</div>
+                        <div class="finance-value">$284,137</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">PAC Contributions</div>
+                        <div class="finance-value">$825,077</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Small Dollar %</div>
+                        <div class="finance-value" style="color:var(--yellow);">0.5%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Burn Rate</div>
+                        <div class="finance-value">55.5%</div>
+                    </div>
+                    <div class="finance-item">
+                        <div class="finance-label">Net IE Advantage</div>
+                        <div class="finance-value ">$0</div>
+                    </div>
+                </div>
+            </div></div>
+    </div>
+</div>
+
+<section class="subscribe-cta">
+    <h3>Get the intelligence brief.</h3>
+    <p>Free intelligence briefs Monday, Wednesday, and Friday at 6:15 AM EST. Weekend deep dives on elections, geopolitics, and where the money is moving.</p>
+    <a href="https://buttondown.com/hammerhead">Subscribe free &rarr;</a>
+</section>
+<footer>
+    <p>&copy; 2026 Hammerhead Intelligence &middot; <a href="/">Home</a> &middot; <a href="/elections/">Elections</a> &middot; <a href="/elections/money/">Elections Money</a></p>
+</footer>
+</body>
+</html>
