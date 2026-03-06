@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAMMERHEAD INTELLIGENCE — Hammerhead Intelligence</title>
+    <meta name="description" content="HAMMERHEAD INTELLIGENCE">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://hammerheadintelligence.com/briefs/2026-03-06.html">
+    <style>
+        :root {
+            --bg-primary: #0b0f1a;
+            --bg-secondary: #111827;
+            --bg-card: #111827;
+            --border: #1e293b;
+            --border-accent: #2d3a52;
+            --text-primary: #e8edf5;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent: #3b82f6;
+            --accent-dim: #2563eb;
+            --red: #ff4444;
+            --green: #44cc66;
+            --yellow: #e8c840;
+            --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
+            --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 24px;
+        }
+        .nav-inner {
+            max-width: 720px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 56px;
+        }
+        .nav-logo {
+            font-family: var(--font-mono); font-weight: 600; font-size: 14px;
+            letter-spacing: 0.5px; color: var(--text-primary); text-decoration: none;
+        }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a {
+            font-family: var(--font-mono); font-size: 12px; font-weight: 500;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--text-secondary); text-decoration: none; transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-subscribe-btn {
+            color: var(--bg-primary) !important; background: var(--accent) !important;
+            padding: 6px 14px !important; border-radius: 3px;
+        }
+        .brief-header {
+            max-width: 720px; margin: 0 auto; padding: 48px 24px 32px;
+            border-bottom: 1px solid var(--border);
+        }
+        .brief-meta {
+            font-family: var(--font-mono); font-size: 12px;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--text-muted); margin-bottom: 12px;
+        }
+        .brief-header h1 {
+            font-size: 28px; font-weight: 700; line-height: 1.3; margin-bottom: 0;
+        }
+        .brief-body {
+            max-width: 720px; margin: 0 auto; padding: 32px 24px 80px;
+        }
+        .brief-body h1 { font-size: 24px; font-weight: 700; margin: 32px 0 16px; }
+        .brief-body h2 {
+            font-family: var(--font-mono); font-size: 15px; font-weight: 600;
+            letter-spacing: 0.5px; text-transform: uppercase;
+            color: var(--accent); margin: 36px 0 16px;
+            padding-bottom: 8px; border-bottom: 1px solid var(--border);
+        }
+        .brief-body h3 {
+            font-size: 16px; font-weight: 600; margin: 24px 0 12px;
+        }
+        .brief-body p {
+            font-size: 15.5px; color: var(--text-primary); margin-bottom: 16px;
+            line-height: 1.75;
+        }
+        .brief-body strong { color: var(--text-primary); }
+        .brief-body hr {
+            border: none; border-top: 1px solid var(--border);
+            margin: 32px 0;
+        }
+        .brief-body ul, .brief-body ol {
+            margin: 12px 0 16px 24px; color: var(--text-secondary);
+        }
+        .brief-body li {
+            font-size: 15px; margin-bottom: 8px; line-height: 1.65;
+        }
+        .brief-body em { color: var(--text-secondary); }
+        .subscribe-cta {
+            max-width: 720px; margin: 0 auto; padding: 40px 24px 60px;
+            text-align: center; border-top: 1px solid var(--border);
+        }
+        .subscribe-cta h3 {
+            font-family: var(--font-mono); font-size: 16px; margin-bottom: 8px;
+        }
+        .subscribe-cta p {
+            font-size: 14px; color: var(--text-secondary); margin-bottom: 20px;
+        }
+        .subscribe-cta a {
+            display: inline-block; font-family: var(--font-mono);
+            font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
+            text-transform: uppercase; text-decoration: none;
+            padding: 10px 24px; background: var(--accent);
+            color: var(--bg-primary); border-radius: 4px;
+        }
+        footer {
+            border-top: 1px solid var(--border); padding: 24px; text-align: center;
+        }
+        footer p {
+            font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+        }
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        @media (max-width: 640px) {
+            .nav-links a:not(.nav-subscribe-btn) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">🦈 <span>HAMMERHEAD</span></a>
+        <div class="nav-links">
+            <a href="/">Briefs</a>
+            <a href="/elections/">2026 Elections</a>
+            <a href="/elections/money/">Elections Money</a>
+            <a href="/archive.html">Archive</a>
+            <a href="https://buttondown.com/hammerhead" class="nav-subscribe-btn">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<header class="brief-header">
+    <div class="brief-meta">Daily Brief · March 06, 2026</div>
+    <h1>HAMMERHEAD INTELLIGENCE</h1>
+</header>
+
+<article class="brief-body">
+<h1>🦈 HAMMERHEAD INTELLIGENCE</h1>
+<h2>The Daily Brief — Friday, March 06, 2026</h2>
+
+<p><em>Geopolitical risk intelligence powered by prediction markets.</em></p>
+
+<hr>
+
+<h2>The Lead: When Traders Know More Than Admirals</h2>
+
+<p>The numbers tell a story the Pentagon doesn't want to hear. 
+Iran's Revolutionary Guards officially confirmed that the Strait of Hormuz is closed, 
+tanker traffic dropping first by approximately 70% and over 150 ships anchoring outside the strait to avoid risks, and soon traffic went to about zero. Yet prediction markets are pricing the closure to persist through March at 78¢ on the dollar — not quite the certainty you'd expect for what amounts to a fait accompli. The disconnect reveals something profound about what smart money believes versus what headlines scream.</p>
+
+<p>The U.S. Navy told shipping industry leaders that the sea service does not have naval availability to provide escorts through the Strait of Hormuz, even as 
+Trump announced "If necessary, the United States Navy will begin escorting tankers through the Strait of Hormuz, as soon as possible". The market is pricing in this gap between political promises and operational reality. When you're staking $3.7 million on a waterway closure at 78¢ — risking enormous capital for modest returns — you're not betting on headlines. You're betting on the brutal arithmetic of naval logistics and insurance economics.</p>
+
+<p>Iran achieved the shutdown with "several drone strikes in the vicinity of the Strait of Hormuz," causing "insurers and shipping companies decided that it was unsafe to traverse that very narrow S-curve of that waterway". The traders understand what the admirals are learning: 
+Iran didn't need a naval blockade to bring traffic to a halt. It didn't use underwater mines or have to rely on anti-ship missiles
+ — just enough cheap drones to spook the insurance market. When protection and indemnity coverage evaporates, physics becomes irrelevant.</p>
+
+<p>The 22¢ short position tells the real story. Someone believes this crisis resolves faster than the world expects, perhaps because 
+about 2.6 million barrels per day of oil from Saudi Arabia and the United Arab Emirates could be sent on alternate routes, or because Iran's leverage cuts both ways — every day of closure hemorrhages their own economy. The question isn't whether the strait reopens, but whether the smart money has spotted the exit before the crowd realizes the movie is ending.</p>
+
+<p><strong>The Hammerhead View:</strong> The market is pricing Persian Gulf poker, not permanent closure. Iran's winning the opening hand, but the game runs longer than either side wants to play.</p>
+
+<hr>
+
+<h2>The Radar</h2>
+
+<p><strong>Fed Paralysis Pricing.</strong> The Federal funds futures are screaming certainty where none exists — 99¢ on no rate change at the March meeting, with alternative scenarios trading in the noise. 
+Fed officials are divided over the future path of interest rates, with several participants indicating that further reductions would likely be appropriate if inflation continues to decline, while others argued that it may be prudent to hold the policy rate steady for some time. This isn't conviction; it's paralysis masquerading as patience. When energy prices are spiking and the dual mandate is pulling in opposite directions, certainty becomes the most expensive bet on the board.</p>
+
+<p><strong>Iranian Regime Collapse Longshot.</strong> The 11¢ pricing on regime change by March 31st captures something fascinating — not serious probability, but serious consequence. 
+Operation Epic Fury targeted military facilities, nuclear sites, and leadership, resulting in the death of Ali Khamenei. When you eliminate a supreme leader, the succession question becomes existential, not ceremonial. The market isn't pricing regime collapse as likely; it's pricing it as catastrophically underpriced if it happens.</p>
+
+<p><strong>Oil Price Floors Are Ceilings.</strong> 
+Brent crude prices rose to more than $82 a barrel, up more than 13 percent since the start of the conflict, yet crude hitting $80 by month-end is trading at near-certainty. The market is treating current prices as gravitational floors rather than temporary spikes. This suggests traders believe the supply disruption has structural staying power — or that $80 oil is the new equilibrium in a world where energy chokepoints can be closed with consumer-grade drones.</p>
+
+<p><strong>Natural Gas Europe Shock.</strong> 
+Natural gas prices in Europe increased sharply from €30/MWh the past week, to €46/MWh on Monday March 2, peaking above €60/MWh on Tuesday March 3 (nearly double from previous week). 
+QatarEnergy halted the production of liquefied natural gas after its LNG facilities were attacked. European energy security just shifted from theoretical to immediate, and the knock-on effects for industrial production and inflation dynamics haven't been priced into broader European risk assets yet.</p>
+
+<hr>
+
+<h2>Whale Watch</h2>
+
+<p>The Iranian closure positions reveal institutional thinking at its most crystalline. A single trader deployed $3.7 million to capture the 78¢ consensus on Hormuz remaining blocked through March — not a momentum play, but a structural bet that this crisis has legs. The position size suggests either sovereign wealth fund positioning or energy major hedging, but the price acceptance tells the deeper story: this whale believes 22¢ upside isn't worth the downside if Iran's gambit works longer than markets expect.</p>
+
+<p>The Fed positioning shows a different kind of institutional logic. When you're committing $3.4 million to price no policy changes at 98.5¢, you're not betting on central bank predictability — you're betting on central bank paralysis. 
+A vast majority of participants judged that downside risks to employment had moderated while the risk of more persistent inflation remained. This whale sees a Fed caught between mandates, with energy price shocks making any move politically radioactive. It's a bet on institutional gridlock, not institutional wisdom.</p>
+
+<hr>
+
+<h2>By the Numbers</h2>
+
+<p><strong>PLATFORM TOTALS (24h)</strong>
+<ul>
+<li>Combined Volume: $1.9M</li>
+<li>Kalshi: $163K across 261K markets</li>
+<li>Polymarket: $1.8M across 48K markets</li>
+</ul>
+
+<p><strong>TOP GEOPOLITICAL FLOWS</strong>
+<ul>
+<li>Iran Hormuz closure (March): $3,710,027 at 77.5¢</li>
+<li>Iran Hormuz closure (January 2027): $229,229 at 51¢</li>
+<li>Iranian regime fall (March): $2,494,708 at 11.25¢</li>
+<li>Ken Paxton Senate nomination: $475,796 at 14.5¢</li>
+</ul>
+
+<p><strong>SECONDARY SIGNALS</strong>
+<ul>
+<li>Fed no rate change (March): $3,409,532 at 98.95¢</li>
+<li>Crude oil $80+ (March): $2,686,878 at 99.95¢</li>
+<li>Fed 50bps cut post-March: $3,600,019 at 0.25¢</li>
+</ul>
+
+<hr>
+
+<h2>What We're Watching</h2>
+
+<ol>
+<li><strong>Naval Escort Reality Check</strong> — Trump's promise meets Navy capability. If shipping doesn't resume within 72 hours despite political guarantees, the 78¢ pricing starts looking conservative.</li>
+</ol>
+
+<ol>
+<li><strong>European Gas Cascade</strong> — Qatar's LNG shutdown isn't priced into European industrial equities yet. Watch for secondary effects on STOXX 600 constituents with high energy exposure.</li>
+</ol>
+
+<ol>
+<li><strong>Fed March Melt-Up</strong> — Energy price shocks hitting core PCE data ahead of the March 18-19 FOMC meeting. If headline inflation spikes above 3%, that 99¢ certainty on no rate changes becomes the trade of the year.</li>
+</ol>
+
+<ol>
+<li><strong>Regime Succession Dynamics</strong> — Iran's leadership transition isn't priced as a market-moving event, but succession crises in nuclear-armed theocracies tend to surprise consensus expectations.</li>
+</ol>
+
+<hr>
+
+<p><em>Hammerhead Intelligence publishes every weekday at 6:15 AM EST. Weekend deep dives.</em></p>
+</article>
+
+<section class="subscribe-cta">
+    <h3>Get the intelligence brief.</h3>
+    <p>Free intelligence briefs Mon, Wed, Fri at 6:15 AM EST. Weekend deep dives.</p>
+    <a href="https://buttondown.com/hammerhead">Subscribe free →</a>
+</section>
+
+<footer>
+    <p>© 2026 Hammerhead Intelligence · <a href="/">Home</a></p>
+</footer>
+
+</body>
+</html>
